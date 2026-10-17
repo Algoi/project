@@ -1,0 +1,16 @@
+# 源码和文档统一使用 LF，避免跨平台产生整文件换行差异。
+* text=auto eol=lf
+
+# Windows 命令脚本保留 CRLF。
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# 图片及归档按二进制处理。
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary

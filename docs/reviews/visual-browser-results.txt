@@ -1,0 +1,128 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test
+
+
+Running 36 tests using 1 worker
+
+(node:22407) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22407) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (6.5s)
+  ✓   2 [desktop] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (12.1s)
+  ✓   3 [desktop] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (3.9s)
+  ✓   4 [desktop] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (4.7s)
+  ✓   5 [desktop] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (4.5s)
+  ✓   6 [desktop] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (4.9s)
+  ✓   7 [desktop] › e2e/auth.spec.ts:31:1 › 登录失败有明确反馈，匿名访问受保护路由被拦截 (1.9s)
+  ✓   8 [desktop] › e2e/auth.spec.ts:41:1 › 家属可修改个人信息并使用大字模式 (2.6s)
+  ✓   9 [desktop] › e2e/auth.spec.ts:57:1 › 修改密码后退出全部会话并要求重新登录 (4.5s)
+  ✓  10 [desktop] › e2e/auth.spec.ts:86:1 › 旧账号名称不能再登录 (1.8s)
+  ✓  11 [desktop] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (31.4s)
+  ✓  12 [desktop] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (11.6s)
+  ✓  13 [desktop] › e2e/visual.spec.ts:7:1 › 浅绿色登录页和四角色首页均展示本地场景图，快捷入口按角色显示 (6.7s)
+  ✓  14 [desktop] › e2e/visual.spec.ts:22:1 › 订餐菜品缺少实拍时显示可加载的示意图，桌面手机均可选择份数 (4.6s)
+  ✘  15 [desktop] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (56.6s)
+(node:23496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [desktop] › e2e/workflows.spec.ts:13:1 › 社区网页完成全额退款、配送送达和周期逐日代订 (18.7s)
+  ✘  17 [desktop] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (17.2s)
+(node:24414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [desktop] › e2e/workflows.spec.ts:19:1 › 管理员网页发布定向重要公告并撤回，规则参数可保存生效 (14.8s)
+(node:24638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (7.3s)
+  ✓  20 [mobile] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (12.0s)
+  ✓  21 [mobile] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (4.5s)
+  ✓  22 [mobile] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (4.7s)
+  ✓  23 [mobile] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (5.1s)
+  ✓  24 [mobile] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (5.1s)
+  ✓  25 [mobile] › e2e/auth.spec.ts:31:1 › 登录失败有明确反馈，匿名访问受保护路由被拦截 (2.0s)
+  ✓  26 [mobile] › e2e/auth.spec.ts:41:1 › 家属可修改个人信息并使用大字模式 (2.9s)
+  ✓  27 [mobile] › e2e/auth.spec.ts:57:1 › 修改密码后退出全部会话并要求重新登录 (4.3s)
+  ✓  28 [mobile] › e2e/auth.spec.ts:86:1 › 旧账号名称不能再登录 (1.8s)
+  ✓  29 [mobile] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (32.2s)
+  ✓  30 [mobile] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (11.7s)
+  ✓  31 [mobile] › e2e/visual.spec.ts:7:1 › 浅绿色登录页和四角色首页均展示本地场景图，快捷入口按角色显示 (10.6s)
+  ✓  32 [mobile] › e2e/visual.spec.ts:22:1 › 订餐菜品缺少实拍时显示可加载的示意图，桌面手机均可选择份数 (5.9s)
+  ✓  33 [mobile] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (52.7s)
+  ✓  34 [mobile] › e2e/workflows.spec.ts:13:1 › 社区网页完成全额退款、配送送达和周期逐日代订 (17.7s)
+  ✓  35 [mobile] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (11.3s)
+  ✓  36 [mobile] › e2e/workflows.spec.ts:19:1 › 管理员网页发布定向重要公告并撤回，规则参数可保存生效 (12.9s)
+
+
+  1) [desktop] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 ─────────────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 9[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Cannot read properties of null (reading 'caloriesKcal')",[39m
+    [31m+   "Cannot read properties of null (reading 'caloriesKcal')",[39m
+    [31m+   "Cannot read properties of null (reading 'caloriesKcal')",[39m
+    [31m+   "Cannot read properties of null (reading 'caloriesKcal')",[39m
+    [31m+   "Cannot read properties of null (reading 'caloriesKcal')",[39m
+    [31m+   "Cannot read properties of null (reading 'emitsOptions')",[39m
+    [31m+   "Cannot read properties of null (reading 'emitsOptions')",[39m
+    [31m+ ][39m
+
+       9 | async function order(page:Page,name:string,delivery=false){await page.goto('/community/proxy-orders');await select(page,'选择老人',name);const card=page.getByRole('article').filter({has:page.getByRole('heading',{name:'清蒸鸡肉（演示）',exact:true})});await card.getByLabel('选择份数',{exact:true}).fill('1');if(delivery){await page.getByText('配送',{exact:true}).click();await page.getByLabel('配送地址',{exact:true}).fill('浏览器测试送餐地址');await page.getByLabel('联系人',{exact:true}).fill('测试家属');await page.getByLabel('联系电话',{exact:true}).fill('13800000000')}await page.getByRole('button',{name:'提交订单',exact:true}).click();await expect(page).toHaveURL(/\/community\/orders$/);const row=page.getByRole('row').filter({hasText:name});await row.getByRole('button',{name:'支付',exact:true}).click();await page.getByRole('button',{name:'模拟支付并确认',exact:true}).click();await expect(page.getByRole('dialog')).not.toBeVisible()}
+      10 |
+    > 11 | test('每个角色的全部业务导航均加载真实页面且没有请求或渲染错误',async({page})=>{const failures:string[]=[];page.on('pageerror',e=>failures.push(e.message));page.on('response',r=>{if(r.url().includes('/api/v1')&&r.status()>=400)failures.push(`${r.status()} ${r.url()}`)});for(const [role,items]of Object.entries(navigation)){await login(page,role.toLowerCase());for(const item of items){await page.goto(item.path);await expect(page.locator('main h1').first()).toBeVisible();await page.waitForLoadState('networkidle');await expect(page.locator('main .el-alert--error')).toHaveCount(0);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),item.path).toBeTruthy()}await page.goto('/account');await expect(page.getByRole('heading',{name:'个人偏好',exact:true})).toBeVisible()}expect(failures).toEqual([])})
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+      12 |
+      13 | test('社区网页完成全额退款、配送送达和周期逐日代订',async({page})=>{const name='分支流程老人'+Date.now()+test.info().project.name;await login(page,'community');await elder(page,name);await order(page,name);let row=page.getByRole('row').filter({hasText:name});await row.getByRole('button',{name:'取消或退款',exact:true}).click();await page.getByLabel('原因或联系记录',{exact:true}).fill('网页退款测试');await page.getByRole('button',{name:'确认提交',exact:true}).click();await expect(row).toContainText('申请取消');await page.goto('/community/refunds');await page.getByRole('row').filter({hasText:name}).getByRole('button',{name:'审核退款',exact:true}).click();await page.getByLabel('审核意见',{exact:true}).fill('核对后原路全额退款');await page.getByRole('button',{name:'批准退款',exact:true}).click();await expect(page.getByRole('row').filter({hasText:name})).toContainText('已退款');await order(page,name,true);
+      14 |  await login(page,'canteen');await page.goto('/canteen/orders');row=page.getByRole('row').filter({hasText:name}).filter({has:page.getByRole('button',{name:'开始备餐',exact:true})});await row.getByRole('button',{name:'开始备餐',exact:true}).click();row=page.getByRole('row').filter({hasText:name}).filter({has:page.getByRole('button',{name:'确认出餐',exact:true})});await row.getByRole('button',{name:'确认出餐',exact:true}).click();await page.goto('/canteen/delivery');await page.getByLabel('配送日期',{exact:true}).fill(date(1));row=page.getByRole('row').filter({hasText:name});await expect(row).toContainText('浏览器测试送餐地址');await row.getByRole('button',{name:'确认出发',exact:true}).click();await expect(row).toContainText('配送中');await row.getByRole('button',{name:'确认送达',exact:true}).click();await expect(row).toContainText('已送达');
+        at /home/huyuanhai/project/web/e2e/workflows.spec.ts:11:785
+
+    Error Context: test-results/workflows-每个角色的全部业务导航均加载真实页面且没有请求或渲染错误-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflows-每个角色的全部业务导航均加载真实页面且没有请求或渲染错误-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workflows-每个角色的全部业务导航均加载真实页面且没有请求或渲染错误-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 ───────────────────────────────
+
+    TimeoutError: locator.fill: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('可售份数', { exact: true })[22m
+
+
+      15 |  await login(page,'community');await page.goto('/community/proxy-orders');await select(page,'选择老人',name);await page.getByLabel('用餐日期',{exact:true}).fill(date(3));const card=page.getByRole('article').filter({has:page.getByRole('heading',{name:'清蒸鸡肉（演示）',exact:true})});await card.getByLabel('选择份数',{exact:true}).fill('1');await page.getByText('周期代订（逐日独立订单）',{exact:true}).click();await page.getByLabel('结束日期（最多 7 天）',{exact:true}).fill(date(4));await page.getByRole('button',{name:'生成逐日订单',exact:true}).click();await expect(page.getByText(date(3)+'：订餐成功',{exact:true})).toBeVisible();await expect(page.getByText(date(4)+'：订餐成功',{exact:true})).toBeVisible();await page.screenshot({path:`test-results/recurring-${test.info().project.name}.png`,fullPage:true})})
+      16 |
+    > 17 | test('菜谱网页保存上报、社区发布下架恢复和备餐计划',async({page})=>{await login(page,'canteen');await page.goto('/canteen/menus');await page.getByLabel('供餐日期',{exact:true}).fill(date(6));await select(page,'餐次','晚餐');await page.waitForLoadState('networkidle');const existing=page.getByRole('button',{name:'移除',exact:true});while(await existing.count())await existing.first().click();await select(page,'选择菜品','清蒸鸡肉（演示）');await page.getByRole('button',{name:'添加菜品',exact:true}).click();await page.getByLabel('可售份数',{exact:true}).fill('90');await page.getByRole('button',{name:'保存草稿',exact:true}).click();await expect(page.getByText('当前状态：草稿',{exact:true})).toBeVisible();await page.getByRole('button',{name:'上报菜谱',exact:true}).click();await expect(page.getByText('当前状态：待社区确认',{exact:true})).toBeVisible();await login(page,'community');await page.goto('/community/menus');await page.getByLabel('供餐日期',{exact:true}).fill(date(6));await select(page,'餐次','晚餐');await page.getByRole('button',{name:'确认发布',exact:true}).click();await expect(page.getByText('当前状态：已发布',{exact:true})).toBeVisible();await page.getByRole('button',{name:'临时下架',exact:true}).click();await expect(page.getByRole('button',{name:'恢复可售',exact:true})).toBeVisible();await page.getByRole('button',{name:'恢复可售',exact:true}).click();await login(page,'canteen');await page.goto('/canteen/preparation');await page.getByRole('button',{name:'保存备餐计划',exact:true}).click();await expect(page.locator('main .el-alert--error')).toHaveCount(0);await page.emulateMedia({media:'print'});await expect(page.getByRole('navigation',{name:'主要导航'})).not.toBeVisible();await expect(page.getByRole('heading',{name:'备餐出餐清单',exact:true})).toBeVisible()})
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+      18 |
+      19 | test('管理员网页发布定向重要公告并撤回，规则参数可保存生效',async({page})=>{const title='网页定向通知'+Date.now()+test.info().project.name;await login(page,'admin');await page.goto('/admin/notices');await page.getByRole('button',{name:'新增',exact:true}).click();await page.getByLabel('公告标题',{exact:true}).fill(title);await page.getByLabel('公告正文',{exact:true}).fill('浏览器验证公告正文');await select(page,'公告类别','重要公告');await select(page,'接收角色（不选为全部）','老年人家属');await page.keyboard.press('Escape');await page.getByRole('button',{name:'保存',exact:true}).click();await page.getByRole('row').filter({hasText:title}).getByRole('button',{name:'发布',exact:true}).click();await login(page,'family');await page.goto('/family/notices');await expect(page.getByRole('cell',{name:title,exact:true})).toBeVisible();await login(page,'canteen');await page.goto('/canteen/notices');await expect(page.getByRole('cell',{name:title,exact:true})).toHaveCount(0);await login(page,'admin');await page.goto('/admin/notices');await page.getByRole('row').filter({hasText:title}).getByRole('button',{name:'撤回',exact:true}).click();await page.goto('/admin/recommendation-settings');await page.getByRole('button',{name:'保存参数并生效',exact:true}).click();await expect(page.getByText('参数已生效',{exact:true})).toBeVisible();await login(page,'family');await page.goto('/family/notices');await expect(page.getByRole('cell',{name:title,exact:true})).toHaveCount(0)})
+      20 |
+        at /home/huyuanhai/project/web/e2e/workflows.spec.ts:17:505
+
+    Error Context: test-results/workflows-菜谱网页保存上报、社区发布下架恢复和备餐计划-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workflows-菜谱网页保存上报、社区发布下架恢复和备餐计划-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workflows-菜谱网页保存上报、社区发布下架恢复和备餐计划-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 ──────────────────────────
+    [desktop] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 ────────────────────────────────
+  34 passed (7.1m)

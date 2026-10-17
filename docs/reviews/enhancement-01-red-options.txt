@@ -1,0 +1,28 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/components/RecordPage.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ❯ src/components/RecordPage.test.ts (3 tests | 1 failed) 1024ms
+   × 关联对象可分页加载到首屏之外，不受 100 条限制 757ms
+     → expected undefined to be defined
+   ✓ 数组字典按列筛选并正确分页，查询后总数对应结果 198ms
+   ✓ 迟到的旧查询不能覆盖较新的筛选结果 65ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/RecordPage.test.ts > 关联对象可分页加载到首屏之外，不受 100 条限制
+AssertionError: expected undefined to be defined
+ ❯ src/components/RecordPage.test.ts:12:73
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  19:24:58
+   Duration  8.52s (transform 1.57s, setup 0ms, collect 3.83s, tests 1.02s, environment 1.79s, prepare 474ms)
+

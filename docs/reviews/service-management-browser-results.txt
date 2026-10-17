@@ -1,0 +1,19 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/auth.spec.ts --grep admin 登录
+
+
+Running 2 tests using 1 worker
+
+(node:18087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (8.5s)
+(node:18246) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18246) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (5.3s)
+
+  2 passed (18.4s)

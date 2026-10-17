@@ -1,0 +1,12 @@
+test	failures
+amount_snapshot_mismatch	0
+test	failures
+multiple_successful_payments	0
+test	failures
+duplicate_active_meal	0
+test	failures
+duplicate_redemption	0
+test	failures
+wrong_refund_ledger	0
+test	failures
+completed_without_handover	0

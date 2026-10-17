@@ -1,0 +1,18 @@
+{
+  "baseURL": "http://192.168.0.128:5173",
+  "preparationOnForecastFailure": {
+    "baselineRows": 4,
+    "rowsAfterFailure": 0,
+    "preparationRequests": 0,
+    "errorVisible": 1
+  },
+  "menuOnForecastFailure": {
+    "dishCatalogRequests": 0,
+    "errorVisible": 1
+  },
+  "homeOnNoticeFailure": {
+    "baselineNotices": 1,
+    "displayedEmptyText": "当前暂无公告，新的服务通知会在这里展示。",
+    "errorAlerts": 0
+  }
+}

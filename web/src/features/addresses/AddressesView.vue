@@ -1,0 +1,4 @@
+<script setup lang="ts">
+import RecordPage from '../../components/RecordPage.vue';import type {Definition} from '../../shared/records'
+const definition:Definition={title:'常用配送地址',endpoint:'/addresses',detail:'',columns:[['elderName','老人'],['label','地址名称'],['address','配送地址'],['contactName','联系人'],['contactPhone','电话'],['isDefault','默认地址']],fields:[{key:'elderId',label:'老人',type:'select',source:'/elders?size=100'},{key:'label',label:'地址名称（如家里）'},{key:'address',label:'配送地址'},{key:'contactName',label:'联系人'},{key:'contactPhone',label:'联系电话'},{key:'isDefault',label:'设为此老人的默认地址',type:'check'}]}
+</script><template><RecordPage :definition="definition"><template #intro><p>地址仅供本人为当前已绑定老人订餐时使用。修改地址不影响已提交订单。</p></template><template #actions="{row,action}"><el-button link @click="action('delete','/addresses/'+row.id)">删除</el-button></template></RecordPage></template>

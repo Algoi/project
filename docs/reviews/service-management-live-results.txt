@@ -1,0 +1,23 @@
+Initial managed launcher PIDs: {"backend": 16610, "web": 16724}
+After project restart: {"backend": 17247, "web": 17354}
+All project launcher PIDs changed: PASS
+
+Initial start:
+后端：正在后台启动，日志 .run/backend.log
+前端：正在后台启动，日志 .run/web.log
+项目整体已就绪：http://127.0.0.1:5173
+
+Project restart:
+本项目服务已停止；MySQL 继续由系统管理。
+后端：正在后台启动，日志 .run/backend.log
+前端：正在后台启动，日志 .run/web.log
+项目整体已就绪：http://127.0.0.1:5173
+后端 (8080)：运行中，PID 17810
+前端 (5173)：运行中，PID 17431
+预览（可选） (4173)：未运行
+项目整体：运行中
+active
+
+Final whole-project status:
+
+MySQL system service: 

@@ -1,0 +1,37 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/algorithms.spec.ts e2e/interactions.spec.ts e2e/meal-loop.spec.ts
+
+
+Running 16 tests using 1 worker
+
+(node:32725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+预测核对 {"algorithm":"weekday_average_v1","checked":7,"points":[{"date":"2026-10-18","count":2,"sampleCount":4,"sampleDates":["2026-10-11","2026-10-04","2026-09-27","2026-09-20"],"closed":false,"insufficientData":false},{"date":"2026-10-19","count":2,"sampleCount":4,"sampleDates":["2026-10-12","2026-10-05","2026-09-28","2026-09-21"],"closed":false,"insufficientData":false},{"date":"2026-10-20","count":2,"sampleCount":4,"sampleDates":["2026-10-13","2026-10-06","2026-09-29","2026-09-22"],"closed":false,"insufficientData":false},{"date":"2026-10-21","count":2,"sampleCount":4,"sampleDates":["2026-10-14","2026-10-07","2026-09-30","2026-09-23"],"closed":false,"insufficientData":false},{"date":"2026-10-22","count":2,"sampleCount":4,"sampleDates":["2026-10-15","2026-10-08","2026-10-01","2026-09-24"],"closed":false,"insufficientData":false},{"date":"2026-10-23","count":2,"sampleCount":4,"sampleDates":["2026-10-16","2026-10-09","2026-10-02","2026-09-25"],"closed":false,"insufficientData":false},{"date":"2026-10-24","count":2,"sampleCount":4,"sampleDates":["2026-10-10","2026-10-03","2026-09-26","2026-09-19"],"closed":false,"insufficientData":false}]}
+  ✓   1 [desktop] › e2e/algorithms.spec.ts:12:1 › 预测页面的七天人数可以按历史样本独立复算 (3.0s)
+推荐核对 [{"elder":"李阿姨（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"}],"excluded":[{"menuItemId":228,"dishName":"花生鸡丁（演示）","reason":"匹配已登记过敏原"}]},{"elder":"王大爷（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"},{"name":"花生鸡丁（演示）","score":"53.00"}],"excluded":[]}]
+  ✓   2 [desktop] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 (4.5s)
+  ✓   3 [desktop] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.8s)
+  ✓   4 [desktop] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.7s)
+  ✓   5 [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (6.8s)
+  ✓   6 [desktop] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (7.8s)
+  ✓   7 [desktop] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (37.4s)
+  ✓   8 [desktop] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (13.2s)
+(node:33398) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33398) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+预测核对 {"algorithm":"weekday_average_v1","checked":7,"points":[{"date":"2026-10-18","count":2,"sampleCount":4,"sampleDates":["2026-10-11","2026-10-04","2026-09-27","2026-09-20"],"closed":false,"insufficientData":false},{"date":"2026-10-19","count":2,"sampleCount":4,"sampleDates":["2026-10-12","2026-10-05","2026-09-28","2026-09-21"],"closed":false,"insufficientData":false},{"date":"2026-10-20","count":2,"sampleCount":4,"sampleDates":["2026-10-13","2026-10-06","2026-09-29","2026-09-22"],"closed":false,"insufficientData":false},{"date":"2026-10-21","count":2,"sampleCount":4,"sampleDates":["2026-10-14","2026-10-07","2026-09-30","2026-09-23"],"closed":false,"insufficientData":false},{"date":"2026-10-22","count":2,"sampleCount":4,"sampleDates":["2026-10-15","2026-10-08","2026-10-01","2026-09-24"],"closed":false,"insufficientData":false},{"date":"2026-10-23","count":2,"sampleCount":4,"sampleDates":["2026-10-16","2026-10-09","2026-10-02","2026-09-25"],"closed":false,"insufficientData":false},{"date":"2026-10-24","count":2,"sampleCount":4,"sampleDates":["2026-10-10","2026-10-03","2026-09-26","2026-09-19"],"closed":false,"insufficientData":false}]}
+  ✓   9 [mobile] › e2e/algorithms.spec.ts:12:1 › 预测页面的七天人数可以按历史样本独立复算 (3.5s)
+推荐核对 [{"elder":"李阿姨（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"}],"excluded":[{"menuItemId":228,"dishName":"花生鸡丁（演示）","reason":"匹配已登记过敏原"}]},{"elder":"王大爷（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"},{"name":"花生鸡丁（演示）","score":"53.00"}],"excluded":[]}]
+  ✓  10 [mobile] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 (5.6s)
+  ✓  11 [mobile] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.9s)
+  ✓  12 [mobile] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.8s)
+  ✓  13 [mobile] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (6.3s)
+  ✓  14 [mobile] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (7.5s)
+  ✓  15 [mobile] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (36.4s)
+  ✓  16 [mobile] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (20.7s)
+
+  16 passed (3.0m)

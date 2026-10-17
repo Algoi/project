@@ -1,0 +1,26 @@
+后端最终验证：scripts/test-server.sh clean verify
+Java 17 / MySQL 8.4 / Flyway V1–V7
+
+com.community.meal.AdminBusinessTest: tests=7, failures=0, errors=0, skipped=0
+com.community.meal.AlgorithmEdgeTest: tests=3, failures=0, errors=0, skipped=0
+com.community.meal.AuthConcurrencyIntegrationTest: tests=2, failures=0, errors=0, skipped=0
+com.community.meal.AuthIntegrationTest: tests=29, failures=0, errors=0, skipped=0
+com.community.meal.CommunicationBusinessTest: tests=3, failures=0, errors=0, skipped=0
+com.community.meal.DashboardBusinessTest: tests=1, failures=0, errors=0, skipped=0
+com.community.meal.DemoAccountsIntegrationTest: tests=7, failures=0, errors=0, skipped=0
+com.community.meal.ElderBusinessTest: tests=4, failures=0, errors=0, skipped=0
+com.community.meal.FileBusinessTest: tests=1, failures=0, errors=0, skipped=0
+com.community.meal.MenuForecastRecommendationTest: tests=5, failures=0, errors=0, skipped=0
+com.community.meal.NewPasswordPolicyTest: tests=5, failures=0, errors=0, skipped=0
+com.community.meal.OrderConcurrencyBusinessTest: tests=1, failures=0, errors=0, skipped=0
+com.community.meal.OrderLifecycleTest: tests=9, failures=0, errors=0, skipped=0
+com.community.meal.PaymentNoticeTest: tests=2, failures=0, errors=0, skipped=0
+com.community.meal.ProductionBoundaryTest: tests=1, failures=0, errors=0, skipped=0
+
+总计 80 tests, 0 failures, 0 errors, 0 skipped.
+BUILD SUCCESS
+
+前端：npm run typecheck / npm test / npm run build
+vue-tsc：通过
+Vitest：4 files, 14 tests passed
+Vite production build：通过；主 JS 457.24 KB、图表引擎 333.25 KB、图表渲染 170.59 KB，无超大分包警告。

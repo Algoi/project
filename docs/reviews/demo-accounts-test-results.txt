@@ -1,0 +1,58 @@
+演示账号调整 — 实测结果
+日期：2026-10-17，Asia/Shanghai
+
+用户要求：四账号无 demo 后缀，密码分别与账号同名；由编码代理直接执行浏览器测试。
+当前凭据：admin/admin，canteen/canteen，family/family，community/community。
+
+测试先行
+原 DemoSeed 上新增 6 项用例：2 failures、1 error，3 passed，复现旧初始化与升级规则不符合新要求。
+原数据上通过网页填写 admin/admin：无法离开登录页，Playwright 按预期失败。
+随后修改实现、升级本地数据并回归。
+
+后端
+命令：./scripts/test-server.sh clean verify
+AuthIntegrationTest：29 passed
+AuthConcurrencyIntegrationTest：2 passed
+DemoAccountsIntegrationTest：6 passed
+NewPasswordPolicyTest：5 passed
+合计 42 passed，0 failures，0 errors，0 skipped；BUILD SUCCESS。
+
+新增验证：
+- 初始化用户名及同名密码，BCrypt 校验成功。
+- 旧名字不能登录。
+- 升级保留 ID、角色、网点及老人家属绑定。
+- 撤销旧会话，记录升级审计。
+- 目标重名时整批不修改数据。
+- 重复升级不重设已升级密码。
+- 本地演示密码可在改密后恢复。
+- 普通用户及生产相关配置拒绝短密码。
+
+前端
+npm test：11 passed，3 test files passed。
+npm run typecheck：通过。
+本次未修改前端运行代码，使用上一批已构建并验证的 dist 页面。
+
+真实浏览器
+命令：WEB_BASE_URL=http://127.0.0.1:4173 npm run test:e2e
+工具：Playwright 1.56.1，驱动 /usr/bin/google-chrome。
+桌面：8 passed。
+Pixel 7 手机视口：8 passed。
+合计：16 passed (36.9s)，0 failures，0 skipped。
+实际操作：填写用户名和密码、点击登录、核对首页账号、刷新、越权页面拦截、退出、修改个人信息、大字开关、修改密码并重新登录、旧名字拒绝。
+家属密码已在测试后恢复为 family。
+桌面管理员与手机家属首页截图已经由编码代理实际查看。
+
+当前数据库验证
+ID 1：admin，ADMIN，全局权限
+ID 2：canteen，CANTEEN，网点 1
+ID 3：family，FAMILY
+ID 4：community，COMMUNITY，网点 1
+升级审计：4 条；未重建用户或网点，未清空业务库。
+
+最终 API 文档更新后重新打包成功；此前 42 项测试已通过，资源文档打包未重复运行测试。
+后端以普通 dev 配置重新启动，不保留升级启动开关。
+
+截图：web/test-results/login-{admin|canteen|family|community}-{desktop|mobile}.png
+本机日志：/tmp/elder-meal-demo-accounts-{server,web,typecheck,browser,package}.log
+说明：docs/reviews/demo-accounts.md
+仍停在第 1 批审核点，第 2 批未开始。

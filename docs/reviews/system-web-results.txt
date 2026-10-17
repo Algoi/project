@@ -1,0 +1,53 @@
+
+> elder-meal-web@1.0.0 typecheck
+> vue-tsc --noEmit
+
+
+> elder-meal-web@1.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ✓ src/api/http.test.ts (3 tests) 53ms
+ ✓ src/auth.test.ts (8 tests) 593ms
+ ✓ src/views/LoginView.test.ts (1 test) 131ms
+ ✓ src/views/OrderNew.test.ts (2 tests) 388ms
+
+ Test Files  4 passed (4)
+      Tests  14 passed (14)
+   Start at  10:15:52
+   Duration  3.23s (transform 954ms, setup 0ms, collect 2.87s, tests 1.17s, environment 2.57s, prepare 770ms)
+
+
+> elder-meal-web@1.0.0 build
+> vue-tsc -b && vite build
+
+vite v7.1.12 building for production...
+transforming...
+✓ 2268 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                           0.46 kB │ gzip:   0.34 kB
+dist/assets/index-DRt0y1vP.css                                          366.91 kB │ gzip:  49.76 kB
+dist/assets/dates-B78D-7L_.js                                             0.13 kB │ gzip:   0.14 kB
+dist/assets/StatusView-DSUYzs5n.js                                        1.17 kB │ gzip:   0.73 kB
+dist/assets/navigation-3gEaWD3R.js                                        1.83 kB │ gzip:   0.74 kB
+dist/assets/HomeView-DfCGXgB0.js                                          2.56 kB │ gzip:   1.40 kB
+dist/assets/LoginView-C_gjS2W7.js                                         2.71 kB │ gzip:   1.47 kB
+dist/assets/RecommendationSettings-DKgmnbth.js                            3.43 kB │ gzip:   1.81 kB
+dist/assets/AppLayout-DTT1eREu.js                                         3.60 kB │ gzip:   1.72 kB
+dist/assets/AccountView-CmDmCf1w.js                                       5.53 kB │ gzip:   2.22 kB
+dist/assets/CommunicationView-B-Ee8Fl8.js                                 6.14 kB │ gzip:   2.80 kB
+dist/assets/OperationsView-DGlLWuDp.js                                    6.33 kB │ gzip:   2.62 kB
+dist/assets/ReportsView-bzyY4B8C.js                                       6.68 kB │ gzip:   2.87 kB
+dist/assets/ElderView-hehulL3V.js                                         7.13 kB │ gzip:   2.92 kB
+dist/assets/OrderNew-UqJA1eWN.js                                          7.65 kB │ gzip:   3.35 kB
+dist/assets/OrdersView-CRPBwUpr.js                                        8.55 kB │ gzip:   3.32 kB
+dist/assets/AdminView-BP-TjKVW.js                                         9.26 kB │ gzip:   3.84 kB
+dist/assets/RecordPage.vue_vue_type_script_setup_true_lang-BueMkS_I.js    9.33 kB │ gzip:   4.08 kB
+dist/assets/MenuView-7-qZvEHg.js                                          9.84 kB │ gzip:   3.61 kB
+dist/assets/chart-renderer-DpkO_6yM.js                                  170.59 kB │ gzip:  56.19 kB
+dist/assets/TrendChart.vue_vue_type_script_setup_true_lang-Dv75Wgo5.js  333.25 kB │ gzip: 112.53 kB
+dist/assets/index-BcwMZoAm.js                                           457.24 kB │ gzip: 162.84 kB
+✓ built in 8.82s

@@ -1,0 +1,21 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/admin.spec.ts
+
+
+Running 4 tests using 1 worker
+
+(node:13794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (5.3s)
+  ✓  2 [desktop] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (8.9s)
+(node:14053) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14053) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (6.1s)
+  ✓  4 [mobile] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (8.9s)
+
+  4 passed (32.6s)

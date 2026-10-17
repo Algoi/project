@@ -1,0 +1,7 @@
+<script setup lang="ts">
+import {ref,watch} from 'vue';import {http} from '../../api/http';import type {Row} from '../../shared/records'
+const props=defineProps<{elderId:number;staff:boolean}>(),data=ref<Row>({records:[]}),error=ref(''),note=ref(''),pending=ref(false)
+async function load(){try{data.value=await http.get(`/elders/${props.elderId}/subsidy-history`)}catch(e){error.value=(e as Error).message}}
+async function terminate(){pending.value=true;error.value='';try{await http.post(`/elders/${props.elderId}/subsidy/terminate`,{note:note.value});note.value='';await load()}catch(e){error.value=(e as Error).message}finally{pending.value=false}}
+watch(()=>props.elderId,load,{immediate:true})
+</script><template><section><el-alert v-if="error" :title="error" type="error" :closable="false"/><p v-if="data.entitlement">资格：{{data.entitlement.isActive?'已启用（仍需核对用餐日期）':'已终止'}}；有效期 {{data.entitlement.validFrom||'不限'}} 至 {{data.entitlement.validTo||'不限'}}</p><p v-else>尚无补贴资格记录。</p><el-table :data="data.records"><el-table-column prop="action" label="变更"/><el-table-column prop="note" label="原因"/><el-table-column prop="validFrom" label="生效日期"/><el-table-column prop="validTo" label="结束日期"/><el-table-column prop="createdAt" label="办理时间 UTC"/></el-table><template v-if="staff&&data.entitlement?.isActive"><label for="subsidy-end-note">终止资格原因</label><el-input id="subsidy-end-note" v-model="note"/><el-button :loading="pending" :disabled="!note.trim()" @click="terminate">确认终止资格</el-button></template></section></template>

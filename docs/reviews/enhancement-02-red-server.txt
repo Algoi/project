@@ -1,0 +1,558 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] elder-meal-parent                                                  [pom]
+[INFO] meal-contracts                                                     [jar]
+[INFO] meal-algorithms                                                    [jar]
+[INFO] elder-meal-server                                                  [jar]
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-parent >-------------------
+[INFO] Building elder-meal-parent 1.0.0                                   [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.community:meal-contracts >--------------------
+[INFO] Building meal-contracts 1.0.0                                      [2/4]
+[INFO]   from contracts/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -------------------< com.community:meal-algorithms >--------------------
+[INFO] Building meal-algorithms 1.0.0                                     [3/4]
+[INFO]   from algorithms/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-algorithms ---
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-server >-------------------
+[INFO] Building elder-meal-server 1.0.0                                   [4/4]
+[INFO]   from server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ elder-meal-server ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 9 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ elder-meal-server ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ elder-meal-server ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 23 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java uses unchecked or unsafe operations.
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ elder-meal-server ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.WalletBusinessTest
+19:29:57.254 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.community.meal.WalletBusinessTest]: WalletBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:29:57.729 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletBusinessTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T19:29:59.161+08:00  INFO 50107 --- [elder-meal] [           main] com.community.meal.WalletBusinessTest    : Starting WalletBusinessTest using Java 17.0.20.1 with PID 50107 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T19:29:59.165+08:00  INFO 50107 --- [elder-meal] [           main] com.community.meal.WalletBusinessTest    : The following 1 profile is active: "test"
+2026-10-17T19:30:03.673+08:00  INFO 50107 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-17T19:30:04.617+08:00  INFO 50107 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56c42964
+2026-10-17T19:30:04.625+08:00  INFO 50107 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-17T19:30:04.772+08:00  INFO 50107 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792236576_18326?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T19:30:04.828+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T19:30:04.946+08:00  INFO 50107 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table `elder_meal_test_1792236576_18326`.`flyway_schema_history` does not exist yet
+2026-10-17T19:30:04.964+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 8 migrations (execution time 00:00.104s)
+2026-10-17T19:30:05.037+08:00  INFO 50107 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table `elder_meal_test_1792236576_18326`.`flyway_schema_history` ...
+2026-10-17T19:30:05.301+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792236576_18326`: << Empty Schema >>
+2026-10-17T19:30:05.422+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "1 - initial schema"
+2026-10-17T19:30:06.091+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:06.165+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:06.288+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:06.523+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:06.919+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:06.971+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:06.971+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:07.280+08:00  WARN 50107 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:30:07.379+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "2 - auth sessions"
+2026-10-17T19:30:07.506+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "3 - admin catalog"
+2026-10-17T19:30:07.927+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "4 - elder health files"
+2026-10-17T19:30:08.266+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "5 - menu recommendation details"
+2026-10-17T19:30:08.517+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "6 - order integrity"
+2026-10-17T19:30:08.906+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "7 - demo marker"
+2026-10-17T19:30:08.990+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236576_18326` to version "8 - algorithm identity"
+2026-10-17T19:30:09.135+08:00  INFO 50107 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 8 migrations to schema `elder_meal_test_1792236576_18326`, now at version v8 (execution time 00:03.258s)
+2026-10-17T19:30:13.541+08:00  INFO 50107 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@187eb9a8
+2026-10-17T19:30:13.909+08:00  INFO 50107 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T19:30:13.911+08:00  INFO 50107 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T19:30:13.914+08:00  INFO 50107 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T19:30:14.028+08:00  INFO 50107 --- [elder-meal] [           main] com.community.meal.WalletBusinessTest    : Started WalletBusinessTest in 15.863 seconds (process running for 18.998)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"56"]
+             Body = {"username":"admin","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"d0ac2d87-844f-4e48-aec4-a9d1110d7772", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"ue-wUs61Me8QwmjnTHHbS6ZBAJVrBhmVVN809XWTWyE","expiresAt":"2026-10-17T19:30:16.525010456Z","user":{"id":11,"username":"admin","realName":"admin","phoneMasked":null,"roles":["ADMIN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"},{"id":2,"name":"测试第二网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"d0ac2d87-844f-4e48-aec4-a9d1110d7772"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"58"]
+             Body = {"username":"canteen","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"58e067f0-86b8-4ad3-8655-93c115a90c17", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"EYkWtJYhk5Bflp3GNd183apBzDVkGzpPfHEPfcvwUn0","expiresAt":"2026-10-17T19:30:16.657159840Z","user":{"id":12,"username":"canteen","realName":"canteen","phoneMasked":null,"roles":["CANTEEN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"58e067f0-86b8-4ad3-8655-93c115a90c17"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"57"]
+             Body = {"username":"family","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"03fe3875-e6a2-43c5-960e-2f35298892cb", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"SI0ML6CFYDX6zt0ctMG6OMGYz-R0bRpXucOWSv1iZW4","expiresAt":"2026-10-17T19:30:16.694140863Z","user":{"id":13,"username":"family","realName":"family","phoneMasked":null,"roles":["FAMILY"],"sites":[],"deniedPermissions":[]}},"traceId":"03fe3875-e6a2-43c5-960e-2f35298892cb"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"60"]
+             Body = {"username":"community","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"ee6e9e04-e6d0-4b22-a083-3f062c8b8f2e", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"hxnxaTzRSOIaVZ8sj89vAg26uWlMheRTO28AHt9NIAM","expiresAt":"2026-10-17T19:30:16.735715089Z","user":{"id":14,"username":"community","realName":"community","phoneMasked":null,"roles":["COMMUNITY"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"ee6e9e04-e6d0-4b22-a083-3f062c8b8f2e"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/wallet/topups
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer SI0ML6CFYDX6zt0ctMG6OMGYz-R0bRpXucOWSv1iZW4", Content-Length:"65"]
+             Body = {"requestId":"688bd8f6-4e51-4367-a0be-7d43a4ae9a0b","amount":"0"}
+    Session Attrs = {}
+
+Handler:
+             Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [X-Trace-Id:"3af6cb36-7409-416b-9eb7-45bea5169ab3", Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"NOT_FOUND","message":"资源不存在","data":null,"traceId":"3af6cb36-7409-416b-9eb7-45bea5169ab3"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"56"]
+             Body = {"username":"admin","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"a05844d2-e9c4-43fc-abb0-d707930a8c8e", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"dQ2bnibtms6c5OGQ87a9Eakse5kkFIYQYgxEq8ID2uY","expiresAt":"2026-10-17T19:30:16.977663641Z","user":{"id":11,"username":"admin","realName":"admin","phoneMasked":null,"roles":["ADMIN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"},{"id":2,"name":"测试第二网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"a05844d2-e9c4-43fc-abb0-d707930a8c8e"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"58"]
+             Body = {"username":"canteen","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"c35df0be-a89f-41b8-8c9b-66e01066c491", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"V0Lco4jhHWOgkv8UAx60K1YOFMMQMmOe89iWoRJEfUk","expiresAt":"2026-10-17T19:30:17.005609459Z","user":{"id":12,"username":"canteen","realName":"canteen","phoneMasked":null,"roles":["CANTEEN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"c35df0be-a89f-41b8-8c9b-66e01066c491"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"57"]
+             Body = {"username":"family","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"7402178b-2e3c-4c75-be7e-7c1aa2191c84", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"bLsSAPA6FAQVAIMulpQME7XCj3wmKuQnlmFUTyjEpvE","expiresAt":"2026-10-17T19:30:17.038113579Z","user":{"id":13,"username":"family","realName":"family","phoneMasked":null,"roles":["FAMILY"],"sites":[],"deniedPermissions":[]}},"traceId":"7402178b-2e3c-4c75-be7e-7c1aa2191c84"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"60"]
+             Body = {"username":"community","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"aadfd14e-8cc7-4180-824a-ae8e67c0f6a7", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"pntm9PhQjGx8ZAL7V8tIvKPPbYVi9iFIDFC0lAiiU-8","expiresAt":"2026-10-17T19:30:17.071449900Z","user":{"id":14,"username":"community","realName":"community","phoneMasked":null,"roles":["COMMUNITY"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"aadfd14e-8cc7-4180-824a-ae8e67c0f6a7"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/v1/wallet
+       Parameters = {}
+          Headers = [Authorization:"Bearer bLsSAPA6FAQVAIMulpQME7XCj3wmKuQnlmFUTyjEpvE"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = org.springframework.web.servlet.resource.ResourceHttpRequestHandler
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.servlet.resource.NoResourceFoundException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [X-Trace-Id:"e07efd85-970c-47e2-aed9-d5ca9ebabdd0", Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"NOT_FOUND","message":"资源不存在","data":null,"traceId":"e07efd85-970c-47e2-aed9-d5ca9ebabdd0"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 20.34 s <<< FAILURE! -- in com.community.meal.WalletBusinessTest
+[ERROR] com.community.meal.WalletBusinessTest.invalidTopupsAndInsufficientBalanceNeverCreateSuccessfulPayments -- Time elapsed: 2.810 s <<< FAILURE!
+java.lang.AssertionError: Response status expected:<400> but was:<404>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$is$1(StatusResultMatchers.java:65)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.community.meal.BusinessTestSupport.call(BusinessTestSupport.java:54)
+	at com.community.meal.WalletBusinessTest.invalidTopupsAndInsufficientBalanceNeverCreateSuccessfulPayments(WalletBusinessTest.java:39)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.community.meal.WalletBusinessTest.topupPaymentAndRefundAreIdempotentAndStatementsUseActualCashFlows -- Time elapsed: 0.217 s <<< FAILURE!
+java.lang.AssertionError: Response status expected:<200> but was:<404>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$is$1(StatusResultMatchers.java:65)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.community.meal.BusinessTestSupport.call(BusinessTestSupport.java:54)
+	at com.community.meal.WalletBusinessTest.topupPaymentAndRefundAreIdempotentAndStatementsUseActualCashFlows(WalletBusinessTest.java:9)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   WalletBusinessTest.invalidTopupsAndInsufficientBalanceNeverCreateSuccessfulPayments:39->BusinessTestSupport.call:54 Response status expected:<400> but was:<404>
+[ERROR]   WalletBusinessTest.topupPaymentAndRefundAreIdempotentAndStatementsUseActualCashFlows:9->BusinessTestSupport.call:54 Response status expected:<200> but was:<404>
+[INFO] 
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for elder-meal-parent 1.0.0:
+[INFO] 
+[INFO] elder-meal-parent .................................. SUCCESS [  0.007 s]
+[INFO] meal-contracts ..................................... SUCCESS [  1.609 s]
+[INFO] meal-algorithms .................................... SUCCESS [  0.276 s]
+[INFO] elder-meal-server .................................. FAILURE [ 34.192 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.838 s
+[INFO] Finished at: 2026-10-17T19:30:17+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project elder-meal-server: There are test failures.
+[ERROR] 
+[ERROR] See /home/huyuanhai/project/server/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :elder-meal-server

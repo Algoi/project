@@ -1,0 +1,161 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/components/RecordPage.test.ts src/features/home/HomeView.test.ts src/features/planning/MenuView.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ❯ src/features/home/HomeView.test.ts (1 test | 1 failed) 81ms
+   × 公告加载失败有重试入口，不伪装成没有公告 79ms
+     → expected '老年人家属 · 我的首页邻里有温度 · 助餐有照顾您好，family把每一…' to contain '公告服务不可用'
+ ❯ src/components/RecordPage.test.ts (2 tests | 2 failed) 322ms
+   × 数组字典按列筛选并正确分页，查询后总数对应结果 252ms
+     → expected [ DOMWrapper{ …(2) }, …(24) ] to have a length of 20 but got 25
+   × 迟到的旧查询不能覆盖较新的筛选结果 68ms
+     → expected '社区助餐服务列表查询名称旧结果共 1 条上一页1下一页' to contain '新结果'
+ ❯ src/features/planning/MenuView.test.ts (2 tests | 1 failed) 748ms
+   × 预测请求失败后菜品仍能加载供上报使用 418ms
+     → expected "spy" to be called with arguments: [ '/dishes?size=100' ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   "/dishes?size=100",
++   "/allergens",
+  ]
+
+  2nd spy call:
+
+  [
+-   "/dishes?size=100",
++   "/sites/1/menus",
++   {
++     "params": {
++       "date": "2026-10-18",
++       "mealType": "LUNCH",
++     },
++   },
+  ]
+
+  3rd spy call:
+
+  [
+-   "/dishes?size=100",
++   "/sites/1/forecasts",
++   {
++     "params": {
++       "days": 7,
++       "mealType": "LUNCH",
++       "startDate": "2026-10-18",
++     },
++   },
+  ]
+
+
+Number of calls: 3
+
+   ✓ 预测尚未返回时，缺少营养覆盖值的菜谱也能安全显示并编辑原营养值  327ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/RecordPage.test.ts > 数组字典按列筛选并正确分页，查询后总数对应结果
+AssertionError: expected [ DOMWrapper{ …(2) }, …(24) ] to have a length of 20 but got 25
+
+- Expected
++ Received
+
+- 20
++ 25
+
+ ❯ src/components/RecordPage.test.ts:10:84
+      8|  vi.mocked(http.get).mockResolvedValue(Array.from({length:25},(_,id)=>…
+      9|  const w=mount(RecordPage,{props:{definition:{title:'分类',endpoint:'/di…
+     10|  await flushPromises();expect(w.findAll('.el-table__body-wrapper .el-t…
+       |                                                                                    ^
+     11|  await w.findAll('button').find(b=>b.text()==='下一页')!.trigger('click')…
+     12|  await w.get('input[aria-label="搜索"]').setValue('不存在');await w.findAll…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/components/RecordPage.test.ts > 迟到的旧查询不能覆盖较新的筛选结果
+AssertionError: expected '社区助餐服务列表查询名称旧结果共 1 条上一页1下一页' to contain '新结果'
+
+Expected: "新结果"
+Received: "社区助餐服务列表查询名称旧结果共 1 条上一页1下一页"
+
+ ❯ src/components/RecordPage.test.ts:17:231
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/features/home/HomeView.test.ts > 公告加载失败有重试入口，不伪装成没有公告
+AssertionError: expected '老年人家属 · 我的首页邻里有温度 · 助餐有照顾您好，family把每一…' to contain '公告服务不可用'
+
+Expected: "公告服务不可用"
+Received: "老年人家属 · 我的首页邻里有温度 · 助餐有照顾您好，family把每一餐，照顾好。一份热饭，一声问候。让家人的每一天，多一份安心。为家人订餐 →常用服务从这里开始，办好每一件小事。餐为家人订餐为已绑定的家人挑选合适餐品↗单我的订单查看订单、支付与取餐状态↗家老人绑定与补贴管理家属绑定，办理补贴申请↗社区公告查看全部 →当前暂无公告，新的服务通知会在这里展示。个人信息您的账号登录账号family联系电话尚未填写当前身份老年人家属管理个人信息与密码 →联系与帮助我们在您身边账号信息需要调整，或使用中遇到问题，请联系所属社区工作人员。"
+
+ ❯ src/features/home/HomeView.test.ts:12:41
+     10|  vi.mocked(http.get).mockRejectedValueOnce(new Error('公告服务不可用')).mockR…
+     11|  const w=mount(HomeView,{global:{plugins:[ElementPlus],stubs:{RouterLi…
+     12|  await flushPromises();expect(w.text()).toContain('公告服务不可用');expect(w.…
+       |                                         ^
+     13|  await w.findAll('button').find(b=>b.text()==='重试加载公告')!.trigger('clic…
+     14| })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/features/planning/MenuView.test.ts > 预测请求失败后菜品仍能加载供上报使用
+AssertionError: expected "spy" to be called with arguments: [ '/dishes?size=100' ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   "/dishes?size=100",
++   "/allergens",
+  ]
+
+  2nd spy call:
+
+  [
+-   "/dishes?size=100",
++   "/sites/1/menus",
++   {
++     "params": {
++       "date": "2026-10-18",
++       "mealType": "LUNCH",
++     },
++   },
+  ]
+
+  3rd spy call:
+
+  [
+-   "/dishes?size=100",
++   "/sites/1/forecasts",
++   {
++     "params": {
++       "days": 7,
++       "mealType": "LUNCH",
++       "startDate": "2026-10-18",
++     },
++   },
+  ]
+
+
+Number of calls: 3
+
+ ❯ src/features/planning/MenuView.test.ts:14:19
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  4 failed | 1 passed (5)
+   Start at  19:21:41
+   Duration  4.58s (transform 1.47s, setup 0ms, collect 5.51s, tests 1.15s, environment 1.97s, prepare 566ms)
+

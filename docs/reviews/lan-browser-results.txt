@@ -1,0 +1,25 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/auth.spec.ts --grep 登录、刷新
+
+
+Running 8 tests using 1 worker
+
+(node:29523) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29523) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (4.7s)
+  ✓  2 [desktop] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (4.3s)
+  ✓  3 [desktop] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (4.3s)
+  ✓  4 [desktop] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (4.8s)
+(node:29916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (6.2s)
+  ✓  6 [mobile] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (4.4s)
+  ✓  7 [mobile] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (5.1s)
+  ✓  8 [mobile] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (5.2s)
+
+  8 passed (43.4s)

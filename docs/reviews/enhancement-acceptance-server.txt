@@ -1,0 +1,340 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] elder-meal-parent                                                  [pom]
+[INFO] meal-contracts                                                     [jar]
+[INFO] meal-algorithms                                                    [jar]
+[INFO] elder-meal-server                                                  [jar]
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-parent >-------------------
+[INFO] Building elder-meal-parent 1.0.0                                   [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.community:meal-contracts >--------------------
+[INFO] Building meal-contracts 1.0.0                                      [2/4]
+[INFO]   from contracts/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -------------------< com.community:meal-algorithms >--------------------
+[INFO] Building meal-algorithms 1.0.0                                     [3/4]
+[INFO]   from algorithms/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-algorithms ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.algorithms.ForecastBacktestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.140 s -- in com.community.meal.algorithms.ForecastBacktestTest
+[INFO] Running com.community.meal.algorithms.AlgorithmContractTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.community.meal.algorithms.AlgorithmContractTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-server >-------------------
+[INFO] Building elder-meal-server 1.0.0                                   [4/4]
+[INFO]   from server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ elder-meal-server ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 12 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 103 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ elder-meal-server ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 29 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java uses unchecked or unsafe operations.
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ elder-meal-server ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.AdminBusinessTest
+20:03:41.224 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.community.meal.AdminBusinessTest]: AdminBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:03:41.517 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AdminBusinessTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:03:42.383+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : Starting AdminBusinessTest using Java 17.0.20.1 with PID 67270 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:03:42.385+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : The following 1 profile is active: "test"
+2026-10-17T20:03:45.623+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-17T20:03:46.417+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55fb36de
+2026-10-17T20:03:46.423+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-17T20:03:46.516+08:00  INFO 67270 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238599_835?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:03:46.562+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:03:46.651+08:00  INFO 67270 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table `elder_meal_test_1792238599_835`.`flyway_schema_history` does not exist yet
+2026-10-17T20:03:46.668+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.073s)
+2026-10-17T20:03:46.725+08:00  INFO 67270 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table `elder_meal_test_1792238599_835`.`flyway_schema_history` ...
+2026-10-17T20:03:46.898+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238599_835`: << Empty Schema >>
+2026-10-17T20:03:46.998+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "1 - initial schema"
+2026-10-17T20:03:47.410+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:47.461+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:47.567+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:47.705+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:47.963+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:47.992+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:47.993+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:48.174+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:03:48.248+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "2 - auth sessions"
+2026-10-17T20:03:48.324+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "3 - admin catalog"
+2026-10-17T20:03:48.609+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "4 - elder health files"
+2026-10-17T20:03:48.837+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "5 - menu recommendation details"
+2026-10-17T20:03:49.007+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "6 - order integrity"
+2026-10-17T20:03:49.283+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "7 - demo marker"
+2026-10-17T20:03:49.344+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "8 - algorithm identity"
+2026-10-17T20:03:49.432+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "9 - wallet"
+2026-10-17T20:03:49.562+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "10 - workplace"
+2026-10-17T20:03:49.705+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238599_835` to version "11 - lifecycle and menu templates"
+2026-10-17T20:03:49.856+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 11 migrations to schema `elder_meal_test_1792238599_835`, now at version v11 (execution time 00:02.449s)
+2026-10-17T20:03:53.319+08:00  INFO 67270 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@63e5e5b4
+2026-10-17T20:03:53.801+08:00  INFO 67270 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:03:53.804+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:03:53.806+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T20:03:53.912+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : Started AdminBusinessTest in 12.15 seconds (process running for 14.564)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.93 s -- in com.community.meal.AdminBusinessTest
+[INFO] Running com.community.meal.ProductionBoundaryTest
+2026-10-17T20:03:57.817+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ProductionBoundaryTest]: ProductionBoundaryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:03:57.826+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ProductionBoundaryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:03:57.914+08:00  INFO 67270 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : Starting ProductionBoundaryTest using Java 17.0.20.1 with PID 67270 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:03:57.915+08:00  INFO 67270 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : The following 2 profiles are active: "prod", "test"
+2026-10-17T20:03:58.590+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-17T20:03:58.626+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53b60595
+2026-10-17T20:03:58.627+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-17T20:03:58.634+08:00  INFO 67270 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238599_835?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:03:58.647+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:03:58.687+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.034s)
+2026-10-17T20:03:58.711+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238599_835`: 11
+2026-10-17T20:03:58.713+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792238599_835` is up to date. No migration necessary.
+2026-10-17T20:03:59.408+08:00  INFO 67270 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@585718dd
+2026-10-17T20:03:59.503+08:00  INFO 67270 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:03:59.503+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:03:59.505+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-17T20:03:59.524+08:00  INFO 67270 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : Started ProductionBoundaryTest in 1.685 seconds (process running for 20.177)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.017 s -- in com.community.meal.ProductionBoundaryTest
+[INFO] Running com.community.meal.OrderConcurrencyBusinessTest
+2026-10-17T20:03:59.842+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.OrderConcurrencyBusinessTest]: OrderConcurrencyBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:03:59.852+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.OrderConcurrencyBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.918 s -- in com.community.meal.OrderConcurrencyBusinessTest
+[INFO] Running com.community.meal.AuthIntegrationTest
+2026-10-17T20:04:00.764+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AuthIntegrationTest]: AuthIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:00.767+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AuthIntegrationTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.161 s -- in com.community.meal.AuthIntegrationTest
+[INFO] Running com.community.meal.FileBusinessTest
+2026-10-17T20:04:02.928+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.FileBusinessTest]: FileBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:02.935+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.FileBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.269 s -- in com.community.meal.FileBusinessTest
+[INFO] Running com.community.meal.ProductSearchTest
+2026-10-17T20:04:03.200+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ProductSearchTest]: ProductSearchTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:03.206+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ProductSearchTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 s -- in com.community.meal.ProductSearchTest
+[INFO] Running com.community.meal.ModuleBoundaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s -- in com.community.meal.ModuleBoundaryTest
+[INFO] Running com.community.meal.PaymentNoticeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.community.meal.PaymentNoticeTest
+[INFO] Running com.community.meal.MenuTemplateAtomicityTest
+2026-10-17T20:04:03.515+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.MenuTemplateAtomicityTest]: MenuTemplateAtomicityTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:03.519+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.MenuTemplateAtomicityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.664 s -- in com.community.meal.MenuTemplateAtomicityTest
+[INFO] Running com.community.meal.AlgorithmReplacementIntegrationTest
+2026-10-17T20:04:04.186+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AlgorithmReplacementIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:04:04.237+08:00  INFO 67270 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : Starting AlgorithmReplacementIntegrationTest using Java 17.0.20.1 with PID 67270 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:04:04.237+08:00  INFO 67270 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : The following 1 profile is active: "test"
+2026-10-17T20:04:04.795+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-10-17T20:04:04.826+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@beac39c
+2026-10-17T20:04:04.826+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-10-17T20:04:04.833+08:00  INFO 67270 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238599_835?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:04:04.843+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:04:04.869+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.022s)
+2026-10-17T20:04:04.891+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238599_835`: 11
+2026-10-17T20:04:04.893+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792238599_835` is up to date. No migration necessary.
+2026-10-17T20:04:05.322+08:00  INFO 67270 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@70b437bb
+2026-10-17T20:04:05.387+08:00  INFO 67270 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:04:05.387+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:04:05.388+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T20:04:05.404+08:00  INFO 67270 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : Started AlgorithmReplacementIntegrationTest in 1.211 seconds (process running for 26.057)
+2026-10-17T20:04:05.859+08:00 ERROR 67270 --- [elder-meal] [           main] c.c.meal.common.ApiExceptionHandler      : Unhandled request failure (IllegalStateException)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.858 s -- in com.community.meal.AlgorithmReplacementIntegrationTest
+[INFO] Running com.community.meal.ApiRouteCompatibilityTest
+2026-10-17T20:04:06.042+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ApiRouteCompatibilityTest]: ApiRouteCompatibilityTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:06.045+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ApiRouteCompatibilityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.267 s -- in com.community.meal.ApiRouteCompatibilityTest
+[INFO] Running com.community.meal.WorkplaceBusinessTest
+2026-10-17T20:04:06.312+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WorkplaceBusinessTest]: WorkplaceBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:06.316+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WorkplaceBusinessTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.691 s -- in com.community.meal.WorkplaceBusinessTest
+[INFO] Running com.community.meal.ElderBusinessTest
+2026-10-17T20:04:08.004+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ElderBusinessTest]: ElderBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:08.008+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ElderBusinessTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.697 s -- in com.community.meal.ElderBusinessTest
+[INFO] Running com.community.meal.PreparationDegradationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.737 s -- in com.community.meal.PreparationDegradationTest
+[INFO] Running com.community.meal.AuthConcurrencyIntegrationTest
+2026-10-17T20:04:10.549+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AuthConcurrencyIntegrationTest]: AuthConcurrencyIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:10.600+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AuthConcurrencyIntegrationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.927 s -- in com.community.meal.AuthConcurrencyIntegrationTest
+[INFO] Running com.community.meal.DemoAccountsIntegrationTest
+2026-10-17T20:04:11.464+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.DemoAccountsIntegrationTest]: DemoAccountsIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:11.495+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.DemoAccountsIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:04:11.936+08:00  INFO 67270 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : Starting DemoAccountsIntegrationTest using Java 17.0.20.1 with PID 67270 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:04:11.939+08:00  INFO 67270 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : The following 2 profiles are active: "dev", "test"
+2026-10-17T20:04:13.840+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-10-17T20:04:14.104+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32f3174d
+2026-10-17T20:04:14.105+08:00  INFO 67270 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-10-17T20:04:14.120+08:00  INFO 67270 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238599_835?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:04:14.158+08:00  WARN 67270 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:04:14.269+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.078s)
+2026-10-17T20:04:14.377+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238599_835`: 11
+2026-10-17T20:04:14.381+08:00  INFO 67270 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792238599_835` is up to date. No migration necessary.
+2026-10-17T20:04:15.975+08:00  INFO 67270 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@3f471e59
+2026-10-17T20:04:16.110+08:00  INFO 67270 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:04:16.110+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:04:16.112+08:00  INFO 67270 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T20:04:16.158+08:00  INFO 67270 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : Started DemoAccountsIntegrationTest in 4.635 seconds (process running for 36.81)
+2026-10-17T20:04:16.275+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+2026-10-17T20:04:19.408+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+2026-10-17T20:04:20.202+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Upgraded 4 local demo accounts
+2026-10-17T20:04:20.239+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Upgraded 0 local demo accounts
+2026-10-17T20:04:20.294+08:00  INFO 67270 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.301 s -- in com.community.meal.DemoAccountsIntegrationTest
+[INFO] Running com.community.meal.LifecycleBusinessTest
+2026-10-17T20:04:20.773+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.LifecycleBusinessTest]: LifecycleBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:20.788+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.LifecycleBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.102 s -- in com.community.meal.LifecycleBusinessTest
+[INFO] Running com.community.meal.WalletBusinessTest
+2026-10-17T20:04:22.878+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WalletBusinessTest]: WalletBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:22.884+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.483 s -- in com.community.meal.WalletBusinessTest
+[INFO] Running com.community.meal.NewPasswordPolicyTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.community.meal.NewPasswordPolicyTest
+[INFO] Running com.community.meal.WalletConcurrencyTest
+2026-10-17T20:04:24.391+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WalletConcurrencyTest]: WalletConcurrencyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:24.396+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletConcurrencyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.312 s -- in com.community.meal.WalletConcurrencyTest
+[INFO] Running com.community.meal.MenuForecastRecommendationTest
+2026-10-17T20:04:25.705+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.MenuForecastRecommendationTest]: MenuForecastRecommendationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:25.709+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.MenuForecastRecommendationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.708 s -- in com.community.meal.MenuForecastRecommendationTest
+[INFO] Running com.community.meal.OrderLifecycleTest
+2026-10-17T20:04:26.416+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.OrderLifecycleTest]: OrderLifecycleTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:26.420+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.OrderLifecycleTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.357 s -- in com.community.meal.OrderLifecycleTest
+[INFO] Running com.community.meal.DashboardBusinessTest
+2026-10-17T20:04:28.780+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.DashboardBusinessTest]: DashboardBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:28.784+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.DashboardBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.199 s -- in com.community.meal.DashboardBusinessTest
+[INFO] Running com.community.meal.BacktestBusinessTest
+2026-10-17T20:04:28.978+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.BacktestBusinessTest]: BacktestBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:28.981+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.BacktestBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s -- in com.community.meal.BacktestBusinessTest
+[INFO] Running com.community.meal.AlgorithmEdgeTest
+2026-10-17T20:04:29.124+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AlgorithmEdgeTest]: AlgorithmEdgeTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:29.127+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AlgorithmEdgeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.253 s -- in com.community.meal.AlgorithmEdgeTest
+[INFO] Running com.community.meal.PrivateStorageTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in com.community.meal.PrivateStorageTest
+[INFO] Running com.community.meal.CommunicationBusinessTest
+2026-10-17T20:04:29.431+08:00  INFO 67270 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.CommunicationBusinessTest]: CommunicationBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:04:29.435+08:00  INFO 67270 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.CommunicationBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.389 s -- in com.community.meal.CommunicationBusinessTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 105, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for elder-meal-parent 1.0.0:
+[INFO] 
+[INFO] elder-meal-parent .................................. SUCCESS [  0.009 s]
+[INFO] meal-contracts ..................................... SUCCESS [  1.633 s]
+[INFO] meal-algorithms .................................... SUCCESS [  1.822 s]
+[INFO] elder-meal-server .................................. SUCCESS [01:03 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:07 min
+[INFO] Finished at: 2026-10-17T20:04:29+08:00
+[INFO] ------------------------------------------------------------------------

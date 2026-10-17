@@ -1,0 +1,15 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test --project=desktop --grep 每个角色的全部业务导航|菜谱网页保存上报
+
+
+Running 2 tests using 1 worker
+
+(node:27462) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27462) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (53.0s)
+  ✓  2 [desktop] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (11.5s)
+
+  2 passed (1.1m)

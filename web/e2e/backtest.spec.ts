@@ -1,0 +1,7 @@
+import {test,expect,type Page} from '@playwright/test'
+test.setTimeout(150000)
+async function login(page:Page,account:string,password=account){await page.goto('/login');await page.getByLabel('账号',{exact:true}).fill(account);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();await expect(page).not.toHaveURL(/\/login$/)}
+async function api(page:Page,method:string,path:string,data?:unknown){const token=await page.evaluate(()=>sessionStorage.getItem('meal.token'));const response=await page.request.fetch('/api/v1'+path,{method,data,headers:{Authorization:`Bearer ${token}`}});expect(response.ok(),`${path}: ${await response.text()}`).toBe(true);return(await response.json()).data}
+test('预测页面显示算法、样本日期并运行历史回测对比',async({page})=>{
+ await login(page,'canteen');await page.goto('/canteen/forecasts');await expect(page.locator('main')).toContainText('weekday_average_v1');await expect(page.getByRole('columnheader',{name:'使用的历史日期',exact:true})).toBeVisible();await page.getByRole('button',{name:'运行历史回测',exact:true}).click();await expect(page.getByRole('cell',{name:'recent_weighted_average_v1',exact:true})).toBeVisible();await expect(page.getByRole('cell',{name:'weekday_average_v1',exact:true})).toBeVisible();await expect(page.locator('main')).toContainText('演示数据不能代表真实业务准确率');await expect(page.locator('main .el-alert--error')).toHaveCount(0);await page.screenshot({path:`test-results/backtest-${test.info().project.name}.png`,fullPage:true})
+})

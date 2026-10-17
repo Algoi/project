@@ -1,0 +1,17 @@
+CREATE TABLE inbox_message (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT,user_id BIGINT NOT NULL,source_key VARCHAR(100) NOT NULL,
+ title VARCHAR(200) NOT NULL,body VARCHAR(1000) NOT NULL,target_path VARCHAR(300) NOT NULL,
+ read_at DATETIME NULL,created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE KEY uk_message_source(user_id,source_key),KEY idx_inbox(user_id,read_at,id),FOREIGN KEY(user_id) REFERENCES sys_user(id));
+CREATE TABLE delivery_address (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT,owner_user_id BIGINT NOT NULL,elder_id BIGINT NOT NULL,
+ label VARCHAR(40) NOT NULL,contact_name VARCHAR(80) NOT NULL,contact_phone VARCHAR(30) NOT NULL,address VARCHAR(255) NOT NULL,
+ is_default BOOLEAN NOT NULL DEFAULT FALSE,
+ default_slot INT GENERATED ALWAYS AS (CASE WHEN is_default THEN 1 ELSE NULL END) STORED,
+ created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ UNIQUE KEY uk_default_address(owner_user_id,elder_id,default_slot),
+ FOREIGN KEY(owner_user_id) REFERENCES sys_user(id),FOREIGN KEY(elder_id) REFERENCES elder(id));
+CREATE TABLE order_event (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT,order_id BIGINT NOT NULL,source_key VARCHAR(100) NOT NULL UNIQUE,
+ event_type VARCHAR(80) NOT NULL,label VARCHAR(100) NOT NULL,created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY(order_id) REFERENCES meal_order(id),KEY idx_order_event(order_id,id));

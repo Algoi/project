@@ -1,0 +1,16 @@
+<script setup lang="ts">
+import {ref,onMounted,watch} from 'vue'
+import {http} from '../../api/http'
+import {newRequestKey} from '../../utils/requestKey'
+import WalletSummary from './WalletSummary.vue'
+import type {Row} from '../../shared/records'
+const rows=ref<Row[]>([]),total=ref(0),page=ref(1),canTopup=ref(false),amount=ref('100.00'),requestId=ref(newRequestKey()),pending=ref(false),error=ref(''),message=ref('')
+watch(amount,()=>{requestId.value=newRequestKey();message.value=''})
+async function load(){try{const [wallet,ledger]=await Promise.all([http.get<never,Row>('/wallet'),http.get<never,Row>('/wallet/transactions',{params:{page:page.value,size:20}})]);canTopup.value=wallet.canTopup;rows.value=ledger.records;total.value=ledger.total}catch(e){error.value=(e as Error).message}}
+async function recharge(){if(pending.value)return;pending.value=true;error.value='';message.value='';try{const charge=await http.post<never,Row>('/wallet/topups',{amount:amount.value,requestId:requestId.value});await http.post(`/dev/wallet/topups/${charge.id}/confirm`);requestId.value=newRequestKey();message.value='演示充值成功，余额已更新';page.value=1;window.dispatchEvent(new Event('meal:wallet-updated'));await load()}catch(e){error.value=(e as Error).message}finally{pending.value=false}}
+const labels:Record<string,string>={TOPUP:'充值',PAYMENT:'订单支付',REFUND:'订单退款'}
+onMounted(load)
+</script>
+<template><section><p class="eyebrow">账户资金</p><h1>我的钱包</h1><WalletSummary hide-link/><p>余额属于当前家属账号，可为有权访问的家人订单付款，退款退回实际付款的钱包。</p><el-alert v-if="error" :title="error" type="error" :closable="false"/><el-alert v-if="message" :title="message" type="success" :closable="false"/>
+<form v-if="canTopup" class="content-card form-stack" @submit.prevent="recharge"><h2>钱包充值</h2><el-alert title="本地演示充值，不发生真实资金扣款" type="info" :closable="false"/><label for="topup-amount">充值金额（元）</label><el-input id="topup-amount" v-model="amount" type="number" min="0.01" max="10000" step="0.01" :disabled="pending"/><el-button native-type="submit" type="primary" :loading="pending">模拟充值并到账</el-button></form><p v-else class="muted">充值渠道尚未配置，请联系所属社区。</p>
+<section class="content-card" style="margin-top:24px"><h2>资金流水</h2><el-table :data="rows" empty-text="暂无资金流水"><el-table-column label="时间" min-width="180"><template #default="{row}">{{new Date(row.createdAt).toLocaleString('zh-CN')}}</template></el-table-column><el-table-column label="类型"><template #default="{row}">{{labels[row.entryType]}}</template></el-table-column><el-table-column label="金额（元）"><template #default="{row}">{{Number(row.amount)>0?'+':''}}{{row.amount}}</template></el-table-column><el-table-column prop="balanceAfter" label="交易后余额"/><el-table-column label="关联订单" min-width="180"><template #default="{row}"><router-link v-if="row.orderId" class="text-link" :to="{path:'/family/orders',query:{orderId:row.orderId}}">{{row.orderNo||row.orderId}}</router-link><span v-else>充值到账</span></template></el-table-column></el-table><div class="toolbar"><span>共 {{total}} 条</span><el-button :disabled="page===1" @click="page--;load()">上一页</el-button><span>{{page}}</span><el-button :disabled="page*20>=total" @click="page++;load()">下一页</el-button></div></section></section></template>

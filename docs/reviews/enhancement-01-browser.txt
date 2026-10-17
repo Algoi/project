@@ -1,0 +1,103 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/resilience.spec.ts e2e/admin.spec.ts
+
+
+Running 8 tests using 1 worker
+
+(node:48851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (13.1s)
+(node:49052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (17.9s)
+  ✓  3 [desktop] › e2e/resilience.spec.ts:4:1 › 各角色列表不存在关键词均返回零条，清空查询恢复记录 (22.4s)
+  ✓  4 [desktop] › e2e/resilience.spec.ts:10:1 › 预测失败仍显示备餐清单，公告失败有重试而不伪装空数据 (9.0s)
+(node:49430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (11.4s)
+(node:49607) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49607) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [mobile] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (23.1s)
+  ✓  7 [mobile] › e2e/resilience.spec.ts:4:1 › 各角色列表不存在关键词均返回零条，清空查询恢复记录 (29.0s)
+  ✓  8 [mobile] › e2e/resilience.spec.ts:10:1 › 预测失败仍显示备餐清单，公告失败有重试而不伪装空数据 (8.4s)
+
+
+  1) [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 ────────────────────────────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('cell', { name: '网页分类1792236490077desktop', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('cell', { name: '网页分类1792236490077desktop', exact: true })[22m
+
+
+       6 |  await page.getByLabel('网点名称',{exact:true}).fill('网页测试网点'+unique);await page.getByLabel('地址',{exact:true}).fill('自动测试服务中心');await page.getByRole('button',{name:'保存',exact:true}).click()
+       7 |  await revealSite(page,'网页测试网点'+unique)
+    >  8 |  await page.getByRole('link',{name:'菜品与价格',exact:true}).click();await page.getByRole('button',{name:'分类',exact:true}).click();await page.getByRole('button',{name:'新增',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill('网页分类'+unique);await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('cell',{name:'网页分类'+unique,exact:true})).toBeVisible()
+         |                                                                                                                                                                                                                                                                                                                                                                                             ^
+       9 |  await page.getByRole('button',{name:'菜品',exact:true}).click();await page.getByRole('button',{name:'新增',exact:true}).click();await page.getByLabel('菜品名称',{exact:true}).fill('网页测试菜'+unique);await page.getByLabel('社会原价 元',{exact:true}).fill('15.50');await page.getByLabel('老人补贴价 元',{exact:true}).fill('10.50');await page.getByLabel('主要食材（逗号分隔）',{exact:true}).fill('鸡肉，胡萝卜');await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('cell',{name:'网页测试菜'+unique,exact:true})).toBeVisible()
+      10 |  await page.getByRole('link',{name:'操作审计',exact:true}).click();await expect(page.getByRole('cell',{name:'DISH_SAVE',exact:true}).first()).toBeVisible();await page.screenshot({path:`test-results/admin-catalog-${test.info().project.name}.png`,fullPage:true})
+      11 | })
+        at /home/huyuanhai/project/web/e2e/admin.spec.ts:8:381
+
+    Error Context: test-results/admin-管理员通过网页创建网点、分类与菜品并查询审计-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/admin-管理员通过网页创建网点、分类与菜品并查询审计-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/admin-管理员通过网页创建网点、分类与菜品并查询审计-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 ─────────────────────────────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('cell', { name: '网页分类1792236557369mobile', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('cell', { name: '网页分类1792236557369mobile', exact: true })[22m
+
+
+       6 |  await page.getByLabel('网点名称',{exact:true}).fill('网页测试网点'+unique);await page.getByLabel('地址',{exact:true}).fill('自动测试服务中心');await page.getByRole('button',{name:'保存',exact:true}).click()
+       7 |  await revealSite(page,'网页测试网点'+unique)
+    >  8 |  await page.getByRole('link',{name:'菜品与价格',exact:true}).click();await page.getByRole('button',{name:'分类',exact:true}).click();await page.getByRole('button',{name:'新增',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill('网页分类'+unique);await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('cell',{name:'网页分类'+unique,exact:true})).toBeVisible()
+         |                                                                                                                                                                                                                                                                                                                                                                                             ^
+       9 |  await page.getByRole('button',{name:'菜品',exact:true}).click();await page.getByRole('button',{name:'新增',exact:true}).click();await page.getByLabel('菜品名称',{exact:true}).fill('网页测试菜'+unique);await page.getByLabel('社会原价 元',{exact:true}).fill('15.50');await page.getByLabel('老人补贴价 元',{exact:true}).fill('10.50');await page.getByLabel('主要食材（逗号分隔）',{exact:true}).fill('鸡肉，胡萝卜');await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('cell',{name:'网页测试菜'+unique,exact:true})).toBeVisible()
+      10 |  await page.getByRole('link',{name:'操作审计',exact:true}).click();await expect(page.getByRole('cell',{name:'DISH_SAVE',exact:true}).first()).toBeVisible();await page.screenshot({path:`test-results/admin-catalog-${test.info().project.name}.png`,fullPage:true})
+      11 | })
+        at /home/huyuanhai/project/web/e2e/admin.spec.ts:8:381
+
+    Error Context: test-results/admin-管理员通过网页创建网点、分类与菜品并查询审计-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/admin-管理员通过网页创建网点、分类与菜品并查询审计-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/admin-管理员通过网页创建网点、分类与菜品并查询审计-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 ─────────────────────────────────────
+    [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 ──────────────────────────────────────
+  6 passed (2.4m)

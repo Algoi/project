@@ -1,0 +1,3827 @@
+openapi: 3.0.3
+info:
+  title: 社区老年助餐 API
+  version: 1.0.0
+  description: 四角色完整业务接口。Bearer 授权、网点/绑定资源隔离。请求字段与状态规则详见项目 docs/api/v1.md；模拟支付只在 dev/test 可用。
+servers:
+- url: /api/v1
+security:
+- bearerAuth: []
+paths:
+  /auth/login:
+    post:
+      summary: 登录
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  minLength: 1
+                  maxLength: 64
+                password:
+                  type: string
+                  minLength: 1
+                  maxLength: 72
+                  writeOnly: true
+      responses:
+        '200':
+          description: 成功，返回随机令牌、UTC 过期时间和本人信息
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        token:
+                          type: string
+                        expiresAt:
+                          type: string
+                          format: date-time
+                        user:
+                          $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_auth_login
+  /auth/me:
+    get:
+      summary: 本人信息及最新授权
+      responses:
+        '200':
+          description: 本人信息
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    data:
+                      $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_auth_me
+  /auth/logout:
+    post:
+      summary: 撤销当前令牌
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_auth_logout
+  /auth/profile:
+    put:
+      summary: 修改本人姓名和联系电话
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+              - realName
+              properties:
+                realName:
+                  type: string
+                  minLength: 1
+                  maxLength: 80
+                phone:
+                  type: string
+                  nullable: true
+                  description: null 时保留原号码
+                  pattern: ^\+?[0-9 -]{6,30}$
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_auth_profile
+  /auth/password:
+    put:
+      summary: 修改密码并撤销全部会话
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required:
+              - oldPassword
+              - newPassword
+              properties:
+                oldPassword:
+                  type: string
+                  minLength: 1
+                  maxLength: 72
+                  writeOnly: true
+                newPassword:
+                  type: string
+                  minLength: 1
+                  maxLength: 72
+                  writeOnly: true
+                  description: 通常至少 12 字符且 UTF-8 至多 72 字节；dev 且非 prod 的四个本地演示账号允许恢复为自己的账号名
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          description: 原密码错误
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_auth_password
+  /roles:
+    get:
+      summary: 管理员查询角色
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_roles
+  /sites:
+    get:
+      summary: 按角色及授权分页读取网点
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: size
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites
+    post:
+      summary: AdminController POST /sites
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_sites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{id}:
+    get:
+      summary: 读取授权网点详情
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          description: 网点不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_id
+    put:
+      summary: AdminController PUT /sites/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_sites_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /proxy-orders/recurring:
+    post:
+      summary: RecurringOrders POST /proxy-orders/recurring
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_proxy_orders_recurring
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders:
+    post:
+      summary: OrderController POST /orders
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_orders
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: false
+        schema:
+          type: string
+          maxLength: 80
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    get:
+      summary: OrderController GET /orders
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_orders
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}:
+    get:
+      summary: OrderController GET /orders/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_orders_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/cancel:
+    post:
+      summary: OrderController POST /orders/{id}/cancel
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_orders_id_cancel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/start-preparing:
+    post:
+      summary: OrderController POST /orders/{id}/start-preparing
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_orders_id_start_preparing
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/ready:
+    post:
+      summary: OrderController POST /orders/{id}/ready
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_orders_id_ready
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/pickup-voucher:
+    get:
+      summary: OrderController GET /orders/{id}/pickup-voucher
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_orders_id_pickup_voucher
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /payment/channels:
+    get:
+      summary: OrderController GET /payment/channels
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_payment_channels
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/payments:
+    post:
+      summary: OrderController POST /orders/{id}/payments
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_orders_id_payments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    get:
+      summary: OrderController GET /orders/{id}/payments
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_orders_id_payments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /redemptions/verify:
+    post:
+      summary: OrderController POST /redemptions/verify
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_redemptions_verify
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /redemptions/confirm:
+    post:
+      summary: OrderController POST /redemptions/confirm
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_redemptions_confirm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/delivery-list:
+    get:
+      summary: OrderController GET /sites/{siteId}/delivery-list
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_siteId_delivery_list
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/delivery-status:
+    patch:
+      summary: OrderController PATCH /orders/{id}/delivery-status
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_orders_id_delivery_status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /orders/{id}/exception:
+    patch:
+      summary: OrderController PATCH /orders/{id}/exception
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_orders_id_exception
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /refunds:
+    get:
+      summary: OrderController GET /refunds
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_refunds
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /refunds/{id}:
+    get:
+      summary: OrderController GET /refunds/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_refunds_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /refunds/{id}/approve:
+    post:
+      summary: OrderController POST /refunds/{id}/approve
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_refunds_id_approve
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /refunds/{id}/reject:
+    post:
+      summary: OrderController POST /refunds/{id}/reject
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_refunds_id_reject
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /refunds/{id}/retry:
+    post:
+      summary: OrderController POST /refunds/{id}/retry
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_refunds_id_retry
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dev/payments/{id}/simulate-success:
+    post:
+      summary: MockPaymentController POST /dev/payments/{id}/simulate-success
+      description: 权限、字段及业务约束参见 docs/api/v1.md。 仅 dev/test，生产返回404。
+      operationId: post_dev_payments_id_simulate_success
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /service-sites:
+    get:
+      summary: ElderController GET /service-sites
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_service_sites
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /elders:
+    get:
+      summary: ElderController GET /elders
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_elders
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: keyword
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: ElderController POST /elders
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_elders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /elders/{id}:
+    get:
+      summary: ElderController GET /elders/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_elders_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: ElderController PUT /elders/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_elders_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /elders/{id}/health:
+    get:
+      summary: ElderController GET /elders/{id}/health
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_elders_id_health
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: ElderController PUT /elders/{id}/health
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_elders_id_health
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /family/bindings:
+    post:
+      summary: ElderController POST /family/bindings
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_family_bindings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    get:
+      summary: ElderController GET /family/bindings
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_family_bindings
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /bindings/pending:
+    get:
+      summary: ElderController GET /bindings/pending
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_bindings_pending
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /bindings/{id}/approve:
+    post:
+      summary: ElderController POST /bindings/{id}/approve
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_bindings_id_approve
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /bindings/{id}/reject:
+    post:
+      summary: ElderController POST /bindings/{id}/reject
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_bindings_id_reject
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /subsidy-applications:
+    post:
+      summary: ElderController POST /subsidy-applications
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_subsidy_applications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    get:
+      summary: ElderController GET /subsidy-applications
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_subsidy_applications
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /subsidy-applications/{id}:
+    get:
+      summary: ElderController GET /subsidy-applications/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_subsidy_applications_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /subsidy-applications/{id}/approve:
+    post:
+      summary: ElderController POST /subsidy-applications/{id}/approve
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_subsidy_applications_id_approve
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /subsidy-applications/{id}/reject:
+    post:
+      summary: ElderController POST /subsidy-applications/{id}/reject
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_subsidy_applications_id_reject
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /elders/{id}/nutrition-report:
+    get:
+      summary: NutritionService GET /elders/{id}/nutrition-report
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_elders_id_nutrition_report
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: period
+        in: query
+        required: false
+        schema:
+          type: string
+          default: week
+      - name: startDate
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /elders/{id}/meal-history:
+    get:
+      summary: NutritionService GET /elders/{id}/meal-history
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_elders_id_meal_history
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /auth/preferences:
+    get:
+      summary: PreferencesController GET /auth/preferences
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_auth_preferences
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: PreferencesController PUT /auth/preferences
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_auth_preferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /elders/{id}/recommendations:
+    get:
+      summary: RecommendationController GET /elders/{id}/recommendations
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_elders_id_recommendations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: siteId
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /recommendation-config:
+    get:
+      summary: RecommendationController GET /recommendation-config
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_recommendation_config
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: RecommendationController PUT /recommendation-config
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_recommendation_config
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /diet-rules:
+    get:
+      summary: RecommendationController GET /diet-rules
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_diet_rules
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: RecommendationController POST /diet-rules
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_diet_rules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /diet-rules/{id}:
+    put:
+      summary: RecommendationController PUT /diet-rules/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_diet_rules_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    delete:
+      summary: RecommendationController DELETE /diet-rules/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: delete_diet_rules_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dashboard/overview:
+    get:
+      summary: DashboardService GET /dashboard/overview
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dashboard_overview
+      parameters:
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dashboard/orders-trend:
+    get:
+      summary: DashboardService GET /dashboard/orders-trend
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dashboard_orders_trend
+      parameters:
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dashboard/revenue-subsidy:
+    get:
+      summary: DashboardService GET /dashboard/revenue-subsidy
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dashboard_revenue_subsidy
+      parameters:
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dashboard/attendance-forecast:
+    get:
+      summary: DashboardService GET /dashboard/attendance-forecast
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dashboard_attendance_forecast
+      parameters:
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dashboard/nutrition-stats:
+    get:
+      summary: DashboardService GET /dashboard/nutrition-stats
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dashboard_nutrition_stats
+      parameters:
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dashboard/recommendation-stats:
+    get:
+      summary: DashboardService GET /dashboard/recommendation-stats
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dashboard_recommendation_stats
+      parameters:
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /files/upload:
+    post:
+      summary: FileController POST /files/upload
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_files_upload
+      parameters:
+      - name: purpose
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /files/{id}:
+    get:
+      summary: FileController GET /files/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_files_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: '私有文件，无JSON包裹，Cache-Control: no-store'
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/menus:
+    get:
+      summary: MenuController GET /sites/{siteId}/menus
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_siteId_menus
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: MenuController POST /sites/{siteId}/menus
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_sites_siteId_menus
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/menus/{id}:
+    put:
+      summary: MenuController PUT /sites/{siteId}/menus/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_sites_siteId_menus_id
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/menus/{id}/submit:
+    post:
+      summary: MenuController POST /sites/{siteId}/menus/{id}/submit
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_sites_siteId_menus_id_submit
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/menus/{id}/publish:
+    post:
+      summary: MenuController POST /sites/{siteId}/menus/{id}/publish
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_sites_siteId_menus_id_publish
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/menu-items/{id}/availability:
+    patch:
+      summary: MenuController PATCH /sites/{siteId}/menu-items/{id}/availability
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_sites_siteId_menu_items_id_availability
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/forecasts:
+    get:
+      summary: MenuController GET /sites/{siteId}/forecasts
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_siteId_forecasts
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: startDate
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: days
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 7
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/attendance-history:
+    get:
+      summary: MenuController GET /sites/{siteId}/attendance-history
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_siteId_attendance_history
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/preparation-list:
+    get:
+      summary: MenuController GET /sites/{siteId}/preparation-list
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_siteId_preparation_list
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: MenuController PUT /sites/{siteId}/preparation-list
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_sites_siteId_preparation_list
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mealType
+        in: query
+        required: false
+        schema:
+          type: string
+          default: LUNCH
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /notices:
+    get:
+      summary: CommunicationController GET /notices
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_notices
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: keyword
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: CommunicationController POST /notices
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_notices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /notices/{id}:
+    get:
+      summary: CommunicationController GET /notices/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_notices_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: CommunicationController PUT /notices/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_notices_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /notices/{id}/publish:
+    post:
+      summary: CommunicationController POST /notices/{id}/publish
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_notices_id_publish
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /notices/{id}/revoke:
+    post:
+      summary: CommunicationController POST /notices/{id}/revoke
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_notices_id_revoke
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /reviews:
+    post:
+      summary: CommunicationController POST /reviews
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_reviews
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    get:
+      summary: CommunicationController GET /reviews
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_reviews
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: maxRating
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{siteId}/reviews:
+    get:
+      summary: CommunicationController GET /sites/{siteId}/reviews
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_siteId_reviews
+      parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: maxRating
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /tickets:
+    post:
+      summary: CommunicationController POST /tickets
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_tickets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    get:
+      summary: CommunicationController GET /tickets
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_tickets
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /tickets/{id}:
+    get:
+      summary: CommunicationController GET /tickets/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_tickets_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /tickets/{id}/reply:
+    post:
+      summary: CommunicationController POST /tickets/{id}/reply
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_tickets_id_reply
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /tickets/{id}/status:
+    patch:
+      summary: CommunicationController PATCH /tickets/{id}/status
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_tickets_id_status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /site-settings/{id}:
+    get:
+      summary: AdminController GET /site-settings/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_site_settings_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users:
+    get:
+      summary: AdminController GET /users
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_users
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: keyword
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: AdminController POST /users
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users/{id}:
+    get:
+      summary: AdminController GET /users/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_users_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: AdminController PUT /users/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_users_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users/{id}/status:
+    patch:
+      summary: AdminController PATCH /users/{id}/status
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_users_id_status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users/{id}/roles:
+    put:
+      summary: AdminController PUT /users/{id}/roles
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_users_id_roles
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users/{id}/sites:
+    put:
+      summary: AdminController PUT /users/{id}/sites
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_users_id_sites
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users/{id}/permissions:
+    put:
+      summary: AdminController PUT /users/{id}/permissions
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_users_id_permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /permissions:
+    get:
+      summary: AdminController GET /permissions
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_permissions
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /users/{id}/reset-password:
+    post:
+      summary: AdminController POST /users/{id}/reset-password
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_users_id_reset_password
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{id}/status:
+    patch:
+      summary: AdminController PATCH /sites/{id}/status
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_sites_id_status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /sites/{id}/closed-dates:
+    get:
+      summary: AdminController GET /sites/{id}/closed-dates
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_sites_id_closed_dates
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: AdminController PUT /sites/{id}/closed-dates
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_sites_id_closed_dates
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dish-categories:
+    get:
+      summary: AdminController GET /dish-categories
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dish_categories
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: AdminController POST /dish-categories
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_dish_categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dish-categories/{id}:
+    put:
+      summary: AdminController PUT /dish-categories/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_dish_categories_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /allergens:
+    get:
+      summary: AdminController GET /allergens
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_allergens
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: AdminController POST /allergens
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_allergens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /allergens/{id}:
+    put:
+      summary: AdminController PUT /allergens/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_allergens_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    delete:
+      summary: AdminController DELETE /allergens/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: delete_allergens_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dishes:
+    get:
+      summary: AdminController GET /dishes
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dishes
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: keyword
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    post:
+      summary: AdminController POST /dishes
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: post_dishes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dishes/{id}:
+    get:
+      summary: AdminController GET /dishes/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_dishes_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+    put:
+      summary: AdminController PUT /dishes/{id}
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: put_dishes_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /dishes/{id}/status:
+    patch:
+      summary: AdminController PATCH /dishes/{id}/status
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: patch_dishes_id_status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: 字段详见 docs/api/v1.md 对应业务表。
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /audit-logs:
+    get:
+      summary: AdminController GET /audit-logs
+      description: 权限、字段及业务约束参见 docs/api/v1.md。
+      operationId: get_audit_logs
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+      - name: action
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: dateFrom
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      - name: dateTo
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Invalid'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: 唯一性冲突或仍有关联数据
+        '422':
+          description: 业务规则或状态不允许
+  /wallet:
+    get:
+      summary: 家属本人钱包余额与充值可用状态
+      responses:
+        '200':
+          description: balance、updatedAt、canTopup；余额初始为零
+  /wallet/transactions:
+    get:
+      summary: 本人钱包资金流水
+      parameters:
+      - {name: page, in: query, schema: {type: integer, default: 1}}
+      - {name: size, in: query, schema: {type: integer, default: 20, maximum: 100}}
+      responses:
+        '200': {description: 分页资金流水，金额正数为收入、负数为支出}
+  /wallet/topups:
+    post:
+      summary: 创建本人演示充值请求，生产未配置时拒绝
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [amount, requestId]
+              properties:
+                amount: {type: string, example: '100.00', description: 大于零、最多两位小数且不超过10000元}
+                requestId: {type: string, maxLength: 80, description: 本人范围内的防重请求标识}
+      responses:
+        '200': {description: 充值请求，创建不增加余额}
+        '409': {description: 相同请求标识对应的金额不同}
+  /dev/wallet/topups/{id}/confirm:
+    post:
+      summary: 确认本人模拟充值，仅dev/test且非prod
+      parameters:
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+      responses:
+        '200': {description: 原子到账，重复确认不增加余额，返回最新钱包摘要}
+  /billing:
+    get:
+      summary: 按实际付款人查询支付和退款账单，充值不计消费
+      parameters:
+      - {name: dateFrom, in: query, schema: {type: string, format: date}}
+      - {name: dateTo, in: query, schema: {type: string, format: date}}
+      - {name: keyword, in: query, schema: {type: string}, description: 订单号或老人姓名}
+      - {name: page, in: query, schema: {type: integer, default: 1}}
+      - {name: size, in: query, schema: {type: integer, default: 20, maximum: 100}}
+      responses:
+        '200': {description: records、total、summary（paidAmount、refundAmount、netExpense），默认当月}
+  /workbench:
+    get:
+      parameters:
+        - {name: role, in: query, required: true, schema: {type: string}, description: 当前实际持有的角色}
+        - {name: siteId, in: query, required: false, schema: {type: integer}, description: 授权服务网点}
+      summary: 按当前角色和授权网点统计待办
+      responses:
+        '200':
+          description: 成功
+  /messages:
+    get:
+      parameters:
+        - {name: unread, in: query, required: false, schema: {type: boolean}, description: 只看未读}
+        - {name: keyword, in: query, required: false, schema: {type: string}, description: 标题或内容}
+        - {name: page, in: query, required: false, schema: {type: integer}, description: 从1开始}
+        - {name: size, in: query, required: false, schema: {type: integer}, description: 1至100}
+      summary: 本人站内通知
+      responses:
+        '200':
+          description: 成功
+  /messages/unread-count:
+    get:
+      summary: 授权资源操作
+      responses:
+        '200':
+          description: 成功
+  /messages/{id}/read:
+    parameters:
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    patch:
+      summary: 授权资源操作
+      responses:
+        '200':
+          description: 成功
+  /messages/read-all:
+    post:
+      summary: 授权资源操作
+      responses:
+        '200':
+          description: 成功
+  /addresses:
+    get:
+      parameters:
+        - {name: elderId, in: query, required: false, schema: {type: integer}, description: 当前批准绑定的老人}
+        - {name: keyword, in: query, required: false, schema: {type: string}, description: 地址名称或地址}
+        - {name: page, in: query, required: false, schema: {type: integer}, description: 从1开始}
+        - {name: size, in: query, required: false, schema: {type: integer}, description: 1至100}
+      summary: 当前绑定老人的私有配送地址
+      responses:
+        '200':
+          description: 成功
+    post:
+      summary: 当前绑定老人的私有配送地址
+      responses:
+        '200':
+          description: 成功
+  /addresses/{id}:
+    parameters:
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    put:
+      summary: 授权资源操作
+      responses:
+        '200':
+          description: 成功
+    delete:
+      summary: 授权资源操作
+      responses:
+        '200':
+          description: 成功
+  /bindings/{id}/revoke:
+    parameters:
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    post:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /bindings/history:
+    get:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /elders/{id}/subsidy/terminate:
+    parameters:
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    post:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /elders/{id}/subsidy-history:
+    parameters:
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    get:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /sites/{siteId}/menus/{id}/copy:
+    parameters:
+      - {name: siteId, in: path, required: true, schema: {type: integer, format: int64}}
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    post:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /sites/{siteId}/menu-templates:
+    parameters:
+      - {name: siteId, in: path, required: true, schema: {type: integer, format: int64}}
+    get:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+    post:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /sites/{siteId}/menu-templates/{id}/apply:
+    parameters:
+      - {name: siteId, in: path, required: true, schema: {type: integer, format: int64}}
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    post:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /sites/{siteId}/menu-templates/{id}:
+    parameters:
+      - {name: siteId, in: path, required: true, schema: {type: integer, format: int64}}
+      - {name: id, in: path, required: true, schema: {type: integer, format: int64}}
+    delete:
+      summary: 生命周期或菜谱模板授权操作
+      responses:
+        '200':
+          description: 成功
+  /bindings:
+    get:
+      parameters:
+        - {name: status, in: query, required: false, schema: {type: string}, description: 不传或空值查看全部，界面初始筛选PENDING}
+        - {name: siteId, in: query, required: false, schema: {type: integer}, description: 与原授权范围取交集}
+        - {name: keyword, in: query, required: false, schema: {type: string}, description: 老人或家属姓名}
+        - {name: page, in: query, required: false, schema: {type: integer}, description: 从1开始}
+        - {name: size, in: query, required: false, schema: {type: integer}, description: 1至100}
+      summary: 授权社区绑定管理
+      responses:
+        '200':
+          description: 成功
+  /sites/{siteId}/forecast-backtest:
+    parameters:
+      - {name: siteId, in: path, required: true, schema: {type: integer, format: int64}}
+    get:
+      parameters:
+        - {name: dateFrom, in: query, required: true, schema: {type: string}, description: 开始日期YYYY-MM-DD}
+        - {name: dateTo, in: query, required: true, schema: {type: string}, description: 结束日期YYYY-MM-DD，早于今天且区间不超过90天}
+        - {name: mealType, in: query, required: false, schema: {type: string}, description: LUNCH或DINNER}
+      summary: 严格按历史目标日滚动回测人数预测并比较注册实现
+      responses:
+        '200':
+          description: 误差与逐日参与样本
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+  schemas:
+    Envelope:
+      type: object
+      required:
+      - code
+      - message
+      - data
+      - traceId
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          nullable: true
+        traceId:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        username:
+          type: string
+        realName:
+          type: string
+          nullable: true
+        phoneMasked:
+          type: string
+          nullable: true
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+            - ADMIN
+            - CANTEEN
+            - FAMILY
+            - COMMUNITY
+        sites:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              name:
+                type: string
+              address:
+                type: string
+                nullable: true
+              phone:
+                type: string
+                nullable: true
+              businessStatus:
+                type: string
+  responses:
+    Success:
+      description: 成功
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Envelope'
+    Invalid:
+      description: 参数错误 VALIDATION_ERROR
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Envelope'
+    Unauthorized:
+      description: 未登录或会话失效 UNAUTHENTICATED
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Envelope'
+    Forbidden:
+      description: 无权限 FORBIDDEN
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Envelope'

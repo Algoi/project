@@ -1,0 +1,17 @@
+<script setup lang="ts">
+import {computed,ref,reactive} from 'vue'
+import RecordPage from '../../components/RecordPage.vue'
+import type {Definition,Row} from '../../shared/records'
+import {http} from '../../api/http'
+import {useRoute,useRouter} from 'vue-router'
+import {useAuthStore} from '../../stores/auth'
+import PrivateUpload from '../../components/PrivateUpload.vue'
+const route=useRoute(),router=useRouter(),auth=useAuthStore(),admin=computed(()=>route.path.startsWith('/admin')),family=computed(()=>route.path.startsWith('/family')),page=ref<InstanceType<typeof RecordPage>>(),detail=ref<Row|null>(null),error=ref(''),pending=ref(false)
+const reply=ref('')
+const definition=computed<Definition>(()=>({title:family.value?'意见反馈与投诉':'工单受理与处理',endpoint:'/tickets?status='+String(route.query.status??'')+'&siteId='+String(route.query.siteId??''),createOnly:true,columns:[['siteName','服务网点'],['type','类型'],['content','问题'],['status','状态'],['overdue','超过 48 小时未回复']],...(family.value?{fields:[{key:'siteId',label:'服务网点',type:'select',source:'/service-sites'},{key:'orderId',label:'关联订单编号（可选）',type:'number'},{key:'type',label:'反馈类别',type:'select',initial:'FEEDBACK',options:[{value:'FEEDBACK',label:'意见建议'},{value:'COMPLAINT',label:'投诉'}]},{key:'content',label:'详细说明',type:'textarea'},{key:'imageFileIds',label:'附件图片',type:'files',purpose:'TICKET'}]}:{})}))
+async function open(row:Row){try{error.value='';detail.value=await http.get(`/tickets/${row.id}`);reply.value=''}catch(e){error.value=(e as Error).message}}
+async function respond(){if(pending.value)return;pending.value=true;try{detail.value=await http.post(`/tickets/${detail.value!.id}/reply`,{content:reply.value});reply.value='';await page.value?.load()}catch(e){error.value=(e as Error).message}finally{pending.value=false}}
+async function status(value:string){try{detail.value=await http.patch(`/tickets/${detail.value!.id}/status`,{status:value});await page.value?.load()}catch(e){error.value=(e as Error).message}}
+
+</script>
+<template><section><el-alert v-if="error" :title="error" type="error" :closable="false"/><RecordPage ref="page" :definition="definition"><template #actions="{row}"><el-button link type="primary" @click="open(row)">查看详情</el-button></template></RecordPage><el-dialog :model-value="!!detail" title="工单进度" width="min(700px,94vw)" @close="detail=null"><template v-if="detail"><el-alert v-if="error" :title="error" type="error" :closable="false"/><p style="white-space:pre-wrap;overflow-wrap:anywhere">{{detail.content}}</p><PrivateUpload v-if="detail.imageFileIds?.length" :model-value="detail.imageFileIds" purpose="TICKET" readonly/><p>当前状态：{{({OPEN:'待受理',IN_PROGRESS:'处理中',ESCALATED:'已升级',RESOLVED:'已办结'} as Row)[detail.status]??detail.status}}</p><div v-for="item in detail.replies" :key="item.id" class="content-card" style="margin:12px 0"><strong>{{item.replierName}}</strong><p>{{item.content}}</p><small>{{item.createdAt}}</small></div><template v-if="detail.status!=='RESOLVED'"><label for="ticket-reply">补充说明或处理回复</label><el-input id="ticket-reply" v-model="reply" type="textarea"/><div class="toolbar"><el-button type="primary" :loading="pending" @click="respond">提交回复</el-button><template v-if="!family"><el-button @click="status('IN_PROGRESS')">受理</el-button><el-button @click="status('ESCALATED')">升级重大问题</el-button><el-button @click="status('RESOLVED')">办结</el-button></template></div></template></template></el-dialog></section></template>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>邻里膳</title>
+  <rect width="64" height="64" rx="16" fill="#e5efdf"/>
+  <path d="M14 33h36c-1 12-8 19-18 19S15 45 14 33Z" fill="#3f6b4e"/>
+  <path d="M13 33h38M25 53h14" fill="none" stroke="#294a35" stroke-width="4" stroke-linecap="round"/>
+  <path d="M31 27c-9 0-13-6-13-15 9 0 15 5 15 13" fill="#98b58b"/>
+  <path d="M32 28c0-12 6-18 16-18 0 10-5 18-16 18Z" fill="#3f6b4e"/>
+</svg>

@@ -1,0 +1,111 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/workplace.spec.ts e2e/interactions.spec.ts
+
+
+Running 10 tests using 1 worker
+
+(node:58923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:58923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (9.1s)
+  ✓   2 [desktop] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (8.2s)
+  ✓   3 [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (9.5s)
+  ✓   4 [desktop] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (14.1s)
+  ✘   5 [desktop] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 (33.5s)
+(node:60226) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60226) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [mobile] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (8.1s)
+  ✓   7 [mobile] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (9.2s)
+  ✓   8 [mobile] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (9.0s)
+  ✓   9 [mobile] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (9.2s)
+  ✘  10 [mobile] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 (24.8s)
+
+
+  1) [desktop] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 ────────────────────────────────
+
+    TimeoutError: locator.check: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('checkbox')[22m
+    [2m    - locator resolved to <input type="checkbox" class="el-checkbox__original"/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    19 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+      10 |  await expect(page.getByRole('heading',{name:'待办工作台',exact:true})).toBeVisible()
+      11 |  await page.getByRole('navigation').getByRole('link',{name:'消息中心',exact:true}).click();await expect(page.getByRole('cell',{name:'家属绑定状态更新',exact:true})).toBeVisible();await page.getByRole('button',{name:'全部标为已读',exact:true}).click();await expect(page.locator('header')).toContainText('0 未读')
+    > 12 |  await page.getByRole('navigation').getByRole('link',{name:'常用配送地址',exact:true}).click();await page.getByRole('button',{name:'新增',exact:true}).click();await page.locator('.el-select').filter({has:page.getByRole('combobox',{name:'老人',exact:true})}).click();await page.getByRole('option',{name,exact:true}).click();await page.getByLabel('地址名称（如家里）',{exact:true}).fill('家里');await page.getByLabel('配送地址',{exact:true}).fill('测试地址一号楼');await page.getByLabel('联系人',{exact:true}).fill('网页测试家属');await page.getByLabel('联系电话',{exact:true}).fill('13800000000');await page.getByRole('checkbox').check();await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('dialog')).not.toBeVisible();await expect(page.getByRole('cell',{name:'测试地址一号楼',exact:true})).toBeVisible()
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+      13 |  await page.getByRole('navigation').getByRole('link',{name:'为家人订餐',exact:true}).click();await page.getByRole('radio',{name:'配送',exact:true}).check();await expect(page.getByLabel('配送地址',{exact:true})).toHaveValue('测试地址一号楼');const card=page.getByRole('article').filter({has:page.getByRole('heading',{name:'清蒸鸡肉（演示）',exact:true})});await card.getByLabel('选择份数',{exact:true}).fill('1');await page.getByRole('button',{name:'提交订单',exact:true}).click();await expect(page).toHaveURL(/\/family\/orders$/)
+      14 |  await page.goto('/family');await page.getByRole('link').filter({has:page.getByText('待付款',{exact:false})}).last().click();await expect(page).toHaveURL(/status=PENDING_PAYMENT/);await page.getByRole('row').filter({hasText:name}).getByRole('button',{name:'详情',exact:true}).click();await expect(page.getByRole('dialog')).toContainText('订单已创建');await expect(page.getByRole('dialog')).toContainText('支付截止');await page.screenshot({path:`test-results/workplace-${test.info().project.name}.png`,fullPage:true})
+      15 | })
+        at /home/huyuanhai/project/web/e2e/workplace.spec.ts:12:585
+
+    Error Context: test-results/workplace-消息审核通知、默认地址带入和订单真实进度可用-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workplace-消息审核通知、默认地址带入和订单真实进度可用-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workplace-消息审核通知、默认地址带入和订单真实进度可用-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 ─────────────────────────────────
+
+    TimeoutError: locator.check: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('checkbox')[22m
+    [2m    - locator resolved to <input type="checkbox" class="el-checkbox__original"/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    19 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+      10 |  await expect(page.getByRole('heading',{name:'待办工作台',exact:true})).toBeVisible()
+      11 |  await page.getByRole('navigation').getByRole('link',{name:'消息中心',exact:true}).click();await expect(page.getByRole('cell',{name:'家属绑定状态更新',exact:true})).toBeVisible();await page.getByRole('button',{name:'全部标为已读',exact:true}).click();await expect(page.locator('header')).toContainText('0 未读')
+    > 12 |  await page.getByRole('navigation').getByRole('link',{name:'常用配送地址',exact:true}).click();await page.getByRole('button',{name:'新增',exact:true}).click();await page.locator('.el-select').filter({has:page.getByRole('combobox',{name:'老人',exact:true})}).click();await page.getByRole('option',{name,exact:true}).click();await page.getByLabel('地址名称（如家里）',{exact:true}).fill('家里');await page.getByLabel('配送地址',{exact:true}).fill('测试地址一号楼');await page.getByLabel('联系人',{exact:true}).fill('网页测试家属');await page.getByLabel('联系电话',{exact:true}).fill('13800000000');await page.getByRole('checkbox').check();await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('dialog')).not.toBeVisible();await expect(page.getByRole('cell',{name:'测试地址一号楼',exact:true})).toBeVisible()
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+      13 |  await page.getByRole('navigation').getByRole('link',{name:'为家人订餐',exact:true}).click();await page.getByRole('radio',{name:'配送',exact:true}).check();await expect(page.getByLabel('配送地址',{exact:true})).toHaveValue('测试地址一号楼');const card=page.getByRole('article').filter({has:page.getByRole('heading',{name:'清蒸鸡肉（演示）',exact:true})});await card.getByLabel('选择份数',{exact:true}).fill('1');await page.getByRole('button',{name:'提交订单',exact:true}).click();await expect(page).toHaveURL(/\/family\/orders$/)
+      14 |  await page.goto('/family');await page.getByRole('link').filter({has:page.getByText('待付款',{exact:false})}).last().click();await expect(page).toHaveURL(/status=PENDING_PAYMENT/);await page.getByRole('row').filter({hasText:name}).getByRole('button',{name:'详情',exact:true}).click();await expect(page.getByRole('dialog')).toContainText('订单已创建');await expect(page.getByRole('dialog')).toContainText('支付截止');await page.screenshot({path:`test-results/workplace-${test.info().project.name}.png`,fullPage:true})
+      15 | })
+        at /home/huyuanhai/project/web/e2e/workplace.spec.ts:12:585
+
+    Error Context: test-results/workplace-消息审核通知、默认地址带入和订单真实进度可用-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/workplace-消息审核通知、默认地址带入和订单真实进度可用-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/workplace-消息审核通知、默认地址带入和订单真实进度可用-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 ─────────────────────────────────
+    [mobile] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 ──────────────────────────────────
+  8 passed (2.4m)

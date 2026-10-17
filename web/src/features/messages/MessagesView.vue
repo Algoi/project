@@ -1,0 +1,7 @@
+<script setup lang="ts">
+import {ref,computed} from 'vue';import {useRoute,useRouter} from 'vue-router';import {http} from '../../api/http';import RecordPage from '../../components/RecordPage.vue';import type {Definition,Row} from '../../shared/records'
+const route=useRoute(),router=useRouter(),page=ref<InstanceType<typeof RecordPage>>(),error=ref(''),unread=ref(route.query.unread==='true')
+const definition=computed<Definition>(()=>({title:'消息中心',endpoint:'/messages?unread='+unread.value,columns:[['title','通知'],['body','内容'],['createdAt','收到时间'],['readAt','已读时间']]}))
+async function read(row:Row,visit=false){try{await http.patch(`/messages/${row.id}/read`);window.dispatchEvent(new Event('meal:messages-updated'));if(visit)await router.push(row.targetPath);else await page.value?.load()}catch(e){error.value=(e as Error).message}}
+async function all(){try{await http.post('/messages/read-all');window.dispatchEvent(new Event('meal:messages-updated'));await page.value?.load()}catch(e){error.value=(e as Error).message}}
+</script><template><section><el-alert v-if="error" :title="error" type="error" :closable="false"/><RecordPage ref="page" :definition="definition"><template #intro><p>查看绑定审核、补贴结果、订单进度和工单回复。</p><el-checkbox v-model="unread">只看未读</el-checkbox></template><template #tools><el-button @click="all">全部标为已读</el-button></template><template #actions="{row}"><el-button v-if="!row.readAt" link @click="read(row)">标为已读</el-button><el-button link type="primary" @click="read(row,true)">查看相关业务</el-button></template></RecordPage></section></template>

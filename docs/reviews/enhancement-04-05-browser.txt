@@ -1,0 +1,23 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/lifecycle.spec.ts e2e/backtest.spec.ts
+
+
+Running 6 tests using 1 worker
+
+(node:64850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/backtest.spec.ts:5:1 › 预测页面显示算法、样本日期并运行历史回测对比 (13.1s)
+  ✓  2 [desktop] › e2e/lifecycle.spec.ts:6:1 › 专用网点通过页面复制菜谱、应用周模板并导出完整筛选结果 (19.9s)
+  ✓  3 [desktop] › e2e/lifecycle.spec.ts:14:1 › 家属在网页解除绑定后查看变更历史 (13.6s)
+(node:65918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile] › e2e/backtest.spec.ts:5:1 › 预测页面显示算法、样本日期并运行历史回测对比 (6.3s)
+  ✓  5 [mobile] › e2e/lifecycle.spec.ts:6:1 › 专用网点通过页面复制菜谱、应用周模板并导出完整筛选结果 (13.3s)
+  ✓  6 [mobile] › e2e/lifecycle.spec.ts:14:1 › 家属在网页解除绑定后查看变更历史 (19.0s)
+
+  6 passed (1.5m)

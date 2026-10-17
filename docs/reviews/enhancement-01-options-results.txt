@@ -1,0 +1,15 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/components/RecordPage.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ✓ src/components/RecordPage.test.ts (3 tests) 961ms
+   ✓ 关联对象可分页加载到首屏之外，不受 100 条限制  773ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  19:26:19
+   Duration  7.85s (transform 1.33s, setup 0ms, collect 3.42s, tests 961ms, environment 1.10s, prepare 293ms)
+

@@ -1,0 +1,19 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/admin.spec.ts --grep 管理员通过网页
+
+
+Running 2 tests using 1 worker
+
+(node:50437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:50437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (9.9s)
+(node:50616) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:50616) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (8.4s)
+
+  2 passed (22.2s)

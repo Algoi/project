@@ -1,0 +1,47 @@
+
+> elder-meal-web@1.0.0 build
+> vue-tsc -b && vite build
+
+vite v7.1.12 building for production...
+transforming...
+✓ 2317 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                             0.46 kB │ gzip:   0.34 kB
+dist/assets/steamed-chicken-Buo4i9Hn.png                                2,040.75 kB
+dist/assets/mixed-grain-rice-DuAzC9yV.png                               2,085.00 kB
+dist/assets/vegetable-tofu-DDwDyJN3.png                                 2,168.18 kB
+dist/assets/meal-table-Mo8KCqt-.png                                     2,181.44 kB
+dist/assets/community-meal-DXQ9160M.png                                 2,346.24 kB
+dist/assets/OrderNew-CE9b2aeF.css                                           0.37 kB │ gzip:   0.24 kB
+dist/assets/LoginView-DL1C4MFX.css                                          1.85 kB │ gzip:   0.62 kB
+dist/assets/HomeView-DrxgR6bu.css                                           3.49 kB │ gzip:   0.96 kB
+dist/assets/index-Bn-0Z7z_.css                                            367.91 kB │ gzip:  50.02 kB
+dist/assets/community-meal-bHU7VTEq.js                                      0.06 kB │ gzip:   0.08 kB
+dist/assets/_plugin-vue_export-helper-DlAUqK2U.js                           0.09 kB │ gzip:   0.10 kB
+dist/assets/dates-B78D-7L_.js                                               0.13 kB │ gzip:   0.14 kB
+dist/assets/AuditView-4DC82ZMa.js                                           1.16 kB │ gzip:   0.75 kB
+dist/assets/StatusView-C0ecEYGY.js                                          1.17 kB │ gzip:   0.73 kB
+dist/assets/navigation-3gEaWD3R.js                                          1.83 kB │ gzip:   0.74 kB
+dist/assets/ReviewsView-DY0keZkj.js                                         2.00 kB │ gzip:   1.16 kB
+dist/assets/CatalogView-D2wMZNGb.js                                         2.24 kB │ gzip:   1.24 kB
+dist/assets/NoticesView-DgWd7r56.js                                         2.41 kB │ gzip:   1.39 kB
+dist/assets/LoginView-B34ti-VS.js                                           3.05 kB │ gzip:   1.66 kB
+dist/assets/RecommendationSettings-n7zGFMaw.js                              3.43 kB │ gzip:   1.81 kB
+dist/assets/SitesView-BWVwJjUJ.js                                           3.44 kB │ gzip:   1.67 kB
+dist/assets/AppLayout-BC6A-vP5.js                                           3.60 kB │ gzip:   1.72 kB
+dist/assets/TicketsView-DbK233gr.js                                         3.70 kB │ gzip:   1.87 kB
+dist/assets/UsersView-CGD4k3TW.js                                           4.13 kB │ gzip:   2.01 kB
+dist/assets/AccountView-WWNtL4oT.js                                         5.53 kB │ gzip:   2.22 kB
+dist/assets/HomeView-COUMOEat.js                                            5.96 kB │ gzip:   2.78 kB
+dist/assets/OperationsView-QM5X0UM3.js                                      6.33 kB │ gzip:   2.62 kB
+dist/assets/ReportsView-CEjSpwUk.js                                         6.68 kB │ gzip:   2.87 kB
+dist/assets/ElderView-W7ayYpLN.js                                           7.13 kB │ gzip:   2.92 kB
+dist/assets/OrderNew-B0b_5JLo.js                                            8.38 kB │ gzip:   3.81 kB
+dist/assets/OrdersView-DWDiEBvp.js                                          8.55 kB │ gzip:   3.32 kB
+dist/assets/RecordPage.vue_vue_type_script_setup_true_lang-B5sOPt4V.js      9.33 kB │ gzip:   4.09 kB
+dist/assets/MenuView-B2rqw_XY.js                                            9.86 kB │ gzip:   3.62 kB
+dist/assets/chart-renderer-DpkO_6yM.js                                    170.59 kB │ gzip:  56.19 kB
+dist/assets/TrendChart.vue_vue_type_script_setup_true_lang-BFoESFJ5.js    333.53 kB │ gzip: 112.67 kB
+dist/assets/index-B7xJX8Uz.js                                             460.38 kB │ gzip: 163.29 kB
+✓ built in 10.71s

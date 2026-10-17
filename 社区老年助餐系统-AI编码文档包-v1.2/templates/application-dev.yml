@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/elder_meal?useUnicode=true&characterEncoding=utf8&connectionTimeZone=UTC
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+app:
+  timezone: Asia/Shanghai
+  upload-path: ${APP_UPLOAD_PATH:./uploads/private}
+  payment-mode: mock
+  forecast-history-days: 56
+  forecast-days-max: 7

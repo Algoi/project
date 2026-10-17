@@ -1,0 +1,54 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/features/planning/MenuView.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ❯ src/features/planning/MenuView.test.ts (1 test | 1 failed) 663ms
+   × 预测尚未返回时，缺少营养覆盖值的菜谱也能安全显示并编辑原营养值 661ms
+     → expected [ …(5) ] to deeply equal []
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/planning/MenuView.test.ts > 预测尚未返回时，缺少营养覆盖值的菜谱也能安全显示并编辑原营养值
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   TypeError {
++     "message": "Cannot read properties of null (reading 'caloriesKcal')",
++   },
++   TypeError {
++     "message": "Cannot read properties of null (reading 'proteinGrams')",
++   },
++   TypeError {
++     "message": "Cannot read properties of null (reading 'fatGrams')",
++   },
++   TypeError {
++     "message": "Cannot read properties of null (reading 'carbGrams')",
++   },
++   TypeError {
++     "message": "Cannot read properties of null (reading 'sodiumMg')",
++   },
++ ]
+
+ ❯ src/features/planning/MenuView.test.ts:31:20
+     29|   try {
+     30|     await flushPromises()
+     31|     expect(errors).toEqual([])
+       |                    ^
+     32|     expect((wrapper.get('input[aria-label="能量 kcal"]').element as HTML…
+     33|     expect((wrapper.get('input[aria-label="蛋白质 g"]').element as HTMLIn…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  14:53:40
+   Duration  4.46s (transform 367ms, setup 0ms, collect 1.82s, tests 663ms, environment 733ms, prepare 243ms)
+

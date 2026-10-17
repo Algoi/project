@@ -1,0 +1,73 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/algorithms.spec.ts
+
+
+Running 4 tests using 1 worker
+
+(node:30887) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30887) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+预测核对 {"algorithm":"weekday_average_v1","checked":7,"points":[{"date":"2026-10-18","count":2,"sampleCount":4,"sampleDates":["2026-10-11","2026-10-04","2026-09-27","2026-09-20"],"closed":false,"insufficientData":false},{"date":"2026-10-19","count":2,"sampleCount":4,"sampleDates":["2026-10-12","2026-10-05","2026-09-28","2026-09-21"],"closed":false,"insufficientData":false},{"date":"2026-10-20","count":2,"sampleCount":4,"sampleDates":["2026-10-13","2026-10-06","2026-09-29","2026-09-22"],"closed":false,"insufficientData":false},{"date":"2026-10-21","count":2,"sampleCount":4,"sampleDates":["2026-10-14","2026-10-07","2026-09-30","2026-09-23"],"closed":false,"insufficientData":false},{"date":"2026-10-22","count":2,"sampleCount":4,"sampleDates":["2026-10-15","2026-10-08","2026-10-01","2026-09-24"],"closed":false,"insufficientData":false},{"date":"2026-10-23","count":2,"sampleCount":4,"sampleDates":["2026-10-16","2026-10-09","2026-10-02","2026-09-25"],"closed":false,"insufficientData":false},{"date":"2026-10-24","count":2,"sampleCount":4,"sampleDates":["2026-10-10","2026-10-03","2026-09-26","2026-09-19"],"closed":false,"insufficientData":false}]}
+  ✓  1 [desktop] › e2e/algorithms.spec.ts:12:1 › 预测页面的七天人数可以按历史样本独立复算 (3.6s)
+  ✘  2 [desktop] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 (12.6s)
+(node:31338) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31338) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+预测核对 {"algorithm":"weekday_average_v1","checked":7,"points":[{"date":"2026-10-18","count":2,"sampleCount":4,"sampleDates":["2026-10-11","2026-10-04","2026-09-27","2026-09-20"],"closed":false,"insufficientData":false},{"date":"2026-10-19","count":2,"sampleCount":4,"sampleDates":["2026-10-12","2026-10-05","2026-09-28","2026-09-21"],"closed":false,"insufficientData":false},{"date":"2026-10-20","count":2,"sampleCount":4,"sampleDates":["2026-10-13","2026-10-06","2026-09-29","2026-09-22"],"closed":false,"insufficientData":false},{"date":"2026-10-21","count":2,"sampleCount":4,"sampleDates":["2026-10-14","2026-10-07","2026-09-30","2026-09-23"],"closed":false,"insufficientData":false},{"date":"2026-10-22","count":2,"sampleCount":4,"sampleDates":["2026-10-15","2026-10-08","2026-10-01","2026-09-24"],"closed":false,"insufficientData":false},{"date":"2026-10-23","count":2,"sampleCount":4,"sampleDates":["2026-10-16","2026-10-09","2026-10-02","2026-09-25"],"closed":false,"insufficientData":false},{"date":"2026-10-24","count":2,"sampleCount":4,"sampleDates":["2026-10-10","2026-10-03","2026-09-26","2026-09-19"],"closed":false,"insufficientData":false}]}
+  ✓  3 [mobile] › e2e/algorithms.spec.ts:12:1 › 预测页面的七天人数可以按历史样本独立复算 (3.2s)
+  ✘  4 [mobile] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 (11.9s)
+
+
+  1) [desktop] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 ───────────────────────────────
+
+    TimeoutError: page.waitForResponse: Timeout 10000ms exceeded while waiting for event "response"
+
+      42 |   await login(page, 'family')
+      43 |   const matches = (url: string) => /\/elders\/\d+\/recommendations\?/.test(url)
+    > 44 |   const first = page.waitForResponse(r => matches(r.url()) && r.status() === 200)
+         |                      ^
+      45 |   await page.getByRole('navigation').getByRole('link', { name: '为家人订餐', exact: true }).click()
+      46 |   let data = (await (await first).json()).data
+      47 |   const selector = page.locator('.el-select').filter({ has: page.getByRole('combobox', { name: '选择老人', exact: true }) })
+        at /home/huyuanhai/project/web/e2e/algorithms.spec.ts:44:22
+
+    Error Context: test-results/algorithms-切换演示老人可以核对推荐排序和花生过敏排除-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/algorithms-切换演示老人可以核对推荐排序和花生过敏排除-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/algorithms-切换演示老人可以核对推荐排序和花生过敏排除-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 ────────────────────────────────
+
+    TimeoutError: page.waitForResponse: Timeout 10000ms exceeded while waiting for event "response"
+
+      42 |   await login(page, 'family')
+      43 |   const matches = (url: string) => /\/elders\/\d+\/recommendations\?/.test(url)
+    > 44 |   const first = page.waitForResponse(r => matches(r.url()) && r.status() === 200)
+         |                      ^
+      45 |   await page.getByRole('navigation').getByRole('link', { name: '为家人订餐', exact: true }).click()
+      46 |   let data = (await (await first).json()).data
+      47 |   const selector = page.locator('.el-select').filter({ has: page.getByRole('combobox', { name: '选择老人', exact: true }) })
+        at /home/huyuanhai/project/web/e2e/algorithms.spec.ts:44:22
+
+    Error Context: test-results/algorithms-切换演示老人可以核对推荐排序和花生过敏排除-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/algorithms-切换演示老人可以核对推荐排序和花生过敏排除-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/algorithms-切换演示老人可以核对推荐排序和花生过敏排除-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 ────────────────────────────────
+    [mobile] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 ─────────────────────────────────
+  2 passed (35.8s)

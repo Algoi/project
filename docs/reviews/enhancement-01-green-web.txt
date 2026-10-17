@@ -1,0 +1,19 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/components/RecordPage.test.ts src/features/home/HomeView.test.ts src/features/planning/MenuView.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ✓ src/features/home/HomeView.test.ts (1 test) 232ms
+ ✓ src/components/RecordPage.test.ts (2 tests) 667ms
+   ✓ 数组字典按列筛选并正确分页，查询后总数对应结果  581ms
+ ✓ src/features/planning/MenuView.test.ts (2 tests) 1336ms
+   ✓ 预测请求失败后菜品仍能加载供上报使用  802ms
+   ✓ 预测尚未返回时，缺少营养覆盖值的菜谱也能安全显示并编辑原营养值  530ms
+
+ Test Files  3 passed (3)
+      Tests  5 passed (5)
+   Start at  19:22:36
+   Duration  8.81s (transform 3.28s, setup 0ms, collect 11.35s, tests 2.24s, environment 3.79s, prepare 996ms)
+

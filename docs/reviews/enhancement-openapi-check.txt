@@ -1,0 +1,1 @@
+OpenAPI YAML 解析通过；144 个操作的路径参数均已声明。路由集合与运行控制器兼容性另由 ApiRouteCompatibilityTest 验证。

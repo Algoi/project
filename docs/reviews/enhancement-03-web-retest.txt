@@ -1,0 +1,1241 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/features/ordering/OrderNew.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+[Vue warn]: Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <OrderNew ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+[Vue warn]: Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <OrderNew ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 切换日期时清空旧菜品并禁用提交，较早请求迟到不能覆盖新日期
+[Vue warn]: Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <OrderNew ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | src/features/ordering/OrderNew.test.ts > 切换日期时清空旧菜品并禁用提交，较早请求迟到不能覆盖新日期
+[Vue warn]: Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <OrderNew ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | src/features/ordering/OrderNew.test.ts > 切换日期时清空旧菜品并禁用提交，较早请求迟到不能覆盖新日期
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 切换日期时清空旧菜品并禁用提交，较早请求迟到不能覆盖新日期
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号
+[Vue warn]: Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <OrderNew ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | src/features/ordering/OrderNew.test.ts > 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号
+[Vue warn]: Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <OrderNew ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | src/features/ordering/OrderNew.test.ts > 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+stderr | src/features/ordering/OrderNew.test.ts > 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号
+Failed to resolve component: router-link
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. {} at <OrderNew>
+at <VTUROOT> [
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: [Object],
+      key: null,
+      ref: [Object],
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: null,
+      ctx: [Object]
+    },
+    recurseCount: 0
+  },
+  {
+    vnode: {
+      __v_isVNode: true,
+      __v_skip: true,
+      type: [Object],
+      props: null,
+      key: null,
+      ref: null,
+      scopeId: null,
+      slotScopeIds: null,
+      children: null,
+      component: [Object],
+      suspense: null,
+      ssContent: null,
+      ssFallback: null,
+      dirs: null,
+      transition: null,
+      el: HTMLElement {},
+      anchor: null,
+      target: null,
+      targetStart: null,
+      targetAnchor: null,
+      staticCount: 0,
+      shapeFlag: 4,
+      patchFlag: 0,
+      dynamicProps: null,
+      dynamicChildren: null,
+      appContext: [Object],
+      ctx: null
+    },
+    recurseCount: 0
+  }
+]
+
+ ✓ src/features/ordering/OrderNew.test.ts (3 tests) 1271ms
+   ✓ 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键  832ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  19:49:23
+   Duration  8.85s (transform 961ms, setup 0ms, collect 3.50s, tests 1.27s, environment 1.68s, prepare 501ms)
+

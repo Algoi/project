@@ -1,0 +1,28 @@
+2026-10-17 模块化重构 Java 测试汇总
+Command: ./scripts/test-server.sh test
+Source: algorithms/target/surefire-reports and server/target/surefire-reports
+
+algorithms: com.community.meal.algorithms.AlgorithmContractTest: {'tests': 5, 'failures': 0, 'errors': 0, 'skipped': 0}
+algorithms TOTAL: {'tests': 5, 'failures': 0, 'errors': 0, 'skipped': 0}
+
+server: com.community.meal.AdminBusinessTest: {'tests': 7, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.AlgorithmEdgeTest: {'tests': 3, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.AlgorithmReplacementIntegrationTest: {'tests': 2, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.ApiRouteCompatibilityTest: {'tests': 1, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.AuthConcurrencyIntegrationTest: {'tests': 2, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.AuthIntegrationTest: {'tests': 29, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.CommunicationBusinessTest: {'tests': 3, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.DashboardBusinessTest: {'tests': 1, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.DemoAccountsIntegrationTest: {'tests': 7, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.ElderBusinessTest: {'tests': 4, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.FileBusinessTest: {'tests': 1, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.MenuForecastRecommendationTest: {'tests': 5, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.ModuleBoundaryTest: {'tests': 3, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.NewPasswordPolicyTest: {'tests': 5, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.OrderConcurrencyBusinessTest: {'tests': 1, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.OrderLifecycleTest: {'tests': 9, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.PaymentNoticeTest: {'tests': 2, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.PrivateStorageTest: {'tests': 3, 'failures': 0, 'errors': 0, 'skipped': 0}
+server: com.community.meal.ProductionBoundaryTest: {'tests': 1, 'failures': 0, 'errors': 0, 'skipped': 0}
+server TOTAL: {'tests': 89, 'failures': 0, 'errors': 0, 'skipped': 0}
+

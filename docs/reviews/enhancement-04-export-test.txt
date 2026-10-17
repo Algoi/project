@@ -1,0 +1,14 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/utils/export.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ✓ src/utils/export.test.ts (2 tests) 25ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  19:53:12
+   Duration  4.50s (transform 216ms, setup 0ms, collect 159ms, tests 25ms, environment 1.59s, prepare 421ms)
+

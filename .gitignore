@@ -1,0 +1,37 @@
+node_modules/
+dist/
+target/
+.env
+.env.*
+!.env.example
+uploads/
+*.log
+*.tsbuildinfo
+server/.test.lock
+web/test-results/
+web/playwright-report/
+.DS_Store
+.idea/
+.vscode/
+
+.run/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+coverage/
+
+backups/
+
+# 本地证书及私钥
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# 编辑器临时文件
+*.swp
+*.swo
+*~

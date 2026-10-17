@@ -1,0 +1,5 @@
+{"role": "admin", "path": "/users?size=20", "requests": 10, "medianMs": 6.38, "maxMs": 7.21}
+{"role": "admin", "path": "/dishes?size=20", "requests": 10, "medianMs": 6.91, "maxMs": 8.27}
+{"role": "admin", "path": "/dashboard/overview", "requests": 10, "medianMs": 11.59, "maxMs": 12.54}
+{"role": "community", "path": "/orders?size=20", "requests": 10, "medianMs": 10.96, "maxMs": 12.37}
+{"role": "community", "path": "/elders?size=20", "requests": 10, "medianMs": 6.46, "maxMs": 8.35}

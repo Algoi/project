@@ -1,0 +1,1002 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] elder-meal-parent                                                  [pom]
+[INFO] meal-contracts                                                     [jar]
+[INFO] meal-algorithms                                                    [jar]
+[INFO] elder-meal-server                                                  [jar]
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-parent >-------------------
+[INFO] Building elder-meal-parent 1.0.0                                   [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.community:meal-contracts >--------------------
+[INFO] Building meal-contracts 1.0.0                                      [2/4]
+[INFO]   from contracts/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ meal-contracts ---
+[INFO] Building jar: /home/huyuanhai/project/contracts/target/meal-contracts-1.0.0.jar
+[INFO] 
+[INFO] -------------------< com.community:meal-algorithms >--------------------
+[INFO] Building meal-algorithms 1.0.0                                     [3/4]
+[INFO]   from algorithms/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-algorithms ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.algorithms.AlgorithmContractTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 s -- in com.community.meal.algorithms.AlgorithmContractTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ meal-algorithms ---
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-server >-------------------
+[INFO] Building elder-meal-server 1.0.0                                   [4/4]
+[INFO]   from server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ elder-meal-server ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 10 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 94 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ elder-meal-server ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 25 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java uses unchecked or unsafe operations.
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ elder-meal-server ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.AdminBusinessTest
+19:36:06.457 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.community.meal.AdminBusinessTest]: AdminBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:36:06.760 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AdminBusinessTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T19:36:07.681+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : Starting AdminBusinessTest using Java 17.0.20.1 with PID 52283 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T19:36:07.684+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : The following 1 profile is active: "test"
+2026-10-17T19:36:10.740+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-17T19:36:11.515+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59baf2c7
+2026-10-17T19:36:11.519+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-17T19:36:11.614+08:00  INFO 52283 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792236945_27637?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T19:36:11.669+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T19:36:11.754+08:00  INFO 52283 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table `elder_meal_test_1792236945_27637`.`flyway_schema_history` does not exist yet
+2026-10-17T19:36:11.763+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 9 migrations (execution time 00:00.064s)
+2026-10-17T19:36:11.811+08:00  INFO 52283 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table `elder_meal_test_1792236945_27637`.`flyway_schema_history` ...
+2026-10-17T19:36:12.011+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792236945_27637`: << Empty Schema >>
+2026-10-17T19:36:12.116+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "1 - initial schema"
+2026-10-17T19:36:12.598+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:12.653+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:12.742+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:12.891+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:13.153+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:13.187+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:13.188+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:13.377+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T19:36:13.449+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "2 - auth sessions"
+2026-10-17T19:36:13.524+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "3 - admin catalog"
+2026-10-17T19:36:13.789+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "4 - elder health files"
+2026-10-17T19:36:14.003+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "5 - menu recommendation details"
+2026-10-17T19:36:14.165+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "6 - order integrity"
+2026-10-17T19:36:14.428+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "7 - demo marker"
+2026-10-17T19:36:14.474+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "8 - algorithm identity"
+2026-10-17T19:36:14.552+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792236945_27637` to version "9 - wallet"
+2026-10-17T19:36:14.678+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 9 migrations to schema `elder_meal_test_1792236945_27637`, now at version v9 (execution time 00:02.235s)
+2026-10-17T19:36:18.054+08:00  INFO 52283 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@48ea2003
+2026-10-17T19:36:18.434+08:00  INFO 52283 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T19:36:18.435+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T19:36:18.437+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T19:36:18.510+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : Started AdminBusinessTest in 11.48 seconds (process running for 13.853)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.98 s -- in com.community.meal.AdminBusinessTest
+[INFO] Running com.community.meal.ProductionBoundaryTest
+2026-10-17T19:36:22.140+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ProductionBoundaryTest]: ProductionBoundaryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:22.148+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ProductionBoundaryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T19:36:22.228+08:00  INFO 52283 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : Starting ProductionBoundaryTest using Java 17.0.20.1 with PID 52283 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T19:36:22.229+08:00  INFO 52283 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : The following 2 profiles are active: "prod", "test"
+2026-10-17T19:36:22.843+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-17T19:36:22.874+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9e2b199
+2026-10-17T19:36:22.875+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-17T19:36:22.886+08:00  INFO 52283 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792236945_27637?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T19:36:22.904+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T19:36:22.943+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 9 migrations (execution time 00:00.031s)
+2026-10-17T19:36:22.975+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792236945_27637`: 9
+2026-10-17T19:36:22.982+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792236945_27637` is up to date. No migration necessary.
+2026-10-17T19:36:23.603+08:00  INFO 52283 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@299c86f0
+2026-10-17T19:36:23.672+08:00  INFO 52283 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T19:36:23.673+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T19:36:23.674+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T19:36:23.692+08:00  INFO 52283 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : Started ProductionBoundaryTest in 1.539 seconds (process running for 19.035)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.884 s -- in com.community.meal.ProductionBoundaryTest
+[INFO] Running com.community.meal.OrderConcurrencyBusinessTest
+2026-10-17T19:36:24.030+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.OrderConcurrencyBusinessTest]: OrderConcurrencyBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:24.036+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.OrderConcurrencyBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.872 s -- in com.community.meal.OrderConcurrencyBusinessTest
+[INFO] Running com.community.meal.AuthIntegrationTest
+2026-10-17T19:36:24.907+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AuthIntegrationTest]: AuthIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:24.910+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AuthIntegrationTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.887 s -- in com.community.meal.AuthIntegrationTest
+[INFO] Running com.community.meal.FileBusinessTest
+2026-10-17T19:36:26.795+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.FileBusinessTest]: FileBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:26.799+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.FileBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 s -- in com.community.meal.FileBusinessTest
+[INFO] Running com.community.meal.ProductSearchTest
+2026-10-17T19:36:27.028+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ProductSearchTest]: ProductSearchTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:27.031+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ProductSearchTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.216 s -- in com.community.meal.ProductSearchTest
+[INFO] Running com.community.meal.ModuleBoundaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s -- in com.community.meal.ModuleBoundaryTest
+[INFO] Running com.community.meal.PaymentNoticeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.community.meal.PaymentNoticeTest
+[INFO] Running com.community.meal.AlgorithmReplacementIntegrationTest
+2026-10-17T19:36:27.338+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AlgorithmReplacementIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T19:36:27.409+08:00  INFO 52283 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : Starting AlgorithmReplacementIntegrationTest using Java 17.0.20.1 with PID 52283 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T19:36:27.410+08:00  INFO 52283 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : The following 1 profile is active: "test"
+2026-10-17T19:36:27.864+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-10-17T19:36:27.885+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@126320a8
+2026-10-17T19:36:27.886+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-10-17T19:36:27.891+08:00  INFO 52283 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792236945_27637?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T19:36:27.899+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T19:36:27.921+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 9 migrations (execution time 00:00.018s)
+2026-10-17T19:36:27.935+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792236945_27637`: 9
+2026-10-17T19:36:27.936+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792236945_27637` is up to date. No migration necessary.
+2026-10-17T19:36:28.315+08:00  INFO 52283 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@17224bad
+2026-10-17T19:36:28.373+08:00  INFO 52283 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T19:36:28.373+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T19:36:28.374+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T19:36:28.385+08:00  INFO 52283 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : Started AlgorithmReplacementIntegrationTest in 1.032 seconds (process running for 23.728)
+2026-10-17T19:36:28.775+08:00 ERROR 52283 --- [elder-meal] [           main] c.c.meal.common.ApiExceptionHandler      : Unhandled request failure (IllegalStateException)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.588 s -- in com.community.meal.AlgorithmReplacementIntegrationTest
+[INFO] Running com.community.meal.ApiRouteCompatibilityTest
+2026-10-17T19:36:28.925+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ApiRouteCompatibilityTest]: ApiRouteCompatibilityTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:28.927+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ApiRouteCompatibilityTest
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"56"]
+             Body = {"username":"admin","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"7e7a0076-a1b9-48ed-86e9-cee585d5ad4c", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"mi-rPmMgSAoVqCAhUJGA38dsphycCf2XbwueYGzOzDA","expiresAt":"2026-10-17T19:36:28.960832704Z","user":{"id":11,"username":"admin","realName":"admin","phoneMasked":null,"roles":["ADMIN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"},{"id":2,"name":"测试第二网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"7e7a0076-a1b9-48ed-86e9-cee585d5ad4c"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"58"]
+             Body = {"username":"canteen","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"b0025e88-1da5-4bdc-a52b-3976a22b7554", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"iKAirjXBWsqVtPvgqRpgCM0bDq9tCEN85nZQQidmy7M","expiresAt":"2026-10-17T19:36:28.974445512Z","user":{"id":12,"username":"canteen","realName":"canteen","phoneMasked":null,"roles":["CANTEEN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"b0025e88-1da5-4bdc-a52b-3976a22b7554"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"57"]
+             Body = {"username":"family","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"6e7f76f5-3aab-4ef3-a2ae-8d6278986f48", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"Weg60oj2pQ2F1kESgEknhJRL6Xr2T5mIrFe5exXbNxw","expiresAt":"2026-10-17T19:36:28.986414720Z","user":{"id":13,"username":"family","realName":"family","phoneMasked":null,"roles":["FAMILY"],"sites":[],"deniedPermissions":[]}},"traceId":"6e7f76f5-3aab-4ef3-a2ae-8d6278986f48"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"60"]
+             Body = {"username":"community","password":"Testing-Password-2026!"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"d664777e-8fe8-431e-a4f0-d34c9f88fc5b", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"Kmi_3UepDWRSlIXttDprbljzL00Zd01CHRVy_Qog4sQ","expiresAt":"2026-10-17T19:36:28.997653727Z","user":{"id":14,"username":"community","realName":"community","phoneMasked":null,"roles":["COMMUNITY"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"d664777e-8fe8-431e-a4f0-d34c9f88fc5b"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.276 s <<< FAILURE! -- in com.community.meal.ApiRouteCompatibilityTest
+[ERROR] com.community.meal.ApiRouteCompatibilityTest.refactoredControllersPreserveAllDocumentedHttpOperations -- Time elapsed: 0.263 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual:
+  ["DELETE /allergens/{id}",
+    "DELETE /diet-rules/{id}",
+    "GET /allergens",
+    "GET /audit-logs",
+    "GET /auth/me",
+    "GET /auth/preferences",
+    "GET /billing",
+    "GET /bindings/pending",
+    "GET /dashboard/attendance-forecast",
+    "GET /dashboard/nutrition-stats",
+    "GET /dashboard/orders-trend",
+    "GET /dashboard/overview",
+    "GET /dashboard/recommendation-stats",
+    "GET /dashboard/revenue-subsidy",
+    "GET /diet-rules",
+    "GET /dish-categories",
+    "GET /dishes",
+    "GET /dishes/{id}",
+    "GET /elders",
+    "GET /elders/{id}",
+    "GET /elders/{id}/health",
+    "GET /elders/{id}/meal-history",
+    "GET /elders/{id}/nutrition-report",
+    "GET /elders/{id}/recommendations",
+    "GET /family/bindings",
+    "GET /files/{id}",
+    "GET /notices",
+    "GET /notices/{id}",
+    "GET /orders",
+    "GET /orders/{id}",
+    "GET /orders/{id}/payments",
+    "GET /orders/{id}/pickup-voucher",
+    "GET /payment/channels",
+    "GET /permissions",
+    "GET /recommendation-config",
+    "GET /refunds",
+    "GET /refunds/{id}",
+    "GET /reviews",
+    "GET /roles",
+    "GET /service-sites",
+    "GET /site-settings/{id}",
+    "GET /sites",
+    "GET /sites/{id}",
+    "GET /sites/{id}/closed-dates",
+    "GET /sites/{siteId}/attendance-history",
+    "GET /sites/{siteId}/delivery-list",
+    "GET /sites/{siteId}/forecasts",
+    "GET /sites/{siteId}/menus",
+    "GET /sites/{siteId}/preparation-list",
+    "GET /sites/{siteId}/reviews",
+    "GET /subsidy-applications",
+    "GET /subsidy-applications/{id}",
+    "GET /tickets",
+    "GET /tickets/{id}",
+    "GET /users",
+    "GET /users/{id}",
+    "GET /wallet",
+    "GET /wallet/transactions",
+    "PATCH /dishes/{id}/status",
+    "PATCH /orders/{id}/delivery-status",
+    "PATCH /orders/{id}/exception",
+    "PATCH /sites/{id}/status",
+    "PATCH /sites/{siteId}/menu-items/{id}/availability",
+    "PATCH /tickets/{id}/status",
+    "PATCH /users/{id}/status",
+    "POST /allergens",
+    "POST /auth/login",
+    "POST /auth/logout",
+    "POST /bindings/{id}/approve",
+    "POST /bindings/{id}/reject",
+    "POST /dev/payments/{id}/simulate-success",
+    "POST /dev/wallet/topups/{id}/confirm",
+    "POST /diet-rules",
+    "POST /dish-categories",
+    "POST /dishes",
+    "POST /elders",
+    "POST /family/bindings",
+    "POST /files/upload",
+    "POST /notices",
+    "POST /notices/{id}/publish",
+    "POST /notices/{id}/revoke",
+    "POST /orders",
+    "POST /orders/{id}/cancel",
+    "POST /orders/{id}/payments",
+    "POST /orders/{id}/ready",
+    "POST /orders/{id}/start-preparing",
+    "POST /proxy-orders/recurring",
+    "POST /redemptions/confirm",
+    "POST /redemptions/verify",
+    "POST /refunds/{id}/approve",
+    "POST /refunds/{id}/reject",
+    "POST /refunds/{id}/retry",
+    "POST /reviews",
+    "POST /sites",
+    "POST /sites/{siteId}/menus",
+    "POST /sites/{siteId}/menus/{id}/publish",
+    "POST /sites/{siteId}/menus/{id}/submit",
+    "POST /subsidy-applications",
+    "POST /subsidy-applications/{id}/approve",
+    "POST /subsidy-applications/{id}/reject",
+    "POST /tickets",
+    "POST /tickets/{id}/reply",
+    "POST /users",
+    "POST /users/{id}/reset-password",
+    "POST /wallet/topups",
+    "PUT /allergens/{id}",
+    "PUT /auth/password",
+    "PUT /auth/preferences",
+    "PUT /auth/profile",
+    "PUT /diet-rules/{id}",
+    "PUT /dish-categories/{id}",
+    "PUT /dishes/{id}",
+    "PUT /elders/{id}",
+    "PUT /elders/{id}/health",
+    "PUT /notices/{id}",
+    "PUT /recommendation-config",
+    "PUT /sites/{id}",
+    "PUT /sites/{id}/closed-dates",
+    "PUT /sites/{siteId}/menus/{id}",
+    "PUT /sites/{siteId}/preparation-list",
+    "PUT /users/{id}",
+    "PUT /users/{id}/permissions",
+    "PUT /users/{id}/roles",
+    "PUT /users/{id}/sites"]
+to contain exactly in any order:
+  ["DELETE /allergens/{id}",
+    "DELETE /diet-rules/{id}",
+    "GET /allergens",
+    "GET /audit-logs",
+    "GET /auth/me",
+    "GET /auth/preferences",
+    "GET /bindings/pending",
+    "GET /dashboard/attendance-forecast",
+    "GET /dashboard/nutrition-stats",
+    "GET /dashboard/orders-trend",
+    "GET /dashboard/overview",
+    "GET /dashboard/recommendation-stats",
+    "GET /dashboard/revenue-subsidy",
+    "GET /diet-rules",
+    "GET /dish-categories",
+    "GET /dishes",
+    "GET /dishes/{id}",
+    "GET /elders",
+    "GET /elders/{id}",
+    "GET /elders/{id}/health",
+    "GET /elders/{id}/meal-history",
+    "GET /elders/{id}/nutrition-report",
+    "GET /elders/{id}/recommendations",
+    "GET /family/bindings",
+    "GET /files/{id}",
+    "GET /notices",
+    "GET /notices/{id}",
+    "GET /orders",
+    "GET /orders/{id}",
+    "GET /orders/{id}/payments",
+    "GET /orders/{id}/pickup-voucher",
+    "GET /payment/channels",
+    "GET /permissions",
+    "GET /recommendation-config",
+    "GET /refunds",
+    "GET /refunds/{id}",
+    "GET /reviews",
+    "GET /roles",
+    "GET /service-sites",
+    "GET /site-settings/{id}",
+    "GET /sites",
+    "GET /sites/{id}",
+    "GET /sites/{id}/closed-dates",
+    "GET /sites/{siteId}/attendance-history",
+    "GET /sites/{siteId}/delivery-list",
+    "GET /sites/{siteId}/forecasts",
+    "GET /sites/{siteId}/menus",
+    "GET /sites/{siteId}/preparation-list",
+    "GET /sites/{siteId}/reviews",
+    "GET /subsidy-applications",
+    "GET /subsidy-applications/{id}",
+    "GET /tickets",
+    "GET /tickets/{id}",
+    "GET /users",
+    "GET /users/{id}",
+    "PATCH /dishes/{id}/status",
+    "PATCH /orders/{id}/delivery-status",
+    "PATCH /orders/{id}/exception",
+    "PATCH /sites/{id}/status",
+    "PATCH /sites/{siteId}/menu-items/{id}/availability",
+    "PATCH /tickets/{id}/status",
+    "PATCH /users/{id}/status",
+    "POST /allergens",
+    "POST /auth/login",
+    "POST /auth/logout",
+    "POST /bindings/{id}/approve",
+    "POST /bindings/{id}/reject",
+    "POST /dev/payments/{id}/simulate-success",
+    "POST /diet-rules",
+    "POST /dish-categories",
+    "POST /dishes",
+    "POST /elders",
+    "POST /family/bindings",
+    "POST /files/upload",
+    "POST /notices",
+    "POST /notices/{id}/publish",
+    "POST /notices/{id}/revoke",
+    "POST /orders",
+    "POST /orders/{id}/cancel",
+    "POST /orders/{id}/payments",
+    "POST /orders/{id}/ready",
+    "POST /orders/{id}/start-preparing",
+    "POST /proxy-orders/recurring",
+    "POST /redemptions/confirm",
+    "POST /redemptions/verify",
+    "POST /refunds/{id}/approve",
+    "POST /refunds/{id}/reject",
+    "POST /refunds/{id}/retry",
+    "POST /reviews",
+    "POST /sites",
+    "POST /sites/{siteId}/menus",
+    "POST /sites/{siteId}/menus/{id}/publish",
+    "POST /sites/{siteId}/menus/{id}/submit",
+    "POST /subsidy-applications",
+    "POST /subsidy-applications/{id}/approve",
+    "POST /subsidy-applications/{id}/reject",
+    "POST /tickets",
+    "POST /tickets/{id}/reply",
+    "POST /users",
+    "POST /users/{id}/reset-password",
+    "PUT /allergens/{id}",
+    "PUT /auth/password",
+    "PUT /auth/preferences",
+    "PUT /auth/profile",
+    "PUT /diet-rules/{id}",
+    "PUT /dish-categories/{id}",
+    "PUT /dishes/{id}",
+    "PUT /elders/{id}",
+    "PUT /elders/{id}/health",
+    "PUT /notices/{id}",
+    "PUT /recommendation-config",
+    "PUT /sites/{id}",
+    "PUT /sites/{id}/closed-dates",
+    "PUT /sites/{siteId}/menus/{id}",
+    "PUT /sites/{siteId}/preparation-list",
+    "PUT /users/{id}",
+    "PUT /users/{id}/permissions",
+    "PUT /users/{id}/roles",
+    "PUT /users/{id}/sites"]
+but the following elements were unexpected:
+  ["GET /billing",
+    "GET /wallet",
+    "GET /wallet/transactions",
+    "POST /dev/wallet/topups/{id}/confirm",
+    "POST /wallet/topups"]
+
+	at com.community.meal.ApiRouteCompatibilityTest.refactoredControllersPreserveAllDocumentedHttpOperations(ApiRouteCompatibilityTest.java:39)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[INFO] Running com.community.meal.ElderBusinessTest
+2026-10-17T19:36:29.202+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ElderBusinessTest]: ElderBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:29.207+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ElderBusinessTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.804 s -- in com.community.meal.ElderBusinessTest
+[INFO] Running com.community.meal.PreparationDegradationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.570 s -- in com.community.meal.PreparationDegradationTest
+[INFO] Running com.community.meal.AuthConcurrencyIntegrationTest
+2026-10-17T19:36:31.711+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AuthConcurrencyIntegrationTest]: AuthConcurrencyIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:31.776+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AuthConcurrencyIntegrationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.996 s -- in com.community.meal.AuthConcurrencyIntegrationTest
+[INFO] Running com.community.meal.DemoAccountsIntegrationTest
+2026-10-17T19:36:32.701+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.DemoAccountsIntegrationTest]: DemoAccountsIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:32.721+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.DemoAccountsIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T19:36:33.131+08:00  INFO 52283 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : Starting DemoAccountsIntegrationTest using Java 17.0.20.1 with PID 52283 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T19:36:33.134+08:00  INFO 52283 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : The following 2 profiles are active: "dev", "test"
+2026-10-17T19:36:35.238+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-10-17T19:36:35.430+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@25fc72c6
+2026-10-17T19:36:35.432+08:00  INFO 52283 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-10-17T19:36:35.469+08:00  INFO 52283 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792236945_27637?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T19:36:35.513+08:00  WARN 52283 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T19:36:35.591+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 9 migrations (execution time 00:00.067s)
+2026-10-17T19:36:35.650+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792236945_27637`: 9
+2026-10-17T19:36:35.654+08:00  INFO 52283 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792236945_27637` is up to date. No migration necessary.
+2026-10-17T19:36:36.973+08:00  INFO 52283 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@1305f8e3
+2026-10-17T19:36:37.105+08:00  INFO 52283 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T19:36:37.106+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T19:36:37.108+08:00  INFO 52283 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T19:36:37.152+08:00  INFO 52283 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : Started DemoAccountsIntegrationTest in 4.4 seconds (process running for 32.495)
+2026-10-17T19:36:37.259+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+2026-10-17T19:36:40.017+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+2026-10-17T19:36:40.612+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Upgraded 4 local demo accounts
+2026-10-17T19:36:40.645+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Upgraded 0 local demo accounts
+2026-10-17T19:36:40.692+08:00  INFO 52283 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.191 s -- in com.community.meal.DemoAccountsIntegrationTest
+[INFO] Running com.community.meal.WalletBusinessTest
+2026-10-17T19:36:40.894+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WalletBusinessTest]: WalletBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:40.900+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.308 s -- in com.community.meal.WalletBusinessTest
+[INFO] Running com.community.meal.NewPasswordPolicyTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in com.community.meal.NewPasswordPolicyTest
+[INFO] Running com.community.meal.WalletConcurrencyTest
+2026-10-17T19:36:43.241+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WalletConcurrencyTest]: WalletConcurrencyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:43.248+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletConcurrencyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.907 s -- in com.community.meal.WalletConcurrencyTest
+[INFO] Running com.community.meal.MenuForecastRecommendationTest
+2026-10-17T19:36:44.151+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.MenuForecastRecommendationTest]: MenuForecastRecommendationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:44.155+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.MenuForecastRecommendationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.281 s -- in com.community.meal.MenuForecastRecommendationTest
+[INFO] Running com.community.meal.OrderLifecycleTest
+2026-10-17T19:36:45.433+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.OrderLifecycleTest]: OrderLifecycleTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:45.436+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.OrderLifecycleTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.707 s -- in com.community.meal.OrderLifecycleTest
+[INFO] Running com.community.meal.DashboardBusinessTest
+2026-10-17T19:36:49.142+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.DashboardBusinessTest]: DashboardBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:49.146+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.DashboardBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 s -- in com.community.meal.DashboardBusinessTest
+[INFO] Running com.community.meal.AlgorithmEdgeTest
+2026-10-17T19:36:49.409+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AlgorithmEdgeTest]: AlgorithmEdgeTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:49.413+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AlgorithmEdgeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.360 s -- in com.community.meal.AlgorithmEdgeTest
+[INFO] Running com.community.meal.PrivateStorageTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s -- in com.community.meal.PrivateStorageTest
+[INFO] Running com.community.meal.CommunicationBusinessTest
+2026-10-17T19:36:49.829+08:00  INFO 52283 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.CommunicationBusinessTest]: CommunicationBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T19:36:49.833+08:00  INFO 52283 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.CommunicationBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.492 s -- in com.community.meal.CommunicationBusinessTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ApiRouteCompatibilityTest.refactoredControllersPreserveAllDocumentedHttpOperations:39 
+Expecting actual:
+  ["DELETE /allergens/{id}",
+    "DELETE /diet-rules/{id}",
+    "GET /allergens",
+    "GET /audit-logs",
+    "GET /auth/me",
+    "GET /auth/preferences",
+    "GET /billing",
+    "GET /bindings/pending",
+    "GET /dashboard/attendance-forecast",
+    "GET /dashboard/nutrition-stats",
+    "GET /dashboard/orders-trend",
+    "GET /dashboard/overview",
+    "GET /dashboard/recommendation-stats",
+    "GET /dashboard/revenue-subsidy",
+    "GET /diet-rules",
+    "GET /dish-categories",
+    "GET /dishes",
+    "GET /dishes/{id}",
+    "GET /elders",
+    "GET /elders/{id}",
+    "GET /elders/{id}/health",
+    "GET /elders/{id}/meal-history",
+    "GET /elders/{id}/nutrition-report",
+    "GET /elders/{id}/recommendations",
+    "GET /family/bindings",
+    "GET /files/{id}",
+    "GET /notices",
+    "GET /notices/{id}",
+    "GET /orders",
+    "GET /orders/{id}",
+    "GET /orders/{id}/payments",
+    "GET /orders/{id}/pickup-voucher",
+    "GET /payment/channels",
+    "GET /permissions",
+    "GET /recommendation-config",
+    "GET /refunds",
+    "GET /refunds/{id}",
+    "GET /reviews",
+    "GET /roles",
+    "GET /service-sites",
+    "GET /site-settings/{id}",
+    "GET /sites",
+    "GET /sites/{id}",
+    "GET /sites/{id}/closed-dates",
+    "GET /sites/{siteId}/attendance-history",
+    "GET /sites/{siteId}/delivery-list",
+    "GET /sites/{siteId}/forecasts",
+    "GET /sites/{siteId}/menus",
+    "GET /sites/{siteId}/preparation-list",
+    "GET /sites/{siteId}/reviews",
+    "GET /subsidy-applications",
+    "GET /subsidy-applications/{id}",
+    "GET /tickets",
+    "GET /tickets/{id}",
+    "GET /users",
+    "GET /users/{id}",
+    "GET /wallet",
+    "GET /wallet/transactions",
+    "PATCH /dishes/{id}/status",
+    "PATCH /orders/{id}/delivery-status",
+    "PATCH /orders/{id}/exception",
+    "PATCH /sites/{id}/status",
+    "PATCH /sites/{siteId}/menu-items/{id}/availability",
+    "PATCH /tickets/{id}/status",
+    "PATCH /users/{id}/status",
+    "POST /allergens",
+    "POST /auth/login",
+    "POST /auth/logout",
+    "POST /bindings/{id}/approve",
+    "POST /bindings/{id}/reject",
+    "POST /dev/payments/{id}/simulate-success",
+    "POST /dev/wallet/topups/{id}/confirm",
+    "POST /diet-rules",
+    "POST /dish-categories",
+    "POST /dishes",
+    "POST /elders",
+    "POST /family/bindings",
+    "POST /files/upload",
+    "POST /notices",
+    "POST /notices/{id}/publish",
+    "POST /notices/{id}/revoke",
+    "POST /orders",
+    "POST /orders/{id}/cancel",
+    "POST /orders/{id}/payments",
+    "POST /orders/{id}/ready",
+    "POST /orders/{id}/start-preparing",
+    "POST /proxy-orders/recurring",
+    "POST /redemptions/confirm",
+    "POST /redemptions/verify",
+    "POST /refunds/{id}/approve",
+    "POST /refunds/{id}/reject",
+    "POST /refunds/{id}/retry",
+    "POST /reviews",
+    "POST /sites",
+    "POST /sites/{siteId}/menus",
+    "POST /sites/{siteId}/menus/{id}/publish",
+    "POST /sites/{siteId}/menus/{id}/submit",
+    "POST /subsidy-applications",
+    "POST /subsidy-applications/{id}/approve",
+    "POST /subsidy-applications/{id}/reject",
+    "POST /tickets",
+    "POST /tickets/{id}/reply",
+    "POST /users",
+    "POST /users/{id}/reset-password",
+    "POST /wallet/topups",
+    "PUT /allergens/{id}",
+    "PUT /auth/password",
+    "PUT /auth/preferences",
+    "PUT /auth/profile",
+    "PUT /diet-rules/{id}",
+    "PUT /dish-categories/{id}",
+    "PUT /dishes/{id}",
+    "PUT /elders/{id}",
+    "PUT /elders/{id}/health",
+    "PUT /notices/{id}",
+    "PUT /recommendation-config",
+    "PUT /sites/{id}",
+    "PUT /sites/{id}/closed-dates",
+    "PUT /sites/{siteId}/menus/{id}",
+    "PUT /sites/{siteId}/preparation-list",
+    "PUT /users/{id}",
+    "PUT /users/{id}/permissions",
+    "PUT /users/{id}/roles",
+    "PUT /users/{id}/sites"]
+to contain exactly in any order:
+  ["DELETE /allergens/{id}",
+    "DELETE /diet-rules/{id}",
+    "GET /allergens",
+    "GET /audit-logs",
+    "GET /auth/me",
+    "GET /auth/preferences",
+    "GET /bindings/pending",
+    "GET /dashboard/attendance-forecast",
+    "GET /dashboard/nutrition-stats",
+    "GET /dashboard/orders-trend",
+    "GET /dashboard/overview",
+    "GET /dashboard/recommendation-stats",
+    "GET /dashboard/revenue-subsidy",
+    "GET /diet-rules",
+    "GET /dish-categories",
+    "GET /dishes",
+    "GET /dishes/{id}",
+    "GET /elders",
+    "GET /elders/{id}",
+    "GET /elders/{id}/health",
+    "GET /elders/{id}/meal-history",
+    "GET /elders/{id}/nutrition-report",
+    "GET /elders/{id}/recommendations",
+    "GET /family/bindings",
+    "GET /files/{id}",
+    "GET /notices",
+    "GET /notices/{id}",
+    "GET /orders",
+    "GET /orders/{id}",
+    "GET /orders/{id}/payments",
+    "GET /orders/{id}/pickup-voucher",
+    "GET /payment/channels",
+    "GET /permissions",
+    "GET /recommendation-config",
+    "GET /refunds",
+    "GET /refunds/{id}",
+    "GET /reviews",
+    "GET /roles",
+    "GET /service-sites",
+    "GET /site-settings/{id}",
+    "GET /sites",
+    "GET /sites/{id}",
+    "GET /sites/{id}/closed-dates",
+    "GET /sites/{siteId}/attendance-history",
+    "GET /sites/{siteId}/delivery-list",
+    "GET /sites/{siteId}/forecasts",
+    "GET /sites/{siteId}/menus",
+    "GET /sites/{siteId}/preparation-list",
+    "GET /sites/{siteId}/reviews",
+    "GET /subsidy-applications",
+    "GET /subsidy-applications/{id}",
+    "GET /tickets",
+    "GET /tickets/{id}",
+    "GET /users",
+    "GET /users/{id}",
+    "PATCH /dishes/{id}/status",
+    "PATCH /orders/{id}/delivery-status",
+    "PATCH /orders/{id}/exception",
+    "PATCH /sites/{id}/status",
+    "PATCH /sites/{siteId}/menu-items/{id}/availability",
+    "PATCH /tickets/{id}/status",
+    "PATCH /users/{id}/status",
+    "POST /allergens",
+    "POST /auth/login",
+    "POST /auth/logout",
+    "POST /bindings/{id}/approve",
+    "POST /bindings/{id}/reject",
+    "POST /dev/payments/{id}/simulate-success",
+    "POST /diet-rules",
+    "POST /dish-categories",
+    "POST /dishes",
+    "POST /elders",
+    "POST /family/bindings",
+    "POST /files/upload",
+    "POST /notices",
+    "POST /notices/{id}/publish",
+    "POST /notices/{id}/revoke",
+    "POST /orders",
+    "POST /orders/{id}/cancel",
+    "POST /orders/{id}/payments",
+    "POST /orders/{id}/ready",
+    "POST /orders/{id}/start-preparing",
+    "POST /proxy-orders/recurring",
+    "POST /redemptions/confirm",
+    "POST /redemptions/verify",
+    "POST /refunds/{id}/approve",
+    "POST /refunds/{id}/reject",
+    "POST /refunds/{id}/retry",
+    "POST /reviews",
+    "POST /sites",
+    "POST /sites/{siteId}/menus",
+    "POST /sites/{siteId}/menus/{id}/publish",
+    "POST /sites/{siteId}/menus/{id}/submit",
+    "POST /subsidy-applications",
+    "POST /subsidy-applications/{id}/approve",
+    "POST /subsidy-applications/{id}/reject",
+    "POST /tickets",
+    "POST /tickets/{id}/reply",
+    "POST /users",
+    "POST /users/{id}/reset-password",
+    "PUT /allergens/{id}",
+    "PUT /auth/password",
+    "PUT /auth/preferences",
+    "PUT /auth/profile",
+    "PUT /diet-rules/{id}",
+    "PUT /dish-categories/{id}",
+    "PUT /dishes/{id}",
+    "PUT /elders/{id}",
+    "PUT /elders/{id}/health",
+    "PUT /notices/{id}",
+    "PUT /recommendation-config",
+    "PUT /sites/{id}",
+    "PUT /sites/{id}/closed-dates",
+    "PUT /sites/{siteId}/menus/{id}",
+    "PUT /sites/{siteId}/preparation-list",
+    "PUT /users/{id}",
+    "PUT /users/{id}/permissions",
+    "PUT /users/{id}/roles",
+    "PUT /users/{id}/sites"]
+but the following elements were unexpected:
+  ["GET /billing",
+    "GET /wallet",
+    "GET /wallet/transactions",
+    "POST /dev/wallet/topups/{id}/confirm",
+    "POST /wallet/topups"]
+
+[INFO] 
+[ERROR] Tests run: 95, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for elder-meal-parent 1.0.0:
+[INFO] 
+[INFO] elder-meal-parent .................................. SUCCESS [  0.006 s]
+[INFO] meal-contracts ..................................... SUCCESS [  2.667 s]
+[INFO] meal-algorithms .................................... SUCCESS [  2.062 s]
+[INFO] elder-meal-server .................................. FAILURE [ 56.019 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:01 min
+[INFO] Finished at: 2026-10-17T19:36:50+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project elder-meal-server: There are test failures.
+[ERROR] 
+[ERROR] See /home/huyuanhai/project/server/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :elder-meal-server

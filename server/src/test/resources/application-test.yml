@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: ${TEST_DB_URL}
+app:
+  encryption-key: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+  upload-path: ./target/test-private-files
+  # Contract regressions use explicit defaults even when local dev selects another plugin.
+  algorithms:
+    forecast: weekday_average_v1
+    recommendation: weighted_score_v1
+  auth:
+    password-strength: 4

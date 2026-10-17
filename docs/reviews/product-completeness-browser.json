@@ -1,0 +1,69 @@
+{
+  "baseURL": "http://192.168.0.128:5173",
+  "checkedAt": "2026-10-17T11:16:18.990Z",
+  "results": [
+    {
+      "role": "admin",
+      "path": "/admin/dishes",
+      "tab": null,
+      "beforeTotal": 20,
+      "afterTotal": 0,
+      "responseTotal": 0,
+      "searchWorks": true
+    },
+    {
+      "role": "admin",
+      "path": "/admin/dishes",
+      "tab": "分类",
+      "beforeTotal": 20,
+      "afterTotal": 20,
+      "responseTotal": 20,
+      "searchWorks": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/sites",
+      "tab": null,
+      "beforeTotal": 26,
+      "afterTotal": 26,
+      "responseTotal": 26,
+      "searchWorks": false
+    },
+    {
+      "role": "family",
+      "path": "/family/reviews",
+      "tab": null,
+      "beforeTotal": 17,
+      "afterTotal": 17,
+      "responseTotal": 17,
+      "searchWorks": false
+    },
+    {
+      "role": "family",
+      "path": "/family/tickets",
+      "tab": null,
+      "beforeTotal": 17,
+      "afterTotal": 17,
+      "responseTotal": 17,
+      "searchWorks": false
+    },
+    {
+      "role": "community",
+      "path": "/community/subsidies",
+      "tab": null,
+      "beforeTotal": 17,
+      "afterTotal": 17,
+      "responseTotal": 17,
+      "searchWorks": false
+    },
+    {
+      "role": "canteen",
+      "path": "/canteen/reviews",
+      "tab": null,
+      "beforeTotal": 17,
+      "afterTotal": 17,
+      "responseTotal": 17,
+      "searchWorks": false
+    }
+  ]
+}

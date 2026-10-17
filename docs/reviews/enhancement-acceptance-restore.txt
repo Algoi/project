@@ -1,0 +1,3 @@
+恢复演练通过：校验和、附件、订单/支付/退款/钱包/文件记录、金额汇总、迁移版本及五项钱包对账均正确。
+{"orders": "145.00", "successful_payments": "117.00", "successful_refunds": "16.00", "wallet_ledger": "6.00", "files": "28.00", "paid_amount": "1196.00", "refund_amount": "192.00", "subsidy_net": "418.00", "wallet_balances": "200.00", "migration_version": "11.00"}
+演练仅使用独立临时数据库，完成后自动删除，当前项目数据未覆盖。

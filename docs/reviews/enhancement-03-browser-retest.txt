@@ -1,0 +1,19 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/workplace.spec.ts
+
+
+Running 2 tests using 1 worker
+
+(node:61063) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61063) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 (29.7s)
+(node:61859) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61859) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 (17.9s)
+
+  2 passed (53.2s)

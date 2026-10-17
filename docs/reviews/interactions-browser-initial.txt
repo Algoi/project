@@ -1,0 +1,59 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test --project=desktop e2e/interactions.spec.ts
+
+
+Running 4 tests using 1 worker
+
+(node:28037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.3s)
+  ✓  2 [desktop] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.0s)
+  ✘  3 [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (10.0s)
+(node:28411) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28411) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [desktop] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (6.3s)
+
+
+  1) [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 ───────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('main h1').first()
+    Expected: [32m"我的评价"[39m
+    Received: [31m"我的[7m菜品[27m评价"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveText" with timeout 5000ms[22m
+    [2m  - waiting for locator('main h1').first()[22m
+    [2m    9 × locator resolved to <h1>我的菜品评价</h1>[22m
+    [2m      - unexpected value "我的菜品评价"[22m
+
+
+      38 |       await page.getByRole('navigation', { name: '主要导航' }).getByRole('link', { name: item.label, exact: true }).click()
+      39 |       await expect(page).toHaveURL(new RegExp(`${item.path}$`))
+    > 40 |       await expect(page.locator('main h1').first()).toHaveText(headings[item.path]!)
+         |                                                     ^
+      41 |       await page.waitForLoadState('networkidle')
+      42 |       await expect(page.locator('main .el-alert--error')).toHaveCount(0)
+      43 |     }
+        at /home/huyuanhai/project/web/e2e/interactions.spec.ts:40:53
+
+    Error Context: test-results/interactions-family-通过真实菜单点击切换全部业务页面，地址、标题与选中项同步-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/interactions-family-通过真实菜单点击切换全部业务页面，地址、标题与选中项同步-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/interactions-family-通过真实菜单点击切换全部业务页面，地址、标题与选中项同步-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 ────────────────
+  3 passed (30.9s)

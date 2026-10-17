@@ -1,0 +1,35 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/utils/export.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/utils/export.test.ts [ src/utils/export.test.ts ]
+Error: Failed to resolve import "./export" from "src/utils/export.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/huyuanhai/project/web/src/utils/export.test.ts:2:0
+  1  |  vi.mock("../api/http", () => ({ http: { get: vi.fn() } }));
+  2  |  const __vi_import_0__ = await import("./export");
+     |                                       ^
+  3  |  const __vi_import_1__ = await import("../api/http");
+  4  |  import { it, expect, vi } from "vitest";
+ ❯ TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/config.js:31106:43
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/config.js:31103:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/config.js:29590:18
+ ❯ node_modules/vite/dist/node/chunks/config.js:29648:32
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/config.js:29616:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/config.js:30905:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/config.js:26043:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  19:50:43
+   Duration  4.04s (transform 88ms, setup 0ms, collect 0ms, tests 0ms, environment 1.35s, prepare 336ms)
+

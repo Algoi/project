@@ -1,0 +1,4 @@
+
+> elder-meal-web@1.0.0 typecheck
+> vue-tsc --noEmit
+

@@ -1,0 +1,6 @@
+<script setup lang="ts">
+import {ref,watch} from 'vue';import {http} from '../../api/http';import {useAuthStore} from '../../stores/auth'
+const props=defineProps<{role:string}>(),auth=useAuthStore(),tasks=ref<{label:string;count:number;path:string}[]>([]),error=ref(''),pending=ref(false);let generation=0
+async function load(){const g=++generation;pending.value=true;error.value='';try{const data=await http.get<never,{tasks:typeof tasks.value}>('/workbench',{params:{role:props.role,...props.role!=='FAMILY'&&auth.currentSiteId?{siteId:auth.currentSiteId}:{}}});if(g===generation)tasks.value=data.tasks}catch(e){if(g===generation)error.value=(e as Error).message}finally{if(g===generation)pending.value=false}}
+watch(()=>[props.role,auth.currentSiteId],load,{immediate:true})
+</script><template><section class="content-card" style="margin-bottom:24px"><h2>待办工作台</h2><p v-if="pending" role="status">正在核对待办…</p><template v-else-if="error"><el-alert :title="error" type="error" :closable="false"/><el-button @click="load">重试待办</el-button></template><div v-else class="info-grid"><router-link v-for="task in tasks" :key="task.label" :to="task.path" class="content-card"><strong style="font-size:26px">{{task.count}}</strong><p>{{task.label}} →</p></router-link></div></section></template>

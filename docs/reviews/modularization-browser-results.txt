@@ -1,0 +1,49 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test
+
+
+Running 32 tests using 1 worker
+
+(node:11193) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11193) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (5.5s)
+  ✓   2 [desktop] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (8.6s)
+  ✓   3 [desktop] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (2.0s)
+  ✓   4 [desktop] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (2.2s)
+  ✓   5 [desktop] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (2.2s)
+  ✓   6 [desktop] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (2.2s)
+  ✓   7 [desktop] › e2e/auth.spec.ts:31:1 › 登录失败有明确反馈，匿名访问受保护路由被拦截 (1.2s)
+  ✓   8 [desktop] › e2e/auth.spec.ts:41:1 › 家属可修改个人信息并使用大字模式 (1.9s)
+  ✓   9 [desktop] › e2e/auth.spec.ts:57:1 › 修改密码后退出全部会话并要求重新登录 (4.6s)
+  ✓  10 [desktop] › e2e/auth.spec.ts:86:1 › 旧账号名称不能再登录 (1.2s)
+  ✓  11 [desktop] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (24.7s)
+  ✓  12 [desktop] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (9.8s)
+  ✓  13 [desktop] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (32.5s)
+  ✓  14 [desktop] › e2e/workflows.spec.ts:13:1 › 社区网页完成全额退款、配送送达和周期逐日代订 (12.8s)
+  ✓  15 [desktop] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (8.1s)
+  ✓  16 [desktop] › e2e/workflows.spec.ts:19:1 › 管理员网页发布定向重要公告并撤回，规则参数可保存生效 (7.9s)
+(node:12665) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12665) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (5.2s)
+  ✓  18 [mobile] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (8.8s)
+  ✓  19 [mobile] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (2.0s)
+  ✓  20 [mobile] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (2.4s)
+  ✓  21 [mobile] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (2.4s)
+  ✓  22 [mobile] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (2.2s)
+  ✓  23 [mobile] › e2e/auth.spec.ts:31:1 › 登录失败有明确反馈，匿名访问受保护路由被拦截 (1.1s)
+  ✓  24 [mobile] › e2e/auth.spec.ts:41:1 › 家属可修改个人信息并使用大字模式 (1.8s)
+  ✓  25 [mobile] › e2e/auth.spec.ts:57:1 › 修改密码后退出全部会话并要求重新登录 (3.6s)
+  ✓  26 [mobile] › e2e/auth.spec.ts:86:1 › 旧账号名称不能再登录 (1.2s)
+  ✓  27 [mobile] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (20.8s)
+  ✓  28 [mobile] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (7.4s)
+  ✓  29 [mobile] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (31.2s)
+  ✓  30 [mobile] › e2e/workflows.spec.ts:13:1 › 社区网页完成全额退款、配送送达和周期逐日代订 (12.5s)
+  ✓  31 [mobile] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (7.2s)
+  ✓  32 [mobile] › e2e/workflows.spec.ts:19:1 › 管理员网页发布定向重要公告并撤回，规则参数可保存生效 (7.4s)
+
+  32 passed (4.1m)

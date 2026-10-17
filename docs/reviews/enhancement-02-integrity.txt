@@ -1,0 +1,10 @@
+test	failures
+wallet_balance_mismatch	0
+test	failures
+wallet_running_balance_mismatch	0
+test	failures
+wallet_payment_mismatch	0
+test	failures
+wallet_topup_mismatch	0
+test	failures
+wallet_refund_mismatch	0

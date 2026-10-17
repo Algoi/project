@@ -1,0 +1,55 @@
+社区老年助餐系统 — 第 1 批测试结果
+执行日期：2026-10-17（Asia/Shanghai）
+
+环境实测
+Java: OpenJDK 17.0.20.1
+Maven / Maven Wrapper: 3.9.11
+Node.js: 22.22.1
+npm: 10.9.4
+MySQL: 8.4.11-0ubuntu0.26.04.1
+
+测试先行证据
+未实现认证的工程快照：22 tests, 22 failures, 0 errors，符合预期。
+权限撤销回归：首次发现查询缓存导致返回旧授权；修正后通过。
+前端会话竞态：先确认清除会话后旧响应恢复身份的测试失败，再修正。
+多角色身份保持：先确认期望 COMMUNITY、实际 undefined，再修正。
+HTTP 方法错误：先确认期望 405、实际 500，再修正。
+
+最终后端
+命令：./scripts/test-server.sh clean verify
+AuthIntegrationTest: 29 tests, 0 failures, 0 errors, 0 skipped
+AuthConcurrencyIntegrationTest: 2 tests, 0 failures, 0 errors, 0 skipped
+合计：31 tests, 0 failures, 0 errors, 0 skipped
+BUILD SUCCESS，已生成可启动 JAR。
+后端每次测试均使用独立临时 MySQL 数据库；结束后确认无 elder_meal_test_* / elder_meal_red_* 遗留库。
+
+最终前端
+npm ci：成功，锁定文件可复现安装。
+npm run typecheck：成功。
+npm test：3 test files passed; 11 tests passed。
+npm run build：成功；存在单个组件入口包体积超过 500 kB 的非阻断提示。
+
+最终浏览器
+命令：WEB_BASE_URL=http://127.0.0.1:4173 npm run test:e2e（先加载本地环境）
+后端：最终构建的 Spring Boot JAR，dev profile，端口 8080。
+前端：最终 dist 构建产物，Vite Preview，端口 4173。
+浏览器：本机 Google Chrome，Playwright 1.56.1。
+桌面：7 passed。
+手机 Pixel 7 视口：7 passed。
+合计：14 passed (31.5s)，无失败或跳过。
+覆盖：四角色登录、刷新恢复、越权页面拦截、账号页、退出、匿名拦截、登录错误反馈、资料保存、大字、改密重新登录。
+桌面和手机账号页截图已实际查看；两种视口均无横向溢出。
+改密用例执行后已恢复演示账号原密码。
+
+审核结论
+第 1 批测试与代码自查通过，停在用户阶段审核检查点。
+第 2–12 批未开始。原 33 项完整业务功能仍未验收。
+
+构建产物 SHA-256
+server/target/elder-meal-server-1.0.0.jar
+93bf42bca510b893b38d7a2a00a8f1ec2d233344c790a160389d4963aa7ce99d
+web/dist/index.html
+0ea09c18afbf575049aa9d3a5ca5868e054f523dc71f82c5974681c1607e71ab
+
+已知提示：Flyway 对 MySQL 8.4 发出其已验证版本范围提示；实际空库迁移、集成测试、JAR 重启迁移校验均成功。未更换文档固定依赖。
+审核说明：docs/reviews/batch-01.md

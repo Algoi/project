@@ -1,0 +1,37 @@
+
+> elder-meal-web@1.0.0 test
+> vitest run --run src/features/ordering/OrderNew.test.ts
+
+
+ RUN  v3.2.7 /home/huyuanhai/project/web
+
+ ❯ src/features/ordering/OrderNew.test.ts (3 tests | 1 failed) 380ms
+   × 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键 27ms
+     → crypto.randomUUID is not a function
+   ✓ 切换日期时清空旧菜品并禁用提交，较早请求迟到不能覆盖新日期 261ms
+   ✓ 已加载候选在新日期加载期间不可选择，恢复后只使用新菜品编号 90ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/ordering/OrderNew.test.ts > 局域网 HTTP 没有 randomUUID 时仍可加载推荐，重试沿用防重键、切换日期生成新键
+TypeError: crypto.randomUUID is not a function
+ ❯ setup src/features/ordering/OrderNew.vue:3:417
+
+ ❯ callWithErrorHandling node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:19
+ ❯ setupStatefulComponent node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:7934:25
+ ❯ setupComponent node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:7895:36
+ ❯ mountComponent node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:5225:7
+ ❯ processComponent node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:5191:9
+ ❯ patch node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:4718:11
+ ❯ ReactiveEffect.componentUpdateFn [as fn] node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:5337:11
+ ❯ ReactiveEffect.run node_modules/@vue/reactivity/dist/reactivity.cjs.js:241:19
+ ❯ setupRenderEffect node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:5465:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  15:04:15
+   Duration  2.92s (transform 292ms, setup 0ms, collect 1.10s, tests 380ms, environment 570ms, prepare 167ms)
+

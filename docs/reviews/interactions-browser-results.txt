@@ -1,0 +1,25 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test e2e/interactions.spec.ts
+
+
+Running 8 tests using 1 worker
+
+(node:28613) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28613) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.6s)
+  ✓  2 [desktop] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.2s)
+  ✓  3 [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.8s)
+  ✓  4 [desktop] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (6.4s)
+(node:28993) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28993) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.7s)
+  ✓  6 [mobile] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.1s)
+  ✓  7 [mobile] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (5.5s)
+  ✓  8 [mobile] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (6.6s)
+
+  8 passed (49.3s)

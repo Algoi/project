@@ -1,0 +1,1142 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] elder-meal-parent                                                  [pom]
+[INFO] meal-contracts                                                     [jar]
+[INFO] meal-algorithms                                                    [jar]
+[INFO] elder-meal-server                                                  [jar]
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-parent >-------------------
+[INFO] Building elder-meal-parent 1.0.0                                   [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.community:meal-contracts >--------------------
+[INFO] Building meal-contracts 1.0.0                                      [2/4]
+[INFO]   from contracts/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-contracts ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-contracts ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/contracts/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-contracts ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-contracts ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -------------------< com.community:meal-algorithms >--------------------
+[INFO] Building meal-algorithms 1.0.0                                     [3/4]
+[INFO]   from algorithms/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ meal-algorithms ---
+[INFO] skip non existing resourceDirectory /home/huyuanhai/project/algorithms/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ meal-algorithms ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ meal-algorithms ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.algorithms.ForecastBacktestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s -- in com.community.meal.algorithms.ForecastBacktestTest
+[INFO] Running com.community.meal.algorithms.AlgorithmContractTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s -- in com.community.meal.algorithms.AlgorithmContractTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------------< com.community:elder-meal-server >-------------------
+[INFO] Building elder-meal-server 1.0.0                                   [4/4]
+[INFO]   from server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ elder-meal-server ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 12 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 103 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ elder-meal-server ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ elder-meal-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 28 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java uses unchecked or unsafe operations.
+[INFO] /home/huyuanhai/project/server/src/test/java/com/community/meal/ApiRouteCompatibilityTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ elder-meal-server ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.community.meal.AdminBusinessTest
+20:00:51.392 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.community.meal.AdminBusinessTest]: AdminBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:00:51.703 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AdminBusinessTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:00:52.596+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : Starting AdminBusinessTest using Java 17.0.20.1 with PID 66564 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:00:52.600+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : The following 1 profile is active: "test"
+2026-10-17T20:00:55.805+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-17T20:00:56.548+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eabe718
+2026-10-17T20:00:56.553+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-17T20:00:56.648+08:00  INFO 66564 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238427_20255?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:00:56.701+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:00:56.790+08:00  INFO 66564 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table `elder_meal_test_1792238427_20255`.`flyway_schema_history` does not exist yet
+2026-10-17T20:00:56.799+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.073s)
+2026-10-17T20:00:56.848+08:00  INFO 66564 --- [elder-meal] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table `elder_meal_test_1792238427_20255`.`flyway_schema_history` ...
+2026-10-17T20:00:57.028+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238427_20255`: << Empty Schema >>
+2026-10-17T20:00:57.123+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "1 - initial schema"
+2026-10-17T20:00:57.567+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:57.622+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:57.714+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:57.860+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:58.105+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:58.135+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:58.135+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:58.319+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Integer display width is deprecated and will be removed in a future release. (SQL State: HY000 - Error Code: 1681)
+2026-10-17T20:00:58.390+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "2 - auth sessions"
+2026-10-17T20:00:58.467+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "3 - admin catalog"
+2026-10-17T20:00:58.741+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "4 - elder health files"
+2026-10-17T20:00:58.955+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "5 - menu recommendation details"
+2026-10-17T20:00:59.115+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "6 - order integrity"
+2026-10-17T20:00:59.405+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "7 - demo marker"
+2026-10-17T20:00:59.464+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "8 - algorithm identity"
+2026-10-17T20:00:59.549+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "9 - wallet"
+2026-10-17T20:00:59.686+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "10 - workplace"
+2026-10-17T20:00:59.832+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema `elder_meal_test_1792238427_20255` to version "11 - lifecycle and menu templates"
+2026-10-17T20:01:00.030+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 11 migrations to schema `elder_meal_test_1792238427_20255`, now at version v11 (execution time 00:02.488s)
+2026-10-17T20:01:03.609+08:00  INFO 66564 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@35f8a9d3
+2026-10-17T20:01:04.022+08:00  INFO 66564 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:01:04.024+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:01:04.027+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-17T20:01:04.111+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.AdminBusinessTest     : Started AdminBusinessTest in 12.163 seconds (process running for 14.543)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.48 s -- in com.community.meal.AdminBusinessTest
+[INFO] Running com.community.meal.ProductionBoundaryTest
+2026-10-17T20:01:07.535+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ProductionBoundaryTest]: ProductionBoundaryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:07.545+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ProductionBoundaryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:01:07.624+08:00  INFO 66564 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : Starting ProductionBoundaryTest using Java 17.0.20.1 with PID 66564 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:01:07.625+08:00  INFO 66564 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : The following 2 profiles are active: "prod", "test"
+2026-10-17T20:01:08.301+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-17T20:01:08.337+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e214d39
+2026-10-17T20:01:08.338+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-17T20:01:08.348+08:00  INFO 66564 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238427_20255?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:01:08.363+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:01:08.400+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.033s)
+2026-10-17T20:01:08.427+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238427_20255`: 11
+2026-10-17T20:01:08.430+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792238427_20255` is up to date. No migration necessary.
+2026-10-17T20:01:09.174+08:00  INFO 66564 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@2c376461
+2026-10-17T20:01:09.285+08:00  INFO 66564 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:01:09.286+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:01:09.288+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-17T20:01:09.311+08:00  INFO 66564 --- [elder-meal] [           main] c.community.meal.ProductionBoundaryTest  : Started ProductionBoundaryTest in 1.752 seconds (process running for 19.743)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.140 s -- in com.community.meal.ProductionBoundaryTest
+[INFO] Running com.community.meal.OrderConcurrencyBusinessTest
+2026-10-17T20:01:09.681+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.OrderConcurrencyBusinessTest]: OrderConcurrencyBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:09.689+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.OrderConcurrencyBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.865 s -- in com.community.meal.OrderConcurrencyBusinessTest
+[INFO] Running com.community.meal.AuthIntegrationTest
+2026-10-17T20:01:10.547+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AuthIntegrationTest]: AuthIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:10.553+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AuthIntegrationTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.976 s -- in com.community.meal.AuthIntegrationTest
+[INFO] Running com.community.meal.FileBusinessTest
+2026-10-17T20:01:12.529+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.FileBusinessTest]: FileBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:12.535+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.FileBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.240 s -- in com.community.meal.FileBusinessTest
+[INFO] Running com.community.meal.ProductSearchTest
+2026-10-17T20:01:12.771+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ProductSearchTest]: ProductSearchTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:12.776+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ProductSearchTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 s -- in com.community.meal.ProductSearchTest
+[INFO] Running com.community.meal.ModuleBoundaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.070 s -- in com.community.meal.ModuleBoundaryTest
+[INFO] Running com.community.meal.PaymentNoticeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.community.meal.PaymentNoticeTest
+[INFO] Running com.community.meal.AlgorithmReplacementIntegrationTest
+2026-10-17T20:01:13.060+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AlgorithmReplacementIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:01:13.126+08:00  INFO 66564 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : Starting AlgorithmReplacementIntegrationTest using Java 17.0.20.1 with PID 66564 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:01:13.127+08:00  INFO 66564 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : The following 1 profile is active: "test"
+2026-10-17T20:01:13.630+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-10-17T20:01:13.662+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5188c0f2
+2026-10-17T20:01:13.663+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-10-17T20:01:13.669+08:00  INFO 66564 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238427_20255?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:01:13.679+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:01:13.708+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.026s)
+2026-10-17T20:01:13.725+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238427_20255`: 11
+2026-10-17T20:01:13.726+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792238427_20255` is up to date. No migration necessary.
+2026-10-17T20:01:14.153+08:00  INFO 66564 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@7e147828
+2026-10-17T20:01:14.229+08:00  INFO 66564 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:01:14.229+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:01:14.230+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T20:01:14.245+08:00  INFO 66564 --- [elder-meal] [           main] .c.m.AlgorithmReplacementIntegrationTest : Started AlgorithmReplacementIntegrationTest in 1.178 seconds (process running for 24.677)
+2026-10-17T20:01:14.675+08:00 ERROR 66564 --- [elder-meal] [           main] c.c.meal.common.ApiExceptionHandler      : Unhandled request failure (IllegalStateException)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.782 s -- in com.community.meal.AlgorithmReplacementIntegrationTest
+[INFO] Running com.community.meal.ApiRouteCompatibilityTest
+2026-10-17T20:01:14.837+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ApiRouteCompatibilityTest]: ApiRouteCompatibilityTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:14.841+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ApiRouteCompatibilityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.230 s -- in com.community.meal.ApiRouteCompatibilityTest
+[INFO] Running com.community.meal.WorkplaceBusinessTest
+2026-10-17T20:01:15.070+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WorkplaceBusinessTest]: WorkplaceBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:15.074+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WorkplaceBusinessTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.681 s -- in com.community.meal.WorkplaceBusinessTest
+[INFO] Running com.community.meal.ElderBusinessTest
+2026-10-17T20:01:16.752+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.ElderBusinessTest]: ElderBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:16.755+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.ElderBusinessTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.618 s -- in com.community.meal.ElderBusinessTest
+[INFO] Running com.community.meal.PreparationDegradationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.674 s -- in com.community.meal.PreparationDegradationTest
+[INFO] Running com.community.meal.AuthConcurrencyIntegrationTest
+2026-10-17T20:01:19.167+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AuthConcurrencyIntegrationTest]: AuthConcurrencyIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:19.216+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AuthConcurrencyIntegrationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.845 s -- in com.community.meal.AuthConcurrencyIntegrationTest
+[INFO] Running com.community.meal.DemoAccountsIntegrationTest
+2026-10-17T20:01:20.000+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.DemoAccountsIntegrationTest]: DemoAccountsIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:20.031+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.DemoAccountsIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-17T20:01:20.451+08:00  INFO 66564 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : Starting DemoAccountsIntegrationTest using Java 17.0.20.1 with PID 66564 (started by huyuanhai in /home/huyuanhai/project/server)
+2026-10-17T20:01:20.452+08:00  INFO 66564 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : The following 2 profiles are active: "dev", "test"
+2026-10-17T20:01:22.318+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-10-17T20:01:22.519+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c4ffcf0
+2026-10-17T20:01:22.522+08:00  INFO 66564 --- [elder-meal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-10-17T20:01:22.545+08:00  INFO 66564 --- [elder-meal] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://127.0.0.1:3306/elder_meal_test_1792238427_20255?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true (MySQL 8.4)
+2026-10-17T20:01:22.578+08:00  WARN 66564 --- [elder-meal] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2026-10-17T20:01:22.669+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 11 migrations (execution time 00:00.078s)
+2026-10-17T20:01:22.733+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `elder_meal_test_1792238427_20255`: 11
+2026-10-17T20:01:22.740+08:00  INFO 66564 --- [elder-meal] [           main] o.f.core.internal.command.DbMigrate      : Schema `elder_meal_test_1792238427_20255` is up to date. No migration necessary.
+2026-10-17T20:01:24.022+08:00  INFO 66564 --- [elder-meal] [           main] b.m.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@6dad9f5e
+2026-10-17T20:01:24.144+08:00  INFO 66564 --- [elder-meal] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-17T20:01:24.145+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-17T20:01:24.147+08:00  INFO 66564 --- [elder-meal] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-17T20:01:24.185+08:00  INFO 66564 --- [elder-meal] [           main] c.c.meal.DemoAccountsIntegrationTest     : Started DemoAccountsIntegrationTest in 4.135 seconds (process running for 34.617)
+2026-10-17T20:01:24.255+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+2026-10-17T20:01:27.133+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+2026-10-17T20:01:27.802+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Upgraded 4 local demo accounts
+2026-10-17T20:01:27.836+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Upgraded 0 local demo accounts
+2026-10-17T20:01:27.892+08:00  INFO 66564 --- [elder-meal] [           main] com.community.meal.dev.DemoSeed          : Initialized four local demo accounts and two service sites
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.111 s -- in com.community.meal.DemoAccountsIntegrationTest
+[INFO] Running com.community.meal.LifecycleBusinessTest
+2026-10-17T20:01:28.111+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.LifecycleBusinessTest]: LifecycleBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:28.120+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.LifecycleBusinessTest
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"56"]
+             Body = {"password":"Testing-Password-2026!","username":"admin"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"d72af9e5-7baf-41c0-b8e9-dbe4c3206f49", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"mv1fThOs7ZDIPn8AXydsT4rVmtO5yyiQtnZTQ5D1o64","expiresAt":"2026-10-17T20:01:28.931424784Z","user":{"id":11,"username":"admin","realName":"admin","phoneMasked":null,"roles":["ADMIN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"},{"id":2,"name":"测试第二网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"d72af9e5-7baf-41c0-b8e9-dbe4c3206f49"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"58"]
+             Body = {"password":"Testing-Password-2026!","username":"canteen"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"e52dc119-d723-4566-be41-cdfde8f0179f", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ","expiresAt":"2026-10-17T20:01:28.956194876Z","user":{"id":12,"username":"canteen","realName":"canteen","phoneMasked":null,"roles":["CANTEEN"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"e52dc119-d723-4566-be41-cdfde8f0179f"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"57"]
+             Body = {"password":"Testing-Password-2026!","username":"family"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"064cd9c2-3fb5-4112-8e75-1aa5912dd5c2", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"dJ27TcuV0F68Dx8UzVy4t7PM7hDDltQK_uUewflhYBE","expiresAt":"2026-10-17T20:01:28.984038168Z","user":{"id":13,"username":"family","realName":"family","phoneMasked":null,"roles":["FAMILY"],"sites":[],"deniedPermissions":[]}},"traceId":"064cd9c2-3fb5-4112-8e75-1aa5912dd5c2"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/auth/login
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"60"]
+             Body = {"password":"Testing-Password-2026!","username":"community"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.auth.AuthController
+           Method = com.community.meal.auth.AuthController#login(LoginRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"c2257b9a-3523-4e15-9a0f-d10f733d7238", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"token":"5LpkFTCBqUV61hXBcN9IOlQx7YeB2rSgejiFrx53tTs","expiresAt":"2026-10-17T20:01:29.004341862Z","user":{"id":14,"username":"community","realName":"community","phoneMasked":null,"roles":["COMMUNITY"],"sites":[{"id":1,"name":"测试第一网点","address":null,"phone":null,"businessStatus":"OPEN"}],"deniedPermissions":[]}},"traceId":"c2257b9a-3523-4e15-9a0f-d10f733d7238"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/elders
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer 5LpkFTCBqUV61hXBcN9IOlQx7YeB2rSgejiFrx53tTs", Content-Length:"40"]
+             Body = {"name":"钱包测试老人","siteId":1}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.elder.ElderController
+           Method = com.community.meal.elder.ElderController#create(AuthPrincipal, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"a2da16a3-f055-4f9b-827a-42654ea606b2", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":114,"siteId":1,"name":"钱包测试老人","birthDate":null,"status":"ACTIVE","createdAt":"2026-10-17T12:01:29Z","createdBy":14,"approvalStatus":"APPROVED","phoneMasked":null},"traceId":"a2da16a3-f055-4f9b-827a-42654ea606b2"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/v1/elders/114/health
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer dJ27TcuV0F68Dx8UzVy4t7PM7hDDltQK_uUewflhYBE", Content-Length:"55"]
+             Body = {"healthDataComplete":true,"allergenDataComplete":true}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.elder.ElderController
+           Method = com.community.meal.elder.ElderController#healthSave(AuthPrincipal, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"9bb4fb00-6a99-4d43-8194-8ab15a4fb84e", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"elderId":114,"allergenIds":[],"healthNotes":null,"updatedAt":"2026-10-17T12:01:29Z","allergenDataComplete":true,"healthDataComplete":true,"diseaseCodes":[],"avoidIngredientNames":[],"preferredCategoryIds":[],"dislikedCategoryIds":[]},"traceId":"9bb4fb00-6a99-4d43-8194-8ab15a4fb84e"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/dishes
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer mv1fThOs7ZDIPn8AXydsT4rVmtO5yyiQtnZTQ5D1o64", Content-Length:"126"]
+             Body = {"name":"钱包测试餐品","ingredients":["米饭"],"allergenDataComplete":true,"originalPrice":"12.50","elderPrice":"8.50"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.catalog.CatalogServiceController
+           Method = com.community.meal.catalog.CatalogServiceController#dishCreate(AuthPrincipal, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"5baf8d91-5919-475d-80cc-be61cc0977cf", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":14,"categoryId":null,"name":"钱包测试餐品","description":null,"imageFileId":null,"ingredients":["米饭"],"weightGrams":null,"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"status":"ACTIVE","createdAt":"2026-10-17T12:01:29Z","allergenDataComplete":true,"allergenIds":[]},"traceId":"5baf8d91-5919-475d-80cc-be61cc0977cf"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"88"]
+             Body = {"serviceDate":"2026-10-18","mealType":"LUNCH","items":[{"dishId":14,"plannedQty":100}]}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#create(AuthPrincipal, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"f819efe1-abc9-4371-9474-b78ea50f3873", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":78,"siteId":1,"serviceDate":"2026-10-18","mealType":"LUNCH","status":"DRAFT","submittedBy":null,"submittedAt":null,"publishedBy":null,"publishedAt":null,"items":[{"id":289,"menuId":78,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]},"traceId":"f819efe1-abc9-4371-9474-b78ea50f3873"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus/78/submit
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"2"]
+             Body = {}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#transition(AuthPrincipal, long, long, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"ed4e692a-6ef1-4c2a-a9fe-f7b00c727d93", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":78,"siteId":1,"serviceDate":"2026-10-18","mealType":"LUNCH","status":"SUBMITTED","submittedBy":12,"submittedAt":"2026-10-17T12:01:29Z","publishedBy":null,"publishedAt":null,"items":[{"id":289,"menuId":78,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]},"traceId":"ed4e692a-6ef1-4c2a-a9fe-f7b00c727d93"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus/78/publish
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer 5LpkFTCBqUV61hXBcN9IOlQx7YeB2rSgejiFrx53tTs", Content-Length:"2"]
+             Body = {}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#transition(AuthPrincipal, long, long, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"768ea0b3-e89d-4a8e-acb5-7c29f3153369", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":78,"siteId":1,"serviceDate":"2026-10-18","mealType":"LUNCH","status":"PUBLISHED","submittedBy":12,"submittedAt":"2026-10-17T12:01:29Z","publishedBy":14,"publishedAt":"2026-10-17T12:01:29Z","items":[{"id":289,"menuId":78,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]},"traceId":"768ea0b3-e89d-4a8e-acb5-7c29f3153369"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/orders
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer dJ27TcuV0F68Dx8UzVy4t7PM7hDDltQK_uUewflhYBE", Content-Length:"136"]
+             Body = {"elderId":114,"deliveryType":"DINE_IN","items":[{"quantity":1,"menuItemId":289}],"mealDate":"2026-10-18","siteId":1,"mealType":"LUNCH"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.order.OrderController
+           Method = com.community.meal.order.OrderController#create(AuthPrincipal, Map, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"a797f620-402e-4fda-b4e5-fa413031e719", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":78,"orderNo":"MEALb55e9c962df24cd6bca35a53fe2ee888","elderId":114,"buyerUserId":13,"proxyOperatorId":null,"siteId":1,"mealDate":"2026-10-18","mealType":"LUNCH","deliveryType":"DINE_IN","deliveryAddress":null,"contactName":null,"contactPhone":null,"status":"PENDING_PAYMENT","originalAmount":"12.50","subsidyAmount":"4.00","payableAmount":"8.50","exceptionFlag":false,"exceptionNote":null,"paymentExpiresAt":"2026-10-17T12:16:29Z","createdAt":"2026-10-17T12:01:29Z","updatedAt":"2026-10-17T12:01:29Z","orderId":78,"items":[{"id":148,"orderId":78,"menuItemId":289,"dishId":14,"dishNameSnapshot":"钱包测试餐品","qty":1,"originalUnitPrice":"12.50","actualUnitPrice":"8.50","unitSubsidy":"4.00","nutritionSnapshot":{"fatGrams":null,"sodiumMg":null,"carbGrams":null,"caloriesKcal":null,"proteinGrams":null},"recommendationEventId":null}],"elderName":"钱包测试老人","siteName":"测试第一网点","delivery":null,"events":[{"eventType":"ORDER_CREATE","label":"订单已创建","createdAt":"2026-10-17T12:01:29Z"}]},"traceId":"a797f620-402e-4fda-b4e5-fa413031e719"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus/78/copy
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"47"]
+             Body = {"serviceDate":"2026-11-02","mealType":"LUNCH"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#copy(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"b1aba4b6-b792-4660-9554-e70d21509a3e", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":79,"siteId":1,"serviceDate":"2026-11-02","mealType":"LUNCH","status":"DRAFT","submittedBy":null,"submittedAt":null,"publishedBy":null,"publishedAt":null,"items":[{"id":290,"menuId":79,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]},"traceId":"b1aba4b6-b792-4660-9554-e70d21509a3e"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus/78/copy
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"47"]
+             Body = {"serviceDate":"2026-11-02","mealType":"LUNCH"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#copy(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = com.community.meal.common.ApiException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [X-Trace-Id:"5d2222f0-9137-4e8c-9558-52f0e0b7f003", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"CONFLICT","message":"目标日期餐次已存在菜谱，请在原菜谱维护","data":null,"traceId":"5d2222f0-9137-4e8c-9558-52f0e0b7f003"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/2/menus/78/copy
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"47"]
+             Body = {"serviceDate":"2026-11-02","mealType":"LUNCH"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#copy(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = com.community.meal.common.ApiException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 403
+    Error message = null
+          Headers = [X-Trace-Id:"4dd5d10c-ed7e-4661-98e8-e32a828f00c5", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"FORBIDDEN","message":"无权访问该资源","data":null,"traceId":"4dd5d10c-ed7e-4661-98e8-e32a828f00c5"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menu-templates
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"51"]
+             Body = {"name":"完整周模板","weekStart":"2026-11-02"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#saveTemplate(AuthPrincipal, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"e2f3fd03-e4d9-4fe7-9257-240396ed04bc", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":1,"name":"完整周模板","entries":[{"dayOffset":0,"mealType":"LUNCH","items":[{"dishId":14,"plannedQty":100,"nutritionOverride":{}}]}]},"traceId":"e2f3fd03-e4d9-4fe7-9257-240396ed04bc"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menu-templates/1/apply
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"26"]
+             Body = {"weekStart":"2026-11-09"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#applyTemplate(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"40681df8-2e8a-4ef9-a81b-f25152677251", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"menus":[{"id":80,"siteId":1,"serviceDate":"2026-11-09","mealType":"LUNCH","status":"DRAFT","submittedBy":null,"submittedAt":null,"publishedBy":null,"publishedAt":null,"items":[{"id":291,"menuId":80,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]}]},"traceId":"40681df8-2e8a-4ef9-a81b-f25152677251"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menu-templates/1/apply
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"26"]
+             Body = {"weekStart":"2026-11-09"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#applyTemplate(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = com.community.meal.common.ApiException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [X-Trace-Id:"b98d4378-d03a-449c-88ca-e36c311b8ac1", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"CONFLICT","message":"目标日期餐次已存在菜谱，请在原菜谱维护","data":null,"traceId":"b98d4378-d03a-449c-88ca-e36c311b8ac1"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus/78/copy
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"48"]
+             Body = {"serviceDate":"2026-11-03","mealType":"DINNER"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#copy(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"47c948cf-afb8-4091-8eee-c73972bb85af", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":81,"siteId":1,"serviceDate":"2026-11-03","mealType":"DINNER","status":"DRAFT","submittedBy":null,"submittedAt":null,"publishedBy":null,"publishedAt":null,"items":[{"id":292,"menuId":81,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]},"traceId":"47c948cf-afb8-4091-8eee-c73972bb85af"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menu-templates
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"57"]
+             Body = {"name":"两日原子性模板","weekStart":"2026-11-02"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#saveTemplate(AuthPrincipal, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"f1339f11-9d8c-42f8-bb1f-d3638149cb4e", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":2,"name":"两日原子性模板","entries":[{"dayOffset":0,"mealType":"LUNCH","items":[{"dishId":14,"plannedQty":100,"nutritionOverride":{}}]},{"dayOffset":1,"mealType":"DINNER","items":[{"dishId":14,"plannedQty":100,"nutritionOverride":{}}]}]},"traceId":"f1339f11-9d8c-42f8-bb1f-d3638149cb4e"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menus/78/copy
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"48"]
+             Body = {"serviceDate":"2026-11-24","mealType":"DINNER"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#copy(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [X-Trace-Id:"dcf66316-adc0-417d-b4f4-d69236016ba9", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"OK","message":"success","data":{"id":82,"siteId":1,"serviceDate":"2026-11-24","mealType":"DINNER","status":"DRAFT","submittedBy":null,"submittedAt":null,"publishedBy":null,"publishedAt":null,"items":[{"id":293,"menuId":82,"dishId":14,"plannedQty":100,"servingWeightGrams":null,"nutritionOverride":{},"availability":"AVAILABLE","allergenIdsOverride":null,"ingredientsOverride":null,"allergenDataComplete":true,"imageFileId":null,"categoryId":null,"ingredients":["米饭"],"originalPrice":"12.50","elderPrice":"8.50","caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null,"weightGrams":null,"dishName":"钱包测试餐品","dishStatus":"ACTIVE","dishAllergenComplete":true,"allergenIds":[],"nutrition":{"caloriesKcal":null,"proteinGrams":null,"fatGrams":null,"carbGrams":null,"sodiumMg":null},"remainingQty":100}]},"traceId":"dcf66316-adc0-417d-b4f4-d69236016ba9"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/sites/1/menu-templates/2/apply
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer CzXYkKfCyT0gudcfF2Is7r1DvnQ02_sztBIhTvFb8fQ", Content-Length:"26"]
+             Body = {"weekStart":"2026-11-23"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.community.meal.menu.MenuController
+           Method = com.community.meal.menu.MenuController#applyTemplate(AuthPrincipal, long, long, Map)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = com.community.meal.common.ApiException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [X-Trace-Id:"eb3e41d0-28d0-4511-aff1-f54b0b729b47", Content-Type:"application/json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/json
+             Body = {"code":"CONFLICT","message":"目标日期餐次已存在菜谱，请在原菜谱维护","data":null,"traceId":"eb3e41d0-28d0-4511-aff1-f54b0b729b47"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.018 s <<< FAILURE! -- in com.community.meal.LifecycleBusinessTest
+[ERROR] com.community.meal.LifecycleBusinessTest.menuCopyAndWeeklyTemplatesCreateDraftsWithoutOverwritingExistingMenus -- Time elapsed: 0.770 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 0L
+ but was: 1L
+	at com.community.meal.LifecycleBusinessTest.menuCopyAndWeeklyTemplatesCreateDraftsWithoutOverwritingExistingMenus(LifecycleBusinessTest.java:40)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[INFO] Running com.community.meal.WalletBusinessTest
+2026-10-17T20:01:30.130+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WalletBusinessTest]: WalletBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:30.136+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.565 s -- in com.community.meal.WalletBusinessTest
+[INFO] Running com.community.meal.NewPasswordPolicyTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in com.community.meal.NewPasswordPolicyTest
+[INFO] Running com.community.meal.WalletConcurrencyTest
+2026-10-17T20:01:31.737+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.WalletConcurrencyTest]: WalletConcurrencyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:31.743+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.WalletConcurrencyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.072 s -- in com.community.meal.WalletConcurrencyTest
+[INFO] Running com.community.meal.MenuForecastRecommendationTest
+2026-10-17T20:01:32.809+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.MenuForecastRecommendationTest]: MenuForecastRecommendationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:32.813+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.MenuForecastRecommendationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.714 s -- in com.community.meal.MenuForecastRecommendationTest
+[INFO] Running com.community.meal.OrderLifecycleTest
+2026-10-17T20:01:33.527+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.OrderLifecycleTest]: OrderLifecycleTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:33.530+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.OrderLifecycleTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.327 s -- in com.community.meal.OrderLifecycleTest
+[INFO] Running com.community.meal.DashboardBusinessTest
+2026-10-17T20:01:35.858+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.DashboardBusinessTest]: DashboardBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:35.862+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.DashboardBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.230 s -- in com.community.meal.DashboardBusinessTest
+[INFO] Running com.community.meal.BacktestBusinessTest
+2026-10-17T20:01:36.087+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.BacktestBusinessTest]: BacktestBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:36.089+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.BacktestBusinessTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s -- in com.community.meal.BacktestBusinessTest
+[INFO] Running com.community.meal.AlgorithmEdgeTest
+2026-10-17T20:01:36.250+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.AlgorithmEdgeTest]: AlgorithmEdgeTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:36.253+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.AlgorithmEdgeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.298 s -- in com.community.meal.AlgorithmEdgeTest
+[INFO] Running com.community.meal.PrivateStorageTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s -- in com.community.meal.PrivateStorageTest
+[INFO] Running com.community.meal.CommunicationBusinessTest
+2026-10-17T20:01:36.600+08:00  INFO 66564 --- [elder-meal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.community.meal.CommunicationBusinessTest]: CommunicationBusinessTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-17T20:01:36.604+08:00  INFO 66564 --- [elder-meal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.community.meal.MealApplication for test class com.community.meal.CommunicationBusinessTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.392 s -- in com.community.meal.CommunicationBusinessTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   LifecycleBusinessTest.menuCopyAndWeeklyTemplatesCreateDraftsWithoutOverwritingExistingMenus:40 
+expected: 0L
+ but was: 1L
+[INFO] 
+[ERROR] Tests run: 104, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for elder-meal-parent 1.0.0:
+[INFO] 
+[INFO] elder-meal-parent .................................. SUCCESS [  0.009 s]
+[INFO] meal-contracts ..................................... SUCCESS [  1.556 s]
+[INFO] meal-algorithms .................................... SUCCESS [  2.410 s]
+[INFO] elder-meal-server .................................. FAILURE [01:00 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:05 min
+[INFO] Finished at: 2026-10-17T20:01:37+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project elder-meal-server: There are test failures.
+[ERROR] 
+[ERROR] See /home/huyuanhai/project/server/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :elder-meal-server

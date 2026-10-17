@@ -1,0 +1,83 @@
+
+> elder-meal-web@1.0.0 test:e2e
+> playwright test
+
+
+Running 62 tests using 1 worker
+
+(node:68277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (9.0s)
+  ✓   2 [desktop] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (15.5s)
+预测核对 {"algorithm":"weekday_average_v1","checked":7,"points":[{"date":"2026-10-18","count":2,"sampleCount":4,"sampleDates":["2026-10-11","2026-10-04","2026-09-27","2026-09-20"],"closed":false,"insufficientData":false},{"date":"2026-10-19","count":2,"sampleCount":4,"sampleDates":["2026-10-12","2026-10-05","2026-09-28","2026-09-21"],"closed":false,"insufficientData":false},{"date":"2026-10-20","count":2,"sampleCount":4,"sampleDates":["2026-10-13","2026-10-06","2026-09-29","2026-09-22"],"closed":false,"insufficientData":false},{"date":"2026-10-21","count":2,"sampleCount":4,"sampleDates":["2026-10-14","2026-10-07","2026-09-30","2026-09-23"],"closed":false,"insufficientData":false},{"date":"2026-10-22","count":2,"sampleCount":4,"sampleDates":["2026-10-15","2026-10-08","2026-10-01","2026-09-24"],"closed":false,"insufficientData":false},{"date":"2026-10-23","count":2,"sampleCount":4,"sampleDates":["2026-10-16","2026-10-09","2026-10-02","2026-09-25"],"closed":false,"insufficientData":false},{"date":"2026-10-24","count":2,"sampleCount":4,"sampleDates":["2026-10-10","2026-10-03","2026-09-26","2026-09-19"],"closed":false,"insufficientData":false}]}
+  ✓   3 [desktop] › e2e/algorithms.spec.ts:12:1 › 预测页面的七天人数可以按历史样本独立复算 (4.8s)
+推荐核对 [{"elder":"李阿姨（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"}],"excluded":[{"menuItemId":228,"dishName":"花生鸡丁（演示）","reason":"匹配已登记过敏原"}]},{"elder":"王大爷（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"},{"name":"花生鸡丁（演示）","score":"53.00"}],"excluded":[]}]
+  ✓   4 [desktop] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 (6.7s)
+  ✓   5 [desktop] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (7.4s)
+  ✓   6 [desktop] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (8.9s)
+  ✓   7 [desktop] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (8.7s)
+  ✓   8 [desktop] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (8.5s)
+  ✓   9 [desktop] › e2e/auth.spec.ts:31:1 › 登录失败有明确反馈，匿名访问受保护路由被拦截 (3.7s)
+  ✓  10 [desktop] › e2e/auth.spec.ts:41:1 › 家属可修改个人信息并使用大字模式 (4.2s)
+  ✓  11 [desktop] › e2e/auth.spec.ts:57:1 › 修改密码后退出全部会话并要求重新登录 (7.2s)
+  ✓  12 [desktop] › e2e/auth.spec.ts:86:1 › 旧账号名称不能再登录 (3.1s)
+  ✓  13 [desktop] › e2e/backtest.spec.ts:5:1 › 预测页面显示算法、样本日期并运行历史回测对比 (5.8s)
+  ✓  14 [desktop] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (8.2s)
+  ✓  15 [desktop] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (7.7s)
+  ✓  16 [desktop] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (10.1s)
+  ✓  17 [desktop] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (11.0s)
+  ✓  18 [desktop] › e2e/lifecycle.spec.ts:6:1 › 专用网点通过页面复制菜谱、应用周模板并导出完整筛选结果 (16.4s)
+  ✓  19 [desktop] › e2e/lifecycle.spec.ts:14:1 › 家属在网页解除绑定后查看变更历史 (15.4s)
+  ✓  20 [desktop] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (45.2s)
+  ✓  21 [desktop] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (16.5s)
+  ✓  22 [desktop] › e2e/resilience.spec.ts:4:1 › 各角色列表不存在关键词均返回零条，清空查询恢复记录 (20.4s)
+  ✓  23 [desktop] › e2e/resilience.spec.ts:10:1 › 预测失败仍显示备餐清单，公告失败有重试而不伪装空数据 (8.7s)
+  ✓  24 [desktop] › e2e/visual.spec.ts:7:1 › 浅绿色登录页和四角色首页均展示本地场景图，快捷入口按角色显示 (10.4s)
+  ✓  25 [desktop] › e2e/visual.spec.ts:22:1 › 订餐菜品缺少实拍时显示可加载的示意图，桌面手机均可选择份数 (6.2s)
+  ✓  26 [desktop] › e2e/wallet.spec.ts:5:1 › 专用家属账号通过网页完成充值、余额付款、原账户退款并核对账单 (33.7s)
+  ✓  27 [desktop] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (1.2m)
+  ✓  28 [desktop] › e2e/workflows.spec.ts:13:1 › 社区网页完成全额退款、配送送达和周期逐日代订 (40.4s)
+  ✓  29 [desktop] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (26.5s)
+  ✓  30 [desktop] › e2e/workflows.spec.ts:19:1 › 管理员网页发布定向重要公告并撤回，规则参数可保存生效 (22.4s)
+  ✓  31 [desktop] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 (21.3s)
+(node:71721) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71721) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  32 [mobile] › e2e/admin.spec.ts:2:1 › 管理员通过网页创建网点、分类与菜品并查询审计 (11.7s)
+  ✓  33 [mobile] › e2e/admin.spec.ts:13:1 › 拆分后的用户管理可重置新账号密码，网点日历可独立维护 (21.6s)
+预测核对 {"algorithm":"weekday_average_v1","checked":7,"points":[{"date":"2026-10-18","count":2,"sampleCount":4,"sampleDates":["2026-10-11","2026-10-04","2026-09-27","2026-09-20"],"closed":false,"insufficientData":false},{"date":"2026-10-19","count":2,"sampleCount":4,"sampleDates":["2026-10-12","2026-10-05","2026-09-28","2026-09-21"],"closed":false,"insufficientData":false},{"date":"2026-10-20","count":2,"sampleCount":4,"sampleDates":["2026-10-13","2026-10-06","2026-09-29","2026-09-22"],"closed":false,"insufficientData":false},{"date":"2026-10-21","count":2,"sampleCount":4,"sampleDates":["2026-10-14","2026-10-07","2026-09-30","2026-09-23"],"closed":false,"insufficientData":false},{"date":"2026-10-22","count":2,"sampleCount":4,"sampleDates":["2026-10-15","2026-10-08","2026-10-01","2026-09-24"],"closed":false,"insufficientData":false},{"date":"2026-10-23","count":2,"sampleCount":4,"sampleDates":["2026-10-16","2026-10-09","2026-10-02","2026-09-25"],"closed":false,"insufficientData":false},{"date":"2026-10-24","count":2,"sampleCount":4,"sampleDates":["2026-10-10","2026-10-03","2026-09-26","2026-09-19"],"closed":false,"insufficientData":false}]}
+  ✓  34 [mobile] › e2e/algorithms.spec.ts:12:1 › 预测页面的七天人数可以按历史样本独立复算 (4.8s)
+推荐核对 [{"elder":"李阿姨（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"}],"excluded":[{"menuItemId":228,"dishName":"花生鸡丁（演示）","reason":"匹配已登记过敏原"}]},{"elder":"王大爷（演示）","algorithm":"weighted_score_v1","items":[{"name":"杂粮饭（演示）","score":"70.00"},{"name":"清蒸鸡肉（演示）","score":"67.50"},{"name":"时蔬豆腐（演示）","score":"65.50"},{"name":"花生鸡丁（演示）","score":"53.00"}],"excluded":[]}]
+  ✓  35 [mobile] › e2e/algorithms.spec.ts:41:1 › 切换演示老人可以核对推荐排序和花生过敏排除 (7.5s)
+  ✓  36 [mobile] › e2e/auth.spec.ts:5:3 › admin 登录、刷新、角色隔离和退出 (6.1s)
+  ✓  37 [mobile] › e2e/auth.spec.ts:5:3 › canteen 登录、刷新、角色隔离和退出 (8.4s)
+  ✓  38 [mobile] › e2e/auth.spec.ts:5:3 › family 登录、刷新、角色隔离和退出 (9.2s)
+  ✓  39 [mobile] › e2e/auth.spec.ts:5:3 › community 登录、刷新、角色隔离和退出 (9.2s)
+  ✓  40 [mobile] › e2e/auth.spec.ts:31:1 › 登录失败有明确反馈，匿名访问受保护路由被拦截 (3.5s)
+  ✓  41 [mobile] › e2e/auth.spec.ts:41:1 › 家属可修改个人信息并使用大字模式 (5.1s)
+  ✓  42 [mobile] › e2e/auth.spec.ts:57:1 › 修改密码后退出全部会话并要求重新登录 (7.3s)
+  ✓  43 [mobile] › e2e/auth.spec.ts:86:1 › 旧账号名称不能再登录 (2.3s)
+  ✓  44 [mobile] › e2e/backtest.spec.ts:5:1 › 预测页面显示算法、样本日期并运行历史回测对比 (5.8s)
+  ✓  45 [mobile] › e2e/interactions.spec.ts:29:3 › admin 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (7.2s)
+  ✓  46 [mobile] › e2e/interactions.spec.ts:29:3 › canteen 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (7.1s)
+  ✓  47 [mobile] › e2e/interactions.spec.ts:29:3 › family 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (7.8s)
+  ✓  48 [mobile] › e2e/interactions.spec.ts:29:3 › community 通过真实菜单点击切换全部业务页面，地址、标题与选中项同步 (8.1s)
+  ✓  49 [mobile] › e2e/lifecycle.spec.ts:6:1 › 专用网点通过页面复制菜谱、应用周模板并导出完整筛选结果 (12.1s)
+  ✓  50 [mobile] › e2e/lifecycle.spec.ts:14:1 › 家属在网页解除绑定后查看变更历史 (12.5s)
+  ✓  51 [mobile] › e2e/meal-loop.spec.ts:5:1 › 真实网页完成建档绑定、补贴、推荐订餐、支付出餐、核销评价与膳食报告 (43.1s)
+  ✓  52 [mobile] › e2e/meal-loop.spec.ts:17:1 › 网页投诉处理、升级、管理员回复与办结 (11.6s)
+  ✓  53 [mobile] › e2e/resilience.spec.ts:4:1 › 各角色列表不存在关键词均返回零条，清空查询恢复记录 (20.6s)
+  ✓  54 [mobile] › e2e/resilience.spec.ts:10:1 › 预测失败仍显示备餐清单，公告失败有重试而不伪装空数据 (8.7s)
+  ✓  55 [mobile] › e2e/visual.spec.ts:7:1 › 浅绿色登录页和四角色首页均展示本地场景图，快捷入口按角色显示 (11.2s)
+  ✓  56 [mobile] › e2e/visual.spec.ts:22:1 › 订餐菜品缺少实拍时显示可加载的示意图，桌面手机均可选择份数 (7.7s)
+  ✓  57 [mobile] › e2e/wallet.spec.ts:5:1 › 专用家属账号通过网页完成充值、余额付款、原账户退款并核对账单 (16.9s)
+  ✓  58 [mobile] › e2e/workflows.spec.ts:11:1 › 每个角色的全部业务导航均加载真实页面且没有请求或渲染错误 (1.2m)
+  ✓  59 [mobile] › e2e/workflows.spec.ts:13:1 › 社区网页完成全额退款、配送送达和周期逐日代订 (26.8s)
+  ✓  60 [mobile] › e2e/workflows.spec.ts:17:1 › 菜谱网页保存上报、社区发布下架恢复和备餐计划 (15.1s)
+  ✓  61 [mobile] › e2e/workflows.spec.ts:19:1 › 管理员网页发布定向重要公告并撤回，规则参数可保存生效 (18.7s)
+  ✓  62 [mobile] › e2e/workplace.spec.ts:5:1 › 消息审核通知、默认地址带入和订单真实进度可用 (17.0s)
+
+  62 passed (15.4m)
